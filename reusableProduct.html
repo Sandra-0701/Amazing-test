@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reusable Product Carousel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF0000',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .discount-badge {
+            clip-path: polygon(0 0, 100% 0, 90% 50%, 100% 100%, 0 100%);
+        }
+
+        .carousel-container {
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .carousel-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .arrow-btn {
+            transition: opacity 0.3s ease;
+        }
+        
+        .arrow-btn.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-8">Reusable Product Carousels</h1>
+
+        <!-- First Product Carousel Instance -->
+        <section class="product-carousel-section mb-12 bg-white p-4 rounded-lg shadow">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-black">Featured Products</h2>
+                <a href="#" class="text-primary hover:underline">View All</a>
+            </div>
+
+            <div class="relative carousel-wrapper">
+                <!-- Navigation Arrows -->
+                <button class="arrow-btn prev absolute left-0 top-1/2 -translate-y-1/2 -ml-4 bg-white rounded-full p-2 z-10 shadow-md hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+
+                <button class="arrow-btn next absolute right-0 top-1/2 -translate-y-1/2 -mr-4 bg-white rounded-full p-2 z-10 shadow-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+
+                <!-- Carousel container -->
+                <div class="carousel-container overflow-x-auto">
+                    <div class="carousel-content flex gap-4 pb-2">
+                        <!-- Product Card 1 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden relative flex flex-col border border-gray-100 hover:shadow-lg transition-shadow min-w-[160px] sm:min-w-[200px] md:min-w-[220px]">
+                            <div class="absolute z-10 top-0 left-0 bg-primary text-white text-xs font-bold px-3 py-1 discount-badge">
+                                39% OFF
+                            </div>
+                            <div class="absolute top-2 right-2">
+                                <button class="text-gray-400 hover:text-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="flex justify-center h-40 p-4">
+                                <img src="https://m.media-amazon.com/images/I/61k3g+1F2aL._SL1500_.jpg" alt="Amul Tricone Ice Cream" class="h-full object-contain">
+                            </div>
+                            <div class="p-4 flex flex-col flex-grow border-t border-gray-100">
+                                <div class="text-xs text-gray-500 uppercase mb-1">Ice Cream</div>
+                                <h3 class="font-bold text-black mb-2 text-sm">Amul Tricone Vanilla Chocolate</h3>
+                                <div class="mt-auto">
+                                    <div class="flex justify-between items-center cart-actions">
+                                        <div class="flex items-center">
+                                            <span class="text-gray-500 line-through text-xs mr-2">₹120</span>
+                                            <span class="text-primary font-bold text-sm">₹73</span>
+                                        </div>
+                                        <button class="bg-primary hover:bg-red-700 text-white rounded px-3 py-1 text-xs font-bold transition-colors add-to-cart">
+                                            ADD
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 2 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden relative flex flex-col border border-gray-100 hover:shadow-lg transition-shadow min-w-[160px] sm:min-w-[200px] md:min-w-[220px]">
+                            <div class="absolute top-2 right-2">
+                                <button class="text-gray-400 hover:text-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="flex justify-center h-40 p-4">
+                                <img src="https://m.media-amazon.com/images/I/61k3g+1F2aL._SL1500_.jpg" alt="Chips" class="h-full object-contain">
+                            </div>
+                            <div class="p-4 flex flex-col flex-grow border-t border-gray-100">
+                                <div class="text-xs text-gray-500 uppercase mb-1">Snacks</div>
+                                <h3 class="font-bold text-black mb-2 text-sm">Lay's Classic Salted Chips</h3>
+                                <div class="mt-auto">
+                                    <div class="flex justify-between items-center cart-actions">
+                                        <span class="text-primary font-bold text-sm">₹20</span>
+                                        <button class="bg-primary hover:bg-red-700 text-white rounded px-3 py-1 text-xs font-bold transition-colors add-to-cart">
+                                            ADD
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card bg-white rounded-lg overflow-hidden relative flex flex-col border border-gray-100 hover:shadow-lg transition-shadow min-w-[160px] sm:min-w-[200px] md:min-w-[220px]">
+                            <div class="absolute z-10 top-0 left-0 bg-primary text-white text-xs font-bold px-3 py-1 discount-badge">
+                                25% OFF
+                            </div>
+                            <div class="flex justify-center h-40 p-4">
+                                <img src="https://m.media-amazon.com/images/I/61k3g+1F2aL._SL1500_.jpg" alt="Product 3" class="h-full object-contain">
+                            </div>
+                            <div class="p-4 flex flex-col flex-grow border-t border-gray-100">
+                                <div class="text-xs text-gray-500 uppercase mb-1">Beverages</div>
+                                <h3 class="font-bold text-black mb-2 text-sm">Coca Cola Can 330ml</h3>
+                                <div class="mt-auto">
+                                    <div class="flex justify-between items-center cart-actions">
+                                        <div class="flex items-center">
+                                            <span class="text-gray-500 line-through text-xs mr-2">₹50</span>
+                                            <span class="text-primary font-bold text-sm">₹38</span>
+                                        </div>
+                                        <button class="bg-primary hover:bg-red-700 text-white rounded px-3 py-1 text-xs font-bold transition-colors add-to-cart">
+                                            ADD
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card bg-white rounded-lg overflow-hidden relative flex flex-col border border-gray-100 hover:shadow-lg transition-shadow min-w-[160px] sm:min-w-[200px] md:min-w-[220px]">
+                            <div class="absolute z-10 top-0 left-0 bg-primary text-white text-xs font-bold px-3 py-1 discount-badge">
+                                25% OFF
+                            </div>
+                            <div class="flex justify-center h-40 p-4">
+                                <img src="https://m.media-amazon.com/images/I/61k3g+1F2aL._SL1500_.jpg" alt="Product 3" class="h-full object-contain">
+                            </div>
+                            <div class="p-4 flex flex-col flex-grow border-t border-gray-100">
+                                <div class="text-xs text-gray-500 uppercase mb-1">Beverages</div>
+                                <h3 class="font-bold text-black mb-2 text-sm">Coca Cola Can 330ml</h3>
+                                <div class="mt-auto">
+                                    <div class="flex justify-between items-center cart-actions">
+                                        <div class="flex items-center">
+                                            <span class="text-gray-500 line-through text-xs mr-2">₹50</span>
+                                            <span class="text-primary font-bold text-sm">₹38</span>
+                                        </div>
+                                        <button class="bg-primary hover:bg-red-700 text-white rounded px-3 py-1 text-xs font-bold transition-colors add-to-cart">
+                                            ADD
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card bg-white rounded-lg overflow-hidden relative flex flex-col border border-gray-100 hover:shadow-lg transition-shadow min-w-[160px] sm:min-w-[200px] md:min-w-[220px]">
+                            <div class="absolute z-10 top-0 left-0 bg-primary text-white text-xs font-bold px-3 py-1 discount-badge">
+                                25% OFF
+                            </div>
+                            <div class="flex justify-center h-40 p-4">
+                                <img src="https://m.media-amazon.com/images/I/61k3g+1F2aL._SL1500_.jpg" alt="Product 3" class="h-full object-contain">
+                            </div>
+                            <div class="p-4 flex flex-col flex-grow border-t border-gray-100">
+                                <div class="text-xs text-gray-500 uppercase mb-1">Beverages</div>
+                                <h3 class="font-bold text-black mb-2 text-sm">Coca Cola Can 330ml</h3>
+                                <div class="mt-auto">
+                                    <div class="flex justify-between items-center cart-actions">
+                                        <div class="flex items-center">
+                                            <span class="text-gray-500 line-through text-xs mr-2">₹50</span>
+                                            <span class="text-primary font-bold text-sm">₹38</span>
+                                        </div>
+                                        <button class="bg-primary hover:bg-red-700 text-white rounded px-3 py-1 text-xs font-bold transition-colors add-to-cart">
+                                            ADD
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card bg-white rounded-lg overflow-hidden relative flex flex-col border border-gray-100 hover:shadow-lg transition-shadow min-w-[160px] sm:min-w-[200px] md:min-w-[220px]">
+                            <div class="absolute z-10 top-0 left-0 bg-primary text-white text-xs font-bold px-3 py-1 discount-badge">
+                                25% OFF
+                            </div>
+                            <div class="flex justify-center h-40 p-4">
+                                <img src="https://m.media-amazon.com/images/I/61k3g+1F2aL._SL1500_.jpg" alt="Product 3" class="h-full object-contain">
+                            </div>
+                            <div class="p-4 flex flex-col flex-grow border-t border-gray-100">
+                                <div class="text-xs text-gray-500 uppercase mb-1">Beverages</div>
+                                <h3 class="font-bold text-black mb-2 text-sm">Coca Cola Can 330ml</h3>
+                                <div class="mt-auto">
+                                    <div class="flex justify-between items-center cart-actions">
+                                        <div class="flex items-center">
+                                            <span class="text-gray-500 line-through text-xs mr-2">₹50</span>
+                                            <span class="text-primary font-bold text-sm">₹38</span>
+                                        </div>
+                                        <button class="bg-primary hover:bg-red-700 text-white rounded px-3 py-1 text-xs font-bold transition-colors add-to-cart">
+                                            ADD
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="product-card bg-white rounded-lg overflow-hidden relative flex flex-col border border-gray-100 hover:shadow-lg transition-shadow min-w-[160px] sm:min-w-[200px] md:min-w-[220px]">
+                            <div class="absolute z-10 top-0 left-0 bg-primary text-white text-xs font-bold px-3 py-1 discount-badge">
+                                25% OFF
+                            </div>
+                            <div class="flex justify-center h-40 p-4">
+                                <img src="https://m.media-amazon.com/images/I/61k3g+1F2aL._SL1500_.jpg" alt="Product 3"
+                                    class="h-full object-contain">
+                            </div>
+                            <div class="p-4 flex flex-col flex-grow border-t border-gray-100">
+                                <div class="text-xs text-gray-500 uppercase mb-1">Beverages</div>
+                                <h3 class="font-bold text-black mb-2 text-sm">Coca Cola Can 330ml</h3>
+                                <div class="mt-auto">
+                                    <div class="flex justify-between items-center cart-actions">
+                                        <div class="flex items-center">
+                                            <span class="text-gray-500 line-through text-xs mr-2">₹50</span>
+                                            <span class="text-primary font-bold text-sm">₹38</span>
+                                        </div>
+                                        <button
+                                            class="bg-primary hover:bg-red-700 text-white rounded px-3 py-1 text-xs font-bold transition-colors add-to-cart">
+                                            ADD
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- More product cards... -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden relative flex flex-col border border-gray-100 hover:shadow-lg transition-shadow min-w-[160px] sm:min-w-[200px] md:min-w-[220px]">
+                            <div class="absolute z-10 top-0 left-0 bg-primary text-white text-xs font-bold px-3 py-1 discount-badge">
+                                25% OFF
+                            </div>
+                            <div class="flex justify-center h-40 p-4">
+                                <img src="https://m.media-amazon.com/images/I/61k3g+1F2aL._SL1500_.jpg" alt="Product 3" class="h-full object-contain">
+                            </div>
+                            <div class="p-4 flex flex-col flex-grow border-t border-gray-100">
+                                <div class="text-xs text-gray-500 uppercase mb-1">Beverages</div>
+                                <h3 class="font-bold text-black mb-2 text-sm">Coca Cola Can 330ml</h3>
+                                <div class="mt-auto">
+                                    <div class="flex justify-between items-center cart-actions">
+                                        <div class="flex items-center">
+                                            <span class="text-gray-500 line-through text-xs mr-2">₹50</span>
+                                            <span class="text-primary font-bold text-sm">₹38</span>
+                                        </div>
+                                        <button class="bg-primary hover:bg-red-700 text-white rounded px-3 py-1 text-xs font-bold transition-colors add-to-cart">
+                                            ADD
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Second Product Carousel Instance -->
+        <section class="product-carousel-section mb-12 bg-white p-4 rounded-lg shadow">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-black">Popular Products</h2>
+                <a href="#" class="text-primary hover:underline">View All</a>
+            </div>
+
+            <div class="relative carousel-wrapper">
+                <!-- Navigation Arrows -->
+                <button class="arrow-btn prev absolute left-0 top-1/2 -translate-y-1/2 -ml-4 bg-white rounded-full p-2 z-10 shadow-md hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+
+                <button class="arrow-btn next absolute right-0 top-1/2 -translate-y-1/2 -mr-4 bg-white rounded-full p-2 z-10 shadow-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+
+                <!-- Carousel container -->
+                <div class="carousel-container overflow-x-auto">
+                    <div class="carousel-content flex gap-4 pb-2">
+                        <!-- Different products in this carousel -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden relative flex flex-col border border-gray-100 hover:shadow-lg transition-shadow min-w-[160px] sm:min-w-[200px] md:min-w-[220px]">
+                            <div class="absolute z-10 top-0 left-0 bg-primary text-white text-xs font-bold px-3 py-1 discount-badge">
+                                10% OFF
+                            </div>
+                            <div class="flex justify-center h-40 p-4">
+                                <img src="https://m.media-amazon.com/images/I/61k3g+1F2aL._SL1500_.jpg" alt="Coffee" class="h-full object-contain">
+                            </div>
+                            <div class="p-4 flex flex-col flex-grow border-t border-gray-100">
+                                <div class="text-xs text-gray-500 uppercase mb-1">Beverages</div>
+                                <h3 class="font-bold text-black mb-2 text-sm">Nescafe Classic Coffee</h3>
+                                <div class="mt-auto">
+                                    <div class="flex justify-between items-center cart-actions">
+                                        <div class="flex items-center">
+                                            <span class="text-gray-500 line-through text-xs mr-2">₹200</span>
+                                            <span class="text-primary font-bold text-sm">₹180</span>
+                                        </div>
+                                        <button class="bg-primary hover:bg-red-700 text-white rounded px-3 py-1 text-xs font-bold transition-colors add-to-cart">
+                                            ADD
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card bg-white rounded-lg overflow-hidden relative flex flex-col border border-gray-100 hover:shadow-lg transition-shadow min-w-[160px] sm:min-w-[200px] md:min-w-[220px]">
+                            <div class="flex justify-center h-40 p-4">
+                                <img src="https://m.media-amazon.com/images/I/61k3g+1F2aL._SL1500_.jpg" alt="Sugar" class="h-full object-contain">
+                            </div>
+                            <div class="p-4 flex flex-col flex-grow border-t border-gray-100">
+                                <div class="text-xs text-gray-500 uppercase mb-1">Grocery</div>
+                                <h3 class="font-bold text-black mb-2 text-sm">Organic Sugar 1kg</h3>
+                                <div class="mt-auto">
+                                    <div class="flex justify-between items-center cart-actions">
+                                        <span class="text-primary font-bold text-sm">₹45</span>
+                                        <button class="bg-primary hover:bg-red-700 text-white rounded px-3 py-1 text-xs font-bold transition-colors add-to-cart">
+                                            ADD
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- More product cards in this carousel... -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden relative flex flex-col border border-gray-100 hover:shadow-lg transition-shadow min-w-[160px] sm:min-w-[200px] md:min-w-[220px]">
+                            <div class="absolute z-10 top-0 left-0 bg-primary text-white text-xs font-bold px-3 py-1 discount-badge">
+                                15% OFF
+                            </div>
+                            <div class="flex justify-center h-40 p-4">
+                                <img src="https://m.media-amazon.com/images/I/61k3g+1F2aL._SL1500_.jpg" alt="Honey" class="h-full object-contain">
+                            </div>
+                            <div class="p-4 flex flex-col flex-grow border-t border-gray-100">
+                                <div class="text-xs text-gray-500 uppercase mb-1">Grocery</div>
+                                <h3 class="font-bold text-black mb-2 text-sm">Pure Honey 500g</h3>
+                                <div class="mt-auto">
+                                    <div class="flex justify-between items-center cart-actions">
+                                        <div class="flex items-center">
+                                            <span class="text-gray-500 line-through text-xs mr-2">₹220</span>
+                                            <span class="text-primary font-bold text-sm">₹187</span>
+                                        </div>
+                                        <button class="bg-primary hover:bg-red-700 text-white rounded px-3 py-1 text-xs font-bold transition-colors add-to-cart">
+                                            ADD
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize all product carousel sections
+            const carouselSections = document.querySelectorAll('.product-carousel-section');
+            
+            carouselSections.forEach(section => {
+                initializeCarousel(section);
+            });
+            
+            // Function to initialize a single carousel
+            function initializeCarousel(section) {
+                const carousel = section.querySelector('.carousel-container');
+                const carouselContent = section.querySelector('.carousel-content');
+                const productCards = section.querySelectorAll('.product-card');
+                const prevBtn = section.querySelector('.arrow-btn.prev');
+                const nextBtn = section.querySelector('.arrow-btn.next');
+                
+                // Skip if any essential element is missing
+                if (!carousel || !carouselContent || !productCards.length || !prevBtn || !nextBtn) {
+                    console.warn('Missing elements for carousel initialization');
+                    return;
+                }
+
+                // Handle carousel navigation
+                function updateArrows() {
+                    const scrollPosition = carousel.scrollLeft;
+                    const maxScroll = carousel.scrollWidth - carousel.offsetWidth;
+
+                    // Toggle visibility of arrows based on scroll position
+                    if (scrollPosition <= 5) { // Allow a small buffer
+                        prevBtn.classList.add('hidden');
+                    } else {
+                        prevBtn.classList.remove('hidden');
+                    }
+
+                    if (scrollPosition >= maxScroll - 5) { // Allow a small buffer
+                        nextBtn.classList.add('hidden');
+                    } else {
+                        nextBtn.classList.remove('hidden');
+                    }
+                }
+
+                prevBtn.addEventListener('click', () => {
+                    // Calculate how many cards to scroll by based on container width
+                    const containerWidth = carousel.offsetWidth;
+                    const cardWidth = productCards[0].offsetWidth + 16; // 16px for gap
+                    const cardsToScroll = Math.max(1, Math.floor(containerWidth / cardWidth));
+                    
+                    carousel.scrollBy({ 
+                        left: -cardWidth * cardsToScroll, 
+                        behavior: 'smooth' 
+                    });
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    // Calculate how many cards to scroll by based on container width
+                    const containerWidth = carousel.offsetWidth;
+                    const cardWidth = productCards[0].offsetWidth + 16; // 16px for gap
+                    const cardsToScroll = Math.max(1, Math.floor(containerWidth / cardWidth));
+                    
+                    carousel.scrollBy({ 
+                        left: cardWidth * cardsToScroll, 
+                        behavior: 'smooth' 
+                    });
+                });
+
+                // Add event listeners for scroll events
+                carousel.addEventListener('scroll', updateArrows);
+                window.addEventListener('resize', updateArrows);
+                
+                // Initial update of navigation arrows
+                updateArrows();
+
+                // Setup cart functionality for all products within this carousel
+                setupCartActions(section);
+            }
+
+            // Setup cart functionality for products in a specific section
+            function setupCartActions(section) {
+                const addButtons = section.querySelectorAll('.add-to-cart');
+                
+                // Remove existing event listeners to prevent duplicates
+                addButtons.forEach(button => {
+                    button.replaceWith(button.cloneNode(true));
+                });
+                
+                // Add fresh event listeners
+                section.querySelectorAll('.add-to-cart').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const productCard = this.closest('.product-card');
+                        const actionsContainer = productCard.querySelector('.cart-actions');
+                        
+                        // Get the current price text
+                        let priceText;
+                        const priceElement = actionsContainer.querySelector('.text-primary');
+                        
+                        if (priceElement) {
+                            priceText = priceElement.textContent.trim();
+                        }
+                        
+                        // Store original HTML for when we need to revert
+                        const originalHTML = actionsContainer.innerHTML;
+                        
+                        // Change to counter
+                        actionsContainer.innerHTML = `
+                            <div class="flex items-center justify-between w-full">
+                                <span class="text-primary font-bold text-sm">${priceText}</span>
+                                <div class="flex items-center border border-primary rounded overflow-hidden">
+                                    <button class="decrement bg-primary text-white px-2 py-1 text-xs font-bold">-</button>
+                                    <span class="counter text-primary font-bold px-2 text-sm">1</span>
+                                    <button class="increment bg-primary text-white px-2 py-1 text-xs font-bold">+</button>
+                                </div>
+                            </div>
+                        `;
+                        
+                        // Add event listeners for the counter buttons
+                        const decrement = actionsContainer.querySelector('.decrement');
+                        const increment = actionsContainer.querySelector('.increment');
+                        const counter = actionsContainer.querySelector('.counter');
+                        
+                        decrement.addEventListener('click', () => {
+                            let count = parseInt(counter.textContent);
+                            if (count > 1) {
+                                counter.textContent = count - 1;
+                            } else {
+                                // Revert to original state
+                                actionsContainer.innerHTML = originalHTML;
+                                
+                                // Reattach event listener to the new ADD button
+                                setupCartActions(section);
+                            }
+                        });
+                        
+                        increment.addEventListener('click', () => {
+                            let count = parseInt(counter.textContent);
+                            counter.textContent = count + 1;
+                        });
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

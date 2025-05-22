@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Snacks, Drinks, Ice Cream</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            padding: 0 40px;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+            gap: 16px;
+        }
+
+        .prev-button,
+        .next-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.7);
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .prev-button {
+            left: 0;
+        }
+
+        .next-button {
+            right: 0;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background-color: #7e22ce;
+        }
+
+        /* Make sure product cards have a consistent width */
+        .product-card {
+            flex: 0 0 auto;
+        }
+
+        /* Responsive widths */
+        @media (min-width: 1280px) {
+            .product-card {
+                width: calc((100% - 80px) / 5);
+            }
+        }
+
+        @media (min-width: 1024px) and (max-width: 1279px) {
+            .product-card {
+                width: calc((100% - 64px) / 4);
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .product-card {
+                width: calc((100% - 48px) / 3);
+            }
+        }
+
+        @media (min-width: 640px) and (max-width: 767px) {
+            .product-card {
+                width: calc((100% - 32px) / 2);
+            }
+        }
+
+        @media (max-width: 639px) {
+            .product-card {
+                width: calc((100% - 16px) / 2);
+            }
+
+            .carousel-container {
+                padding: 0 30px;
+            }
+
+            .prev-button,
+            .next-button {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        .add-button {
+            background-color: #00A14B;
+            color: white;
+            border-radius: 4px;
+            padding: 8px 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-button:hover {
+            background-color: #007A3D;
+        }
+
+        .counter-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .counter-button {
+            background-color: #00A14B;
+            color: white;
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .counter-button:hover {
+            background-color: #007A3D;
+        }
+
+        .counter-value {
+            font-weight: bold;
+            color: #00A14B;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <div class="w-full mx-auto p-6">
+        <h1 class="text-4xl font-bold text-gray-700 mb-8">Snacks, drinks, ice cream</h1>
+
+        <!-- Snacks Section -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-700 mb-4">Snacks</h2>
+            <div class="carousel-container">
+                <button class="prev-button" data-carousel="snacks"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel" id="snacks-carousel">
+                    <!-- Snack Item 1 -->
+                    <div class="product-card bg-white rounded shadow p-4 relative flex flex-col">
+                        <div
+                            class="absolute fill -top-[4px] sm:-top-[11px] left-[0px] text-[#FEFEFE] font-body py-[4px] px-[13px] xs:px-[3px] z-10  text-xs justify-center transform tracking-wider border-0 xs:pt-0 xs:-top-[2px]">
+                            <span class="text-[#00A14B]"><svg width="65" height="54" viewBox="0 0 65 54" fill="currentcolor"
+                                    xmlns="http://www.w3.org/2000/svg" class="xs:w-[25px] xs:h-[25px] sm:w-[50px]">
+                                    <path
+                                        d="M58.2913 53.0801L32.5049 47.3869L6.71853 53.0801C5.33389 53.3821 3.99795 52.4384 3.99795 51.1488V3.14326C3.99795 2.58337 -0.524046 0.136719 0.0882582 0.136719H64.8846C65.5039 0.136719 60.9979 2.58966 60.9979 3.14326V51.1488C61.0049 52.4384 59.6759 53.3821 58.2913 53.0801Z"
+                                        fill="currentcolor"></path>
+                                </svg><span
+                                    class="absolute sm:text-[10px] top-[13px] text-white font-nunito-sans font-extrabold xs:font-semibold tracking-[1.35px] uppercase left-[19px] w-[53px] sm:w-[40px] text-center xs:text-[6px] xs:left-1 xs:w-[25px] xs:leading-normal xs:top-[3px]">39%
+                                    Off</span></span>
+                        </div>
+                        <div
+                            class="absolute z-10 top-2 right-2 bg-white rounded-full w-9 h-9 flex items-center justify-center h-revert">
+                            <span><svg width="35" height="35" viewBox="0 0 35 35" fill="white"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="17.5546" cy="17.2656" r="16.6796" fill="white" stroke="#FED4D4">
+                                    </circle>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M17.1451 13.0656C15.7702 11.4634 13.4776 11.0324 11.7551 12.4995C10.0325 13.9667 9.79001 16.4196 11.1427 18.1548C12.2674 19.5975 15.6712 22.6403 16.7868 23.6251C16.9116 23.7353 16.974 23.7904 17.0468 23.812C17.1103 23.8309 17.1798 23.8309 17.2434 23.812C17.3161 23.7904 17.3786 23.7353 17.5034 23.6251C18.6189 22.6403 22.0227 19.5975 23.1474 18.1548C24.5001 16.4196 24.2872 13.9512 22.5351 12.4995C20.7829 11.0478 18.5199 11.4634 17.1451 13.0656Z"
+                                        stroke="#3C4242" stroke-width="1.26066" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                </svg></span>
+                        </div>
+                        <div class="flex justify-center h-40 mb-4">
+                            <img src="/api/placeholder/180/200" alt="Lay's Classic"
+                                class="mx-auto h-full object-contain" />
+                        </div>
+                        <div class="text-xs text-gray-600">Chips</div>
+                        <div class="font-bold mb-4">Lay's Classic Salted</div>
+                        <span class="line-through text-gray-500 mr-2">₹ 40/-</span>
+                        <div class="mt-auto flex justify-between items-center">
+                            <div>
+                                <span class="font-medium text-purple-800">₹ 25/-</span>
+                            </div>
+                            <button class="add-button">ADD</button>
+                        </div>
+                    </div>
+
+                    <!-- Snack Item 1 -->
+                    <div class="product-card bg-white rounded shadow p-4 relative flex flex-col">
+                        <div
+                            class="absolute fill -top-[4px] sm:-top-[11px] left-[0px] text-[#FEFEFE] font-body py-[4px] px-[13px] xs:px-[3px] z-10  text-xs justify-center transform tracking-wider border-0 xs:pt-0 xs:-top-[2px]">
+                            <span class="text-[#00A14B]"><svg width="65" height="54" viewBox="0 0 65 54" fill="currentcolor"
+                                    xmlns="http://www.w3.org/2000/svg" class="xs:w-[25px] xs:h-[25px] sm:w-[50px]">
+                                    <path
+                                        d="M58.2913 53.0801L32.5049 47.3869L6.71853 53.0801C5.33389 53.3821 3.99795 52.4384 3.99795 51.1488V3.14326C3.99795 2.58337 -0.524046 0.136719 0.0882582 0.136719H64.8846C65.5039 0.136719 60.9979 2.58966 60.9979 3.14326V51.1488C61.0049 52.4384 59.6759 53.3821 58.2913 53.0801Z"
+                                        fill="currentcolor"></path>
+                                </svg><span
+                                    class="absolute sm:text-[10px] top-[13px] text-white font-nunito-sans font-extrabold xs:font-semibold tracking-[1.35px] uppercase left-[19px] w-[53px] sm:w-[40px] text-center xs:text-[6px] xs:left-1 xs:w-[25px] xs:leading-normal xs:top-[3px]">39%
+                                    Off</span></span>
+                        </div>
+                        <div
+                            class="absolute z-10 top-2 right-2 bg-white rounded-full w-9 h-9 flex items-center justify-center h-revert">
+                            <span><svg width="35" height="35" viewBox="0 0 35 35" fill="white"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="17.5546" cy="17.2656" r="16.6796" fill="white" stroke="#FED4D4">
+                                    </circle>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M17.1451 13.0656C15.7702 11.4634 13.4776 11.0324 11.7551 12.4995C10.0325 13.9667 9.79001 16.4196 11.1427 18.1548C12.2674 19.5975 15.6712 22.6403 16.7868 23.6251C16.9116 23.7353 16.974 23.7904 17.0468 23.812C17.1103 23.8309 17.1798 23.8309 17.2434 23.812C17.3161 23.7904 17.3786 23.7353 17.5034 23.6251C18.6189 22.6403 22.0227 19.5975 23.1474 18.1548C24.5001 16.4196 24.2872 13.9512 22.5351 12.4995C20.7829 11.0478 18.5199 11.4634 17.1451 13.0656Z"
+                                        stroke="#3C4242" stroke-width="1.26066" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                </svg></span>
+                        </div>
+                        <div class="flex justify-center h-40 mb-4">
+                            <img src="/api/placeholder/180/200" alt="Lay's Classic"
+                                class="mx-auto h-full object-contain" />
+                        </div>
+                        <div class="text-xs text-gray-600">Chips</div>
+                        <div class="font-bold mb-4">Lay's Classic Salted</div>
+                        <span class="line-through text-gray-500 mr-2">₹ 40/-</span>
+                        <div class="mt-auto flex justify-between items-center">
+                            <div>
+                                <span class="font-medium text-purple-800">₹ 25/-</span>
+                            </div>
+                            <button class="add-button">ADD</button>
+                        </div>
+                    </div>
+
+                    <!-- Snack Item 1 -->
+                    <div class="product-card bg-white rounded shadow p-4 relative flex flex-col">
+                        <div
+                            class="absolute fill -top-[4px] sm:-top-[11px] left-[0px] text-[#FEFEFE] font-body py-[4px] px-[13px] xs:px-[3px] z-10  text-xs justify-center transform tracking-wider border-0 xs:pt-0 xs:-top-[2px]">
+                            <span class="text-[#00A14B]"><svg width="65" height="54" viewBox="0 0 65 54" fill="currentcolor"
+                                    xmlns="http://www.w3.org/2000/svg" class="xs:w-[25px] xs:h-[25px] sm:w-[50px]">
+                                    <path
+                                        d="M58.2913 53.0801L32.5049 47.3869L6.71853 53.0801C5.33389 53.3821 3.99795 52.4384 3.99795 51.1488V3.14326C3.99795 2.58337 -0.524046 0.136719 0.0882582 0.136719H64.8846C65.5039 0.136719 60.9979 2.58966 60.9979 3.14326V51.1488C61.0049 52.4384 59.6759 53.3821 58.2913 53.0801Z"
+                                        fill="currentcolor"></path>
+                                </svg><span
+                                    class="absolute sm:text-[10px] top-[13px] text-white font-nunito-sans font-extrabold xs:font-semibold tracking-[1.35px] uppercase left-[19px] w-[53px] sm:w-[40px] text-center xs:text-[6px] xs:left-1 xs:w-[25px] xs:leading-normal xs:top-[3px]">39%
+                                    Off</span></span>
+                        </div>
+                        <div
+                            class="absolute z-10 top-2 right-2 bg-white rounded-full w-9 h-9 flex items-center justify-center h-revert">
+                            <span><svg width="35" height="35" viewBox="0 0 35 35" fill="white"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="17.5546" cy="17.2656" r="16.6796" fill="white" stroke="#FED4D4">
+                                    </circle>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M17.1451 13.0656C15.7702 11.4634 13.4776 11.0324 11.7551 12.4995C10.0325 13.9667 9.79001 16.4196 11.1427 18.1548C12.2674 19.5975 15.6712 22.6403 16.7868 23.6251C16.9116 23.7353 16.974 23.7904 17.0468 23.812C17.1103 23.8309 17.1798 23.8309 17.2434 23.812C17.3161 23.7904 17.3786 23.7353 17.5034 23.6251C18.6189 22.6403 22.0227 19.5975 23.1474 18.1548C24.5001 16.4196 24.2872 13.9512 22.5351 12.4995C20.7829 11.0478 18.5199 11.4634 17.1451 13.0656Z"
+                                        stroke="#3C4242" stroke-width="1.26066" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                </svg></span>
+                        </div>
+                        <div class="flex justify-center h-40 mb-4">
+                            <img src="/api/placeholder/180/200" alt="Lay's Classic"
+                                class="mx-auto h-full object-contain" />
+                        </div>
+                        <div class="text-xs text-gray-600">Chips</div>
+                        <div class="font-bold mb-4">Lay's Classic Salted</div>
+                        <span class="line-through text-gray-500 mr-2">₹ 40/-</span>
+                        <div class="mt-auto flex justify-between items-center">
+                            <div>
+                                <span class="font-medium text-purple-800">₹ 25/-</span>
+                            </div>
+                            <button class="add-button">ADD</button>
+                        </div>
+                    </div>
+
+                    <!-- Snack Item 1 -->
+                    <div class="product-card bg-white rounded shadow p-4 relative flex flex-col">
+                        <div
+                            class="absolute fill -top-[4px] sm:-top-[11px] left-[0px] text-[#FEFEFE] font-body py-[4px] px-[13px] xs:px-[3px] z-10  text-xs justify-center transform tracking-wider border-0 xs:pt-0 xs:-top-[2px]">
+                            <span class="text-[#00A14B]"><svg width="65" height="54" viewBox="0 0 65 54" fill="currentcolor"
+                                    xmlns="http://www.w3.org/2000/svg" class="xs:w-[25px] xs:h-[25px] sm:w-[50px]">
+                                    <path
+                                        d="M58.2913 53.0801L32.5049 47.3869L6.71853 53.0801C5.33389 53.3821 3.99795 52.4384 3.99795 51.1488V3.14326C3.99795 2.58337 -0.524046 0.136719 0.0882582 0.136719H64.8846C65.5039 0.136719 60.9979 2.58966 60.9979 3.14326V51.1488C61.0049 52.4384 59.6759 53.3821 58.2913 53.0801Z"
+                                        fill="currentcolor"></path>
+                                </svg><span
+                                    class="absolute sm:text-[10px] top-[13px] text-white font-nunito-sans font-extrabold xs:font-semibold tracking-[1.35px] uppercase left-[19px] w-[53px] sm:w-[40px] text-center xs:text-[6px] xs:left-1 xs:w-[25px] xs:leading-normal xs:top-[3px]">39%
+                                    Off</span></span>
+                        </div>
+                        <div
+                            class="absolute z-10 top-2 right-2 bg-white rounded-full w-9 h-9 flex items-center justify-center h-revert">
+                            <span><svg width="35" height="35" viewBox="0 0 35 35" fill="white"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="17.5546" cy="17.2656" r="16.6796" fill="white" stroke="#FED4D4">
+                                    </circle>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M17.1451 13.0656C15.7702 11.4634 13.4776 11.0324 11.7551 12.4995C10.0325 13.9667 9.79001 16.4196 11.1427 18.1548C12.2674 19.5975 15.6712 22.6403 16.7868 23.6251C16.9116 23.7353 16.974 23.7904 17.0468 23.812C17.1103 23.8309 17.1798 23.8309 17.2434 23.812C17.3161 23.7904 17.3786 23.7353 17.5034 23.6251C18.6189 22.6403 22.0227 19.5975 23.1474 18.1548C24.5001 16.4196 24.2872 13.9512 22.5351 12.4995C20.7829 11.0478 18.5199 11.4634 17.1451 13.0656Z"
+                                        stroke="#3C4242" stroke-width="1.26066" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                </svg></span>
+                        </div>
+                        <div class="flex justify-center h-40 mb-4">
+                            <img src="/api/placeholder/180/200" alt="Lay's Classic"
+                                class="mx-auto h-full object-contain" />
+                        </div>
+                        <div class="text-xs text-gray-600">Chips</div>
+                        <div class="font-bold mb-4">Lay's Classic Salted</div>
+                        <span class="line-through text-gray-500 mr-2">₹ 40/-</span>
+                        <div class="mt-auto flex justify-between items-center">
+                            <div>
+                                <span class="font-medium text-purple-800">₹ 25/-</span>
+                            </div>
+                            <button class="add-button">ADD</button>
+                        </div>
+                    </div>
+
+                    <!-- Snack Item 1 -->
+                    <div class="product-card bg-white rounded shadow p-4 relative flex flex-col">
+                        <div
+                            class="absolute fill -top-[4px] sm:-top-[11px] left-[0px] text-[#FEFEFE] font-body py-[4px] px-[13px] xs:px-[3px] z-10  text-xs justify-center transform tracking-wider border-0 xs:pt-0 xs:-top-[2px]">
+                            <span class="text-[#00A14B]"><svg width="65" height="54" viewBox="0 0 65 54" fill="currentcolor"
+                                    xmlns="http://www.w3.org/2000/svg" class="xs:w-[25px] xs:h-[25px] sm:w-[50px]">
+                                    <path
+                                        d="M58.2913 53.0801L32.5049 47.3869L6.71853 53.0801C5.33389 53.3821 3.99795 52.4384 3.99795 51.1488V3.14326C3.99795 2.58337 -0.524046 0.136719 0.0882582 0.136719H64.8846C65.5039 0.136719 60.9979 2.58966 60.9979 3.14326V51.1488C61.0049 52.4384 59.6759 53.3821 58.2913 53.0801Z"
+                                        fill="currentcolor"></path>
+                                </svg><span
+                                    class="absolute sm:text-[10px] top-[13px] text-white font-nunito-sans font-extrabold xs:font-semibold tracking-[1.35px] uppercase left-[19px] w-[53px] sm:w-[40px] text-center xs:text-[6px] xs:left-1 xs:w-[25px] xs:leading-normal xs:top-[3px]">39%
+                                    Off</span></span>
+                        </div>
+                        <div
+                            class="absolute z-10 top-2 right-2 bg-white rounded-full w-9 h-9 flex items-center justify-center h-revert">
+                            <span><svg width="35" height="35" viewBox="0 0 35 35" fill="white"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="17.5546" cy="17.2656" r="16.6796" fill="white" stroke="#FED4D4">
+                                    </circle>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M17.1451 13.0656C15.7702 11.4634 13.4776 11.0324 11.7551 12.4995C10.0325 13.9667 9.79001 16.4196 11.1427 18.1548C12.2674 19.5975 15.6712 22.6403 16.7868 23.6251C16.9116 23.7353 16.974 23.7904 17.0468 23.812C17.1103 23.8309 17.1798 23.8309 17.2434 23.812C17.3161 23.7904 17.3786 23.7353 17.5034 23.6251C18.6189 22.6403 22.0227 19.5975 23.1474 18.1548C24.5001 16.4196 24.2872 13.9512 22.5351 12.4995C20.7829 11.0478 18.5199 11.4634 17.1451 13.0656Z"
+                                        stroke="#3C4242" stroke-width="1.26066" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                </svg></span>
+                        </div>
+                        <div class="flex justify-center h-40 mb-4">
+                            <img src="/api/placeholder/180/200" alt="Lay's Classic"
+                                class="mx-auto h-full object-contain" />
+                        </div>
+                        <div class="text-xs text-gray-600">Chips</div>
+                        <div class="font-bold mb-4">Lay's Classic Salted</div>
+                        <span class="line-through text-gray-500 mr-2">₹ 40/-</span>
+                        <div class="mt-auto flex justify-between items-center">
+                            <div>
+                                <span class="font-medium text-purple-800">₹ 25/-</span>
+                            </div>
+                            <button class="add-button">ADD</button>
+                        </div>
+                    </div>
+
+                    <!-- Snack Item 2 -->
+                    <div class="product-card bg-white rounded shadow p-4 relative flex flex-col">
+                        <div
+                            class="absolute fill -top-[4px] sm:-top-[11px] left-[0px] text-[#FEFEFE] font-body py-[4px] px-[13px] xs:px-[3px] z-10  text-xs justify-center transform tracking-wider border-0 xs:pt-0 xs:-top-[2px]">
+                            <span class="text-[#00A14B]"><svg width="65" height="54" viewBox="0 0 65 54" fill="currentcolor"
+                                    xmlns="http://www.w3.org/2000/svg" class="xs:w-[25px] xs:h-[25px] sm:w-[50px]">
+                                    <path
+                                        d="M58.2913 53.0801L32.5049 47.3869L6.71853 53.0801C5.33389 53.3821 3.99795 52.4384 3.99795 51.1488V3.14326C3.99795 2.58337 -0.524046 0.136719 0.0882582 0.136719H64.8846C65.5039 0.136719 60.9979 2.58966 60.9979 3.14326V51.1488C61.0049 52.4384 59.6759 53.3821 58.2913 53.0801Z"
+                                        fill="currentcolor"></path>
+                                </svg><span
+                                    class="absolute sm:text-[10px] top-[13px] text-white font-nunito-sans font-extrabold xs:font-semibold tracking-[1.35px] uppercase left-[19px] w-[53px] sm:w-[40px] text-center xs:text-[6px] xs:left-1 xs:w-[25px] xs:leading-normal xs:top-[3px]">39%
+                                    Off</span></span>
+                        </div>
+                        <div class="flex justify-center h-40 mb-4">
+                            <img src="/api/placeholder/180/200" alt="Kurkure" class="mx-auto h-full object-contain" />
+                        </div>
+                        <div class="text-xs text-gray-600">Chips</div>
+                        <div class="font-bold mb-4">Kurkure Masala Munch</div>
+                        <span class="line-through text-gray-500 mr-2">₹ 20/-</span>
+                        <div class="mt-auto flex justify-between items-center">
+                            <div>
+                                <span class="font-medium text-purple-800">₹ 18/-</span>
+                            </div>
+                            <button class="add-button">ADD</button>
+                        </div>
+                    </div>
+
+                    <!-- Snack Item 3 -->
+                    <div class="product-card bg-white rounded shadow p-4 relative flex flex-col">
+                        <div
+                            class="absolute fill -top-[4px] sm:-top-[11px] left-[0px] text-[#FEFEFE] font-body py-[4px] px-[13px] xs:px-[3px] z-10  text-xs justify-center transform tracking-wider border-0 xs:pt-0 xs:-top-[2px]">
+                            <span class="text-[#00A14B]"><svg width="65" height="54" viewBox="0 0 65 54" fill="currentcolor"
+                                    xmlns="http://www.w3.org/2000/svg" class="xs:w-[25px] xs:h-[25px] sm:w-[50px]">
+                                    <path
+                                        d="M58.2913 53.0801L32.5049 47.3869L6.71853 53.0801C5.33389 53.3821 3.99795 52.4384 3.99795 51.1488V3.14326C3.99795 2.58337 -0.524046 0.136719 0.0882582 0.136719H64.8846C65.5039 0.136719 60.9979 2.58966 60.9979 3.14326V51.1488C61.0049 52.4384 59.6759 53.3821 58.2913 53.0801Z"
+                                        fill="currentcolor"></path>
+                                </svg><span
+                                    class="absolute sm:text-[10px] top-[13px] text-white font-nunito-sans font-extrabold xs:font-semibold tracking-[1.35px] uppercase left-[19px] w-[53px] sm:w-[40px] text-center xs:text-[6px] xs:left-1 xs:w-[25px] xs:leading-normal xs:top-[3px]">39%
+                                    Off</span></span>
+                        </div>
+                        <div class="flex justify-center h-40 mb-4">
+                            <img src="/api/placeholder/180/200" alt="Bingo" class="mx-auto h-full object-contain" />
+                        </div>
+                        <div class="text-xs text-gray-600">Chips</div>
+                        <div class="font-bold mb-4">Bingo Mad Angles</div>
+                        <span class="line-through text-gray-500 mr-2">₹ 30/-</span>
+                        <div class="mt-auto flex justify-between items-center">
+                            <div>
+                                <span class="font-medium text-purple-800">₹ 26/-</span>
+                            </div>
+                            <button class="add-button">ADD</button>
+                        </div>
+                    </div>
+
+                    <!-- Snack Item 4 -->
+                    <div class="product-card bg-white rounded shadow p-4 relative flex flex-col">
+                        <div
+                            class="absolute fill -top-[4px] sm:-top-[11px] left-[0px] text-[#FEFEFE] font-body py-[4px] px-[13px] xs:px-[3px] z-10  text-xs justify-center transform tracking-wider border-0 xs:pt-0 xs:-top-[2px]">
+                            <span class="text-[#00A14B]"><svg width="65" height="54" viewBox="0 0 65 54" fill="currentcolor"
+                                    xmlns="http://www.w3.org/2000/svg" class="xs:w-[25px] xs:h-[25px] sm:w-[50px]">
+                                    <path
+                                        d="M58.2913 53.0801L32.5049 47.3869L6.71853 53.0801C5.33389 53.3821 3.99795 52.4384 3.99795 51.1488V3.14326C3.99795 2.58337 -0.524046 0.136719 0.0882582 0.136719H64.8846C65.5039 0.136719 60.9979 2.58966 60.9979 3.14326V51.1488C61.0049 52.4384 59.6759 53.3821 58.2913 53.0801Z"
+                                        fill="currentcolor"></path>
+                                </svg><span
+                                    class="absolute sm:text-[10px] top-[13px] text-white font-nunito-sans font-extrabold xs:font-semibold tracking-[1.35px] uppercase left-[19px] w-[53px] sm:w-[40px] text-center xs:text-[6px] xs:left-1 xs:w-[25px] xs:leading-normal xs:top-[3px]">39%
+                                    Off</span></span>
+                        </div>
+                        <div class="flex justify-center h-40 mb-4">
+                            <img src="/api/placeholder/180/200" alt="Doritos" class="mx-auto h-full object-contain" />
+                        </div>
+                        <div class="text-xs text-gray-600">Chips</div>
+                        <div class="font-bold mb-4">Doritos Nacho Cheese</div>
+                        <span class="line-through text-gray-500 mr-2">₹ 99/-</span>
+                        <div class="mt-auto flex justify-between items-center">
+                            <div>
+                                <span class="font-medium text-purple-800">₹ 52/-</span>
+                            </div>
+                            <button class="add-button">ADD</button>
+                        </div>
+                    </div>
+
+                    <!-- Snack Item 5 -->
+                    <div class="product-card bg-white rounded shadow p-4 relative flex flex-col">
+                        <div
+                            class="absolute fill -top-[4px] sm:-top-[11px] left-[0px] text-[#FEFEFE] font-body py-[4px] px-[13px] xs:px-[3px] z-10  text-xs justify-center transform tracking-wider border-0 xs:pt-0 xs:-top-[2px]">
+                            <span class="text-[#00A14B]"><svg width="65" height="54" viewBox="0 0 65 54" fill="currentcolor"
+                                    xmlns="http://www.w3.org/2000/svg" class="xs:w-[25px] xs:h-[25px] sm:w-[50px]">
+                                    <path
+                                        d="M58.2913 53.0801L32.5049 47.3869L6.71853 53.0801C5.33389 53.3821 3.99795 52.4384 3.99795 51.1488V3.14326C3.99795 2.58337 -0.524046 0.136719 0.0882582 0.136719H64.8846C65.5039 0.136719 60.9979 2.58966 60.9979 3.14326V51.1488C61.0049 52.4384 59.6759 53.3821 58.2913 53.0801Z"
+                                        fill="currentcolor"></path>
+                                </svg><span
+                                    class="absolute sm:text-[10px] top-[13px] text-white font-nunito-sans font-extrabold xs:font-semibold tracking-[1.35px] uppercase left-[19px] w-[53px] sm:w-[40px] text-center xs:text-[6px] xs:left-1 xs:w-[25px] xs:leading-normal xs:top-[3px]">39%
+                                    Off</span></span>
+                        </div>
+                        <div class="flex justify-center h-40 mb-4">
+                            <img src="/api/placeholder/180/200" alt="Uncle Chips"
+                                class="mx-auto h-full object-contain" />
+                        </div>
+                        <div class="text-xs text-gray-600">Chips</div>
+                        <div class="font-bold mb-4">Uncle Chips Spicy Treat</div>
+                        <span class="line-through text-gray-500 mr-2">₹ 20/-</span>
+                        <div class="mt-auto flex justify-between items-center">
+                            <div>
+                                <span class="font-medium text-purple-800">₹ 18/-</span>
+                            </div>
+                            <button class="add-button">ADD</button>
+                        </div>
+                    </div>
+
+                    <!-- Snack Item 6 -->
+                    <div class="product-card bg-white rounded shadow p-4 relative flex flex-col">
+                        <div
+                            class="absolute fill -top-[4px] sm:-top-[11px] left-[0px] text-[#FEFEFE] font-body py-[4px] px-[13px] xs:px-[3px] z-10  text-xs justify-center transform tracking-wider border-0 xs:pt-0 xs:-top-[2px]">
+                            <span class="text-[#00A14B]"><svg width="65" height="54" viewBox="0 0 65 54" fill="currentcolor"
+                                    xmlns="http://www.w3.org/2000/svg" class="xs:w-[25px] xs:h-[25px] sm:w-[50px]">
+                                    <path
+                                        d="M58.2913 53.0801L32.5049 47.3869L6.71853 53.0801C5.33389 53.3821 3.99795 52.4384 3.99795 51.1488V3.14326C3.99795 2.58337 -0.524046 0.136719 0.0882582 0.136719H64.8846C65.5039 0.136719 60.9979 2.58966 60.9979 3.14326V51.1488C61.0049 52.4384 59.6759 53.3821 58.2913 53.0801Z"
+                                        fill="currentcolor"></path>
+                                </svg><span
+                                    class="absolute sm:text-[10px] top-[13px] text-white font-nunito-sans font-extrabold xs:font-semibold tracking-[1.35px] uppercase left-[19px] w-[53px] sm:w-[40px] text-center xs:text-[6px] xs:left-1 xs:w-[25px] xs:leading-normal xs:top-[3px]">39%
+                                    Off</span></span>
+                        </div>
+                        <div class="flex justify-center h-40 mb-4">
+                            <img src="/api/placeholder/180/200" alt="Pringles" class="mx-auto h-full object-contain" />
+                        </div>
+                        <div class="text-xs text-gray-600">Chips</div>
+                        <div class="font-bold mb-4">Pringles Original</div>
+                        <span class="line-through text-gray-500 mr-2">₹ 125/-</span>
+                        <div class="mt-auto flex justify-between items-center">
+                            <div>
+                                <span class="font-medium text-purple-800">₹ 100/-</span>
+                            </div>
+                            <button class="add-button">ADD</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="next-button" data-carousel="snacks"><i class="fas fa-chevron-right"></i></button>
+                <div class="carousel-dots" id="snacks-dots"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize all carousels
+            const carousels = ['snacks', 'drinks', 'icecream'];
+            carousels.forEach(carouselName => {
+                initCarousel(carouselName);
+            });
+
+            // Setup quantity buttons on product cards
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach(card => {
+                const addButton = card.querySelector('button');
+
+                addButton.addEventListener('click', () => {
+                    changeToCounter(addButton, card);
+                });
+            });
+
+            function changeToCounter(button, card) {
+                button.outerHTML = `
+                    <div class="flex items-center space-x-2">
+                        <button class="counter-button decrement">-</button>
+                        <span class="counter-value">1</span>
+                        <button class="counter-button increment">+</button>
+                    </div>
+                `;
+                attachCounterListeners(card);
+            }
+
+            function attachCounterListeners(card) {
+                const decrementButton = card.querySelector('.decrement');
+                const incrementButton = card.querySelector('.increment');
+                const counter = card.querySelector('.counter-value');
+
+                decrementButton.addEventListener('click', () => {
+                    let count = parseInt(counter.textContent);
+                    if (count > 1) {
+                        counter.textContent = count - 1;
+                    } else {
+                        // Revert back to ADD button
+                        decrementButton.parentElement.outerHTML = `
+                            <button class="bg-purple-800 text-white rounded px-4 py-1 text-sm font-bold">ADD</button>
+                        `;
+                        const newAddButton = card.querySelector('button');
+                        newAddButton.addEventListener('click', () => {
+                            changeToCounter(newAddButton, card);
+                        });
+                    }
+                });
+
+                incrementButton.addEventListener('click', () => {
+                    let count = parseInt(counter.textContent);
+                    counter.textContent = count + 1;
+                });
+            }
+        });
+
+        function initCarousel(carouselId) {
+            const carousel = document.getElementById(`${carouselId}-carousel`);
+            const items = carousel.querySelectorAll('.product-card');
+            const dotsContainer = document.getElementById(`${carouselId}-dots`);
+            const prevButton = document.querySelector(`.prev-button[data-carousel="${carouselId}"]`);
+            const nextButton = document.querySelector(`.next-button[data-carousel="${carouselId}"]`);
+
+            let currentIndex = 0;
+            let slidesToShow = getSlidesToShow();
+            let autoScrollInterval;
+
+            // Create dots
+            createDots();
+
+            // Set initial position
+            updateCarousel();
+
+            // Add event listeners
+            window.addEventListener('resize', () => {
+                slidesToShow = getSlidesToShow();
+                updateCarousel();
+            });
+
+            prevButton.addEventListener('click', () => {
+                currentIndex = Math.max(currentIndex - 1, 0);
+                updateCarousel();
+                resetAutoScroll();
+            });
+
+            nextButton.addEventListener('click', () => {
+                const maxIndex = Math.max(0, items.length - slidesToShow);
+                currentIndex = Math.min(currentIndex + 1, maxIndex);
+                updateCarousel();
+                resetAutoScroll();
+            });
+
+            // Start auto-scroll
+            startAutoScroll();
+
+            function getSlidesToShow() {
+                const windowWidth = window.innerWidth;
+                if (windowWidth >= 1280) return 5; // XL screens
+                if (windowWidth >= 1024) return 4; // LG screens 
+                if (windowWidth >= 768) return 3;  // MD screens
+                return 2; // SM and XS screens
+            }
+
+            function createDots() {
+                dotsContainer.innerHTML = '';
+                const dotCount = Math.ceil(items.length / slidesToShow);
+
+                for (let i = 0; i < dotCount; i++) {
+                    const dot = document.createElement('div');
+                    dot.classList.add('dot');
+                    if (i === 0) dot.classList.add('active');
+
+                    dot.addEventListener('click', () => {
+                        currentIndex = i * slidesToShow;
+                        if (currentIndex > items.length - slidesToShow) {
+                            currentIndex = items.length - slidesToShow;
+                        }
+                        updateCarousel();
+                        resetAutoScroll();
+                    });
+
+                    dotsContainer.appendChild(dot);
+                }
+            }
+
+
+            function updateCarousel() {
+                const itemWidth = carousel.querySelector('.product-card').offsetWidth;
+                const gapWidth = 16; // This should match the gap value in your CSS
+                const translateX = -(currentIndex * (itemWidth + gapWidth));
+
+                carousel.style.transform = `translateX(${translateX}px)`;
+
+                // Update dots
+                const dots = dotsContainer.querySelectorAll('.dot');
+                const activeDotIndex = Math.floor(currentIndex / slidesToShow);
+
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === activeDotIndex);
+                });
+
+                // Update button states
+                prevButton.disabled = currentIndex === 0;
+                nextButton.disabled = currentIndex >= items.length - slidesToShow;
+            }
+
+            function startAutoScroll() {
+                autoScrollInterval = setInterval(() => {
+                    const maxIndex = Math.max(0, items.length - slidesToShow);
+                    if (currentIndex >= maxIndex) {
+                        currentIndex = 0;
+                    } else {
+                        currentIndex++;
+                    }
+                    updateCarousel();
+                }, 7000); // Auto-scroll every 5 seconds
+            }
+
+            function resetAutoScroll() {
+                clearInterval(autoScrollInterval);
+                startAutoScroll();
+            }
+
+            // Touch support for mobile swiping
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            carousel.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                clearInterval(autoScrollInterval); // Pause auto-scroll on touch
+            }, false);
+
+            carousel.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+                startAutoScroll(); // Resume auto-scroll after touch
+            }, false);
+
+            function handleSwipe() {
+                const swipeThreshold = 50; // Minimum distance required for a swipe
+                if (touchEndX < touchStartX - swipeThreshold) {
+                    // Swipe left (next)
+                    const maxIndex = Math.max(0, items.length - slidesToShow);
+                    currentIndex = Math.min(currentIndex + 1, maxIndex);
+                }
+                if (touchEndX > touchStartX + swipeThreshold) {
+                    // Swipe right (previous)
+                    currentIndex = Math.max(currentIndex - 1, 0);
+                }
+                updateCarousel();
+            }
+        }
+    </script>
+</body>
+
+</html>
+

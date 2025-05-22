@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Footer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @media (max-width: 768px) {
+            footer {
+                padding: 16px;
+            }
+
+            .flex {
+                flex-direction: column;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .space-y-2 li {
+                margin-bottom: 8px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <footer class="max-w-6xl mx-auto py-8 px-4">
+        <div class="flex flex-col md:flex-row border-t border-gray-200 pt-6">
+            <!-- Useful Links Section -->
+            <div class="w-full md:w-1/4 mb-6 md:mb-0 pr-4">
+                <h2 class="text-lg font-bold mb-4">Useful Links</h2>
+                <div class="grid grid-cols-3 gap-y-2">
+                    <div class="col-span-1">
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">About</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Careers</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Blog</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Press</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Lead</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Value</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-span-1">
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Privacy</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Terms</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">FAQs</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Security</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Mobile</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-span-1">
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Partner</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Franchise</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Seller</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Warehouse</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Deliver</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Resources</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categories Section -->
+            <div class="w-full md:w-3/4">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-bold">Categories</h2>
+                    <a href="#" class="text-green-600 hover:text-green-700">see all</a>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-y-2">
+                    <!-- First Category Column -->
+                    <div class="col-span-1">
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Vegetables & Fruits</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Cold Drinks & Juices</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Bakery & Biscuits</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Dry Fruits, Masala & Oil</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Paan Corner</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Pharma & Wellness</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Ice Creams & Frozen Desserts</a>
+                            </li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Beauty & Cosmetics</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Magazines</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Second Category Column -->
+                    <div class="col-span-1">
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Dairy & Breakfast</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Instant & Frozen Food</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Sweet Tooth</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Sauces & Spreads</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Organic & Premium</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Cleaning Essentials</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Personal Care</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Books</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Print Store</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Third Category Column -->
+                    <div class="col-span-1">
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Munchies</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Tea, Coffee & Health Drinks</a>
+                            </li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Atta, Rice & Dal</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Chicken, Meat & Fish</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Baby Care</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Home & Office</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Pet Care</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">Toys & Games</a></li>
+                            <li><a href="#" class="text-gray-500 hover:text-gray-700">E-Gift Cards</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

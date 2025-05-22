@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing Hypermarket - Products</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF0000',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .discount-badge {
+            clip-path: polygon(0 0, 100% 0, 90% 50%, 100% 100%, 0 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 min-h-screen flex flex-col">
+
+
+    <!-- Category Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="container mx-auto px-4 overflow-x-auto">
+            <div class="flex space-x-6 py-3">
+                <a href="#" class="text-primary font-medium border-b-2 border-primary pb-1 whitespace-nowrap">All</a>
+                <a href="category-snacks.html" class="text-gray-700 hover:text-primary whitespace-nowrap">Snacks</a>
+                <a href="category-drinks.html" class="text-gray-700 hover:text-primary whitespace-nowrap">Drinks</a>
+                <a href="category-icecream.html" class="text-gray-700 hover:text-primary whitespace-nowrap">Ice
+                    Cream</a>
+                <a href="#" class="text-gray-700 hover:text-primary whitespace-nowrap">Bakery</a>
+                <a href="#" class="text-gray-700 hover:text-primary whitespace-nowrap">Dairy</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <div class="bg-black text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-2">SNACKS, DRINKS & ICE CREAM</h2>
+            <p class="text-gray-300">Enjoy amazing deals on your favorite products</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <!-- Featured Products -->
+        <section class="mb-12">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-black">Featured Products</h2>
+                <a href="#" class="text-primary hover:underline">View All</a>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                <!-- Product Card 1 -->
+                <div
+                    class="bg-white rounded-lg shadow-md overflow-hidden relative flex flex-col border border-gray-100 hover:shadow-lg transition-shadow">
+                    <div class="absolute top-0 left-0 bg-primary text-white text-xs font-bold px-3 py-1 discount-badge">
+                        39% OFF
+                    </div>
+                    <div class="absolute top-2 right-2">
+                        <button class="text-gray-400 hover:text-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex justify-center h-40 p-4">
+                        <img src="https://m.media-amazon.com/images/I/61k3g+1F2aL._SL1500_.jpg"
+                            alt="Amul Tricone Ice Cream" class="h-full object-contain">
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow border-t border-gray-100">
+                        <div class="text-xs text-gray-500 uppercase mb-1">Ice Cream</div>
+                        <h3 class="font-bold text-black mb-2">Amul Tricone Vanilla Chocolate</h3>
+                        <div class="mt-auto">
+                            <div class="flex items-center">
+                                <span class="text-gray-500 line-through text-sm mr-2">₹120</span>
+                                <span class="text-primary font-bold">₹73</span>
+                            </div>
+                            <button
+                                class="w-full bg-primary hover:bg-red-700 text-white rounded py-2 text-sm font-bold mt-3 transition-colors add-to-cart">
+                                ADD TO CART
+                            </button>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <!-- Product Card 1 -->
+                <div
+                    class="bg-white rounded-lg shadow-md overflow-hidden relative flex flex-col border border-gray-100 hover:shadow-lg transition-shadow">
+                    <div class="absolute top-0 left-0 bg-primary text-white text-xs font-bold px-3 py-1 discount-badge">
+                        39% OFF
+                    </div>
+                    <div class="absolute top-2 right-2">
+                        <button class="text-gray-400 hover:text-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex justify-center h-40 p-4">
+                        <img src="https://m.media-amazon.com/images/I/61k3g+1F2aL._SL1500_.jpg"
+                            alt="Amul Tricone Ice Cream" class="h-full object-contain">
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow border-t border-gray-100">
+                        <div class="text-xs text-gray-500 uppercase mb-1">Ice Cream</div>
+                        <h3 class="font-bold text-black mb-2">Amul Tricone Vanilla Chocolate</h3>
+                        <div class="mt-auto">
+                            <div class="flex items-center">
+                                <span class="text-gray-500 line-through text-sm mr-2">₹120</span>
+                                <span class="text-primary font-bold">₹73</span>
+                            </div>
+                            <button
+                                class="w-full bg-primary hover:bg-red-700 text-white rounded py-2 text-sm font-bold mt-3 transition-colors add-to-cart">
+                                ADD TO CART
+                            </button>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- Product Card 1 -->
+                <div
+                    class="bg-white rounded-lg shadow-md overflow-hidden relative flex flex-col border border-gray-100 hover:shadow-lg transition-shadow">
+                    <div class="absolute top-0 left-0 bg-primary text-white text-xs font-bold px-3 py-1 discount-badge">
+                        39% OFF
+                    </div>
+                    <div class="absolute top-2 right-2">
+                        <button class="text-gray-400 hover:text-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex justify-center h-40 p-4">
+                        <img src="https://m.media-amazon.com/images/I/61k3g+1F2aL._SL1500_.jpg"
+                            alt="Amul Tricone Ice Cream" class="h-full object-contain">
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow border-t border-gray-100">
+                        <div class="text-xs text-gray-500 uppercase mb-1">Ice Cream</div>
+                        <h3 class="font-bold text-black mb-2">Amul Tricone Vanilla Chocolate</h3>
+                        <div class="mt-auto">
+                            <div class="flex items-center">
+                                <span class="text-gray-500 line-through text-sm mr-2">₹120</span>
+                                <span class="text-primary font-bold">₹73</span>
+                            </div>
+                            <button
+                                class="w-full bg-primary hover:bg-red-700 text-white rounded py-2 text-sm font-bold mt-3 transition-colors add-to-cart">
+                                ADD TO CART
+                            </button>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- Product Card 1 -->
+                <div
+                    class="bg-white rounded-lg shadow-md overflow-hidden relative flex flex-col border border-gray-100 hover:shadow-lg transition-shadow">
+                    <div class="absolute top-0 left-0 bg-primary text-white text-xs font-bold px-3 py-1 discount-badge">
+                        39% OFF
+                    </div>
+                    <div class="absolute top-2 right-2">
+                        <button class="text-gray-400 hover:text-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex justify-center h-40 p-4">
+                        <img src="https://m.media-amazon.com/images/I/61k3g+1F2aL._SL1500_.jpg"
+                            alt="Amul Tricone Ice Cream" class="h-full object-contain">
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow border-t border-gray-100">
+                        <div class="text-xs text-gray-500 uppercase mb-1">Ice Cream</div>
+                        <h3 class="font-bold text-black mb-2">Amul Tricone Vanilla Chocolate</h3>
+                        <div class="mt-auto">
+                            <div class="flex items-center">
+                                <span class="text-gray-500 line-through text-sm mr-2">₹120</span>
+                                <span class="text-primary font-bold">₹73</span>
+                            </div>
+                            <button
+                                class="w-full bg-primary hover:bg-red-700 text-white rounded py-2 text-sm font-bold mt-3 transition-colors add-to-cart">
+                                ADD TO CART
+                            </button>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- Product Card 1 -->
+                <div
+                    class="bg-white rounded-lg shadow-md overflow-hidden relative flex flex-col border border-gray-100 hover:shadow-lg transition-shadow">
+                    <div class="absolute top-0 left-0 bg-primary text-white text-xs font-bold px-3 py-1 discount-badge">
+                        39% OFF
+                    </div>
+                    <div class="absolute top-2 right-2">
+                        <button class="text-gray-400 hover:text-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex justify-center h-40 p-4">
+                        <img src="https://m.media-amazon.com/images/I/61k3g+1F2aL._SL1500_.jpg"
+                            alt="Amul Tricone Ice Cream" class="h-full object-contain">
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow border-t border-gray-100">
+                        <div class="text-xs text-gray-500 uppercase mb-1">Ice Cream</div>
+                        <h3 class="font-bold text-black mb-2">Amul Tricone Vanilla Chocolate</h3>
+                        <div class="mt-auto">
+                            <div class="flex items-center">
+                                <span class="text-gray-500 line-through text-sm mr-2">₹120</span>
+                                <span class="text-primary font-bold">₹73</span>
+                            </div>
+                            <button
+                                class="w-full bg-primary hover:bg-red-700 text-white rounded py-2 text-sm font-bold mt-3 transition-colors add-to-cart">
+                                ADD TO CART
+                            </button>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- Product Card 2 -->
+                <div
+                    class="bg-white rounded-lg shadow-md overflow-hidden relative flex flex-col border border-gray-100 hover:shadow-lg transition-shadow">
+                    <div class="absolute top-2 right-2">
+                        <button class="text-gray-400 hover:text-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex justify-center h-40 p-4">
+                        <img src="https://m.media-amazon.com/images/I/61k3g+1F2aL._SL1500_.jpg" alt="Lay's Classic"
+                            class="h-full object-contain">
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow border-t border-gray-100">
+                        <div class="text-xs text-gray-500 uppercase mb-1">Snacks</div>
+                        <h3 class="font-bold text-black mb-2">Lay's Classic Salted Chips</h3>
+                        <div class="mt-auto">
+                            <span class="text-primary font-bold">₹20</span>
+                            <button
+                                class="w-full bg-primary hover:bg-red-700 text-white rounded py-2 text-sm font-bold mt-3 transition-colors add-to-cart">
+                                ADD TO CART
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const addButtons = document.querySelectorAll('.add-to-cart');
+
+            addButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const productCard = this.closest('.bg-white');
+
+                    // Change to counter
+                    this.outerHTML = `
+                        <div class="flex items-center justify-between border border-primary rounded overflow-hidden">
+                            <button class="decrement bg-primary text-white px-2 py-1 text-sm font-bold">-</button>
+                            <span class="counter text-primary font-bold px-2">1</span>
+                            <button class="increment bg-primary text-white px-2 py-1 text-sm font-bold">+</button>
+                        </div>
+                    `;
+
+                    // Add event listeners to new buttons
+                    const decrement = productCard.querySelector('.decrement');
+                    const increment = productCard.querySelector('.increment');
+                    const counter = productCard.querySelector('.counter');
+
+                    decrement.addEventListener('click', () => {
+                        let count = parseInt(counter.textContent);
+                        if (count > 1) {
+                            counter.textContent = count - 1;
+                        } else {
+                            // Revert back to ADD button
+                            decrement.parentElement.outerHTML = `
+                                <button class="w-full bg-primary hover:bg-red-700 text-white rounded py-2 text-sm font-bold transition-colors add-to-cart">
+                                    ADD TO CART
+                                </button>
+                            `;
+                            // Reattach event listener to new button
+                            productCard.querySelector('.add-to-cart').addEventListener('click', button.click);
+                        }
+                    });
+
+                    increment.addEventListener('click', () => {
+                        let count = parseInt(counter.textContent);
+                        counter.textContent = count + 1;
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

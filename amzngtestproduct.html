@@ -1,0 +1,363 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Home &amp; Living
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   /* Custom scrollbar for horizontal scroll */
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+ </head>
+ <body class="bg-white font-sans">
+  <div class="max-w-[1280px] mx-auto px-4 py-6">
+   <div class="flex justify-between items-center mb-6">
+    <h2 class="text-gray-900 font-extrabold text-lg leading-6">
+     Home &amp; Living
+    </h2>
+    <button aria-label="View All" class="bg-[#e60023] text-white text-xs font-semibold px-4 py-1 rounded hover:bg-[#cc001f] transition" id="viewAllBtn" type="button">
+     View All
+     <i class="fas fa-chevron-right ml-1">
+     </i>
+    </button>
+   </div>
+   <div class="relative">
+    <button aria-label="Scroll Left" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-gray-300 rounded-full w-8 h-8 flex items-center justify-center text-gray-500 hover:text-gray-700 shadow" id="scrollLeftBtn" type="button">
+     <i class="fas fa-chevron-left">
+     </i>
+    </button>
+    <div class="flex space-x-4 overflow-x-auto scrollbar-hide scroll-smooth pb-2" id="scrollContainer">
+     <!-- Card 1 -->
+     <div class="min-w-[220px] max-w-[220px] bg-white border border-gray-200 shadow-sm rounded-sm flex flex-col">
+      <div class="relative">
+       <div class="absolute top-2 left-2 bg-[#e60023] text-white text-[10px] font-bold px-2 py-[2px] rounded-b-md z-10">
+        60% OFF
+       </div>
+       <img alt="Green floral bed sheet queen size on bed in a room with beige wall and wooden floor" class="w-full h-[160px] object-cover rounded-t-sm" height="160" loading="lazy" src="https://storage.googleapis.com/a1aa/image/91588876-8955-4f0a-a0c8-7871e9ed26a6.jpg" width="220"/>
+       <button aria-label="Add to wishlist" class="absolute top-2 right-2 w-6 h-6 rounded-full border border-gray-300 text-gray-400 hover:text-red-600 flex items-center justify-center bg-white" type="button">
+        <i class="far fa-heart text-xs">
+        </i>
+       </button>
+      </div>
+      <div class="p-3 flex flex-col flex-grow">
+       <span class="text-[10px] uppercase text-gray-400 mb-1">
+        MAPLE LEAF
+       </span>
+       <h3 class="text-[12px] font-extrabold text-gray-900 leading-tight mb-1">
+        Maple Leaf Bed Sheet Queen Rich Cotton Marina
+       </h3>
+       <div class="flex items-center space-x-2 text-[12px]">
+        <span class="font-semibold text-gray-900">
+         ₹749.00
+        </span>
+        <span class="line-through text-gray-400">
+         ₹1,899.00
+        </span>
+       </div>
+      </div>
+     </div>
+
+    <!-- Card 1 -->
+    <div class="min-w-[220px] max-w-[220px] bg-white border border-gray-200 shadow-sm rounded-sm flex flex-col">
+        <div class="relative">
+            <div
+                class="absolute top-2 left-2 bg-[#e60023] text-white text-[10px] font-bold px-2 py-[2px] rounded-b-md z-10">
+                60% OFF
+            </div>
+            <img alt="Green floral bed sheet queen size on bed in a room with beige wall and wooden floor"
+                class="w-full h-[160px] object-cover rounded-t-sm" height="160" loading="lazy"
+                src="https://storage.googleapis.com/a1aa/image/91588876-8955-4f0a-a0c8-7871e9ed26a6.jpg" width="220" />
+            <button aria-label="Add to wishlist"
+                class="absolute top-2 right-2 w-6 h-6 rounded-full border border-gray-300 text-gray-400 hover:text-red-600 flex items-center justify-center bg-white"
+                type="button">
+                <i class="far fa-heart text-xs">
+                </i>
+            </button>
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <span class="text-[10px] uppercase text-gray-400 mb-1">
+                MAPLE LEAF
+            </span>
+            <h3 class="text-[12px] font-extrabold text-gray-900 leading-tight mb-1">
+                Maple Leaf Bed Sheet Queen Rich Cotton Marina
+            </h3>
+            <div class="flex items-center space-x-2 text-[12px]">
+                <span class="font-semibold text-gray-900">
+                    ₹749.00
+                </span>
+                <span class="line-through text-gray-400">
+                    ₹1,899.00
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 1 -->
+    <div class="min-w-[220px] max-w-[220px] bg-white border border-gray-200 shadow-sm rounded-sm flex flex-col">
+        <div class="relative">
+            <div
+                class="absolute top-2 left-2 bg-[#e60023] text-white text-[10px] font-bold px-2 py-[2px] rounded-b-md z-10">
+                60% OFF
+            </div>
+            <img alt="Green floral bed sheet queen size on bed in a room with beige wall and wooden floor"
+                class="w-full h-[160px] object-cover rounded-t-sm" height="160" loading="lazy"
+                src="https://storage.googleapis.com/a1aa/image/91588876-8955-4f0a-a0c8-7871e9ed26a6.jpg" width="220" />
+            <button aria-label="Add to wishlist"
+                class="absolute top-2 right-2 w-6 h-6 rounded-full border border-gray-300 text-gray-400 hover:text-red-600 flex items-center justify-center bg-white"
+                type="button">
+                <i class="far fa-heart text-xs">
+                </i>
+            </button>
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <span class="text-[10px] uppercase text-gray-400 mb-1">
+                MAPLE LEAF
+            </span>
+            <h3 class="text-[12px] font-extrabold text-gray-900 leading-tight mb-1">
+                Maple Leaf Bed Sheet Queen Rich Cotton Marina
+            </h3>
+            <div class="flex items-center space-x-2 text-[12px]">
+                <span class="font-semibold text-gray-900">
+                    ₹749.00
+                </span>
+                <span class="line-through text-gray-400">
+                    ₹1,899.00
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 1 -->
+    <div class="min-w-[220px] max-w-[220px] bg-white border border-gray-200 shadow-sm rounded-sm flex flex-col">
+        <div class="relative">
+            <div
+                class="absolute top-2 left-2 bg-[#e60023] text-white text-[10px] font-bold px-2 py-[2px] rounded-b-md z-10">
+                60% OFF
+            </div>
+            <img alt="Green floral bed sheet queen size on bed in a room with beige wall and wooden floor"
+                class="w-full h-[160px] object-cover rounded-t-sm" height="160" loading="lazy"
+                src="https://storage.googleapis.com/a1aa/image/91588876-8955-4f0a-a0c8-7871e9ed26a6.jpg" width="220" />
+            <button aria-label="Add to wishlist"
+                class="absolute top-2 right-2 w-6 h-6 rounded-full border border-gray-300 text-gray-400 hover:text-red-600 flex items-center justify-center bg-white"
+                type="button">
+                <i class="far fa-heart text-xs">
+                </i>
+            </button>
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <span class="text-[10px] uppercase text-gray-400 mb-1">
+                MAPLE LEAF
+            </span>
+            <h3 class="text-[12px] font-extrabold text-gray-900 leading-tight mb-1">
+                Maple Leaf Bed Sheet Queen Rich Cotton Marina
+            </h3>
+            <div class="flex items-center space-x-2 text-[12px]">
+                <span class="font-semibold text-gray-900">
+                    ₹749.00
+                </span>
+                <span class="line-through text-gray-400">
+                    ₹1,899.00
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Card 1 -->
+    <div class="min-w-[220px] max-w-[220px] bg-white border border-gray-200 shadow-sm rounded-sm flex flex-col">
+        <div class="relative">
+            <div
+                class="absolute top-2 left-2 bg-[#e60023] text-white text-[10px] font-bold px-2 py-[2px] rounded-b-md z-10">
+                60% OFF
+            </div>
+            <img alt="Green floral bed sheet queen size on bed in a room with beige wall and wooden floor"
+                class="w-full h-[160px] object-cover rounded-t-sm" height="160" loading="lazy"
+                src="https://storage.googleapis.com/a1aa/image/91588876-8955-4f0a-a0c8-7871e9ed26a6.jpg" width="220" />
+            <button aria-label="Add to wishlist"
+                class="absolute top-2 right-2 w-6 h-6 rounded-full border border-gray-300 text-gray-400 hover:text-red-600 flex items-center justify-center bg-white"
+                type="button">
+                <i class="far fa-heart text-xs">
+                </i>
+            </button>
+        </div>
+        <div class="p-3 flex flex-col flex-grow">
+            <span class="text-[10px] uppercase text-gray-400 mb-1">
+                MAPLE LEAF
+            </span>
+            <h3 class="text-[12px] font-extrabold text-gray-900 leading-tight mb-1">
+                Maple Leaf Bed Sheet Queen Rich Cotton Marina
+            </h3>
+            <div class="flex items-center space-x-2 text-[12px]">
+                <span class="font-semibold text-gray-900">
+                    ₹749.00
+                </span>
+                <span class="line-through text-gray-400">
+                    ₹1,899.00
+                </span>
+            </div>
+        </div>
+    </div>
+     <!-- Card 2 -->
+     <div class="min-w-[220px] max-w-[220px] bg-white border border-gray-200 shadow-sm rounded-sm flex flex-col">
+      <div class="relative">
+       <div class="absolute top-2 left-2 bg-[#e60023] text-white text-[10px] font-bold px-2 py-[2px] rounded-b-md z-10">
+        65% OFF
+       </div>
+       <img alt="Packaged bed sheet queen size 104 TC Estella in box with white background" class="w-full h-[160px] object-contain rounded-t-sm bg-white" height="160" loading="lazy" src="https://storage.googleapis.com/a1aa/image/61370822-dade-4303-f9aa-5a109e9cd658.jpg" width="220"/>
+       <button aria-label="Add to wishlist" class="absolute top-2 right-2 w-6 h-6 rounded-full border border-gray-300 text-gray-400 hover:text-red-600 flex items-center justify-center bg-white" type="button">
+        <i class="far fa-heart text-xs">
+        </i>
+       </button>
+      </div>
+      <div class="p-3 flex flex-col flex-grow">
+       <span class="text-[10px] uppercase text-gray-400 mb-1">
+        MAPLE LEAF
+       </span>
+       <h3 class="text-[12px] font-extrabold text-gray-900 leading-tight mb-1">
+        Maple Leaf Bed Sheet Queen104 TC Estella
+       </h3>
+       <div class="flex items-center space-x-2 text-[12px]">
+        <span class="font-semibold text-gray-900">
+         ₹699.00
+        </span>
+        <span class="line-through text-gray-400">
+         ₹1,999.00
+        </span>
+       </div>
+      </div>
+     </div>
+     <!-- Card 3 -->
+     <div class="min-w-[220px] max-w-[220px] bg-white border border-gray-200 shadow-sm rounded-sm flex flex-col">
+      <div class="relative">
+       <div class="absolute top-2 left-2 bg-[#e60023] text-white text-[10px] font-bold px-2 py-[2px] rounded-b-md z-10">
+        60% OFF
+       </div>
+       <img alt="Purple patterned bed sheet queen size on bed with plants and white nightstand" class="w-full h-[160px] object-cover rounded-t-sm" height="160" loading="lazy" src="https://storage.googleapis.com/a1aa/image/3a16bf22-fa6f-49a8-46db-d5e66a46b7a8.jpg" width="220"/>
+       <button aria-label="Add to wishlist" class="absolute top-2 right-2 w-6 h-6 rounded-full border border-gray-300 text-gray-400 hover:text-red-600 flex items-center justify-center bg-white" type="button">
+        <i class="far fa-heart text-xs">
+        </i>
+       </button>
+      </div>
+      <div class="p-3 flex flex-col flex-grow">
+       <span class="text-[10px] uppercase text-gray-400 mb-1">
+        LAYERS
+       </span>
+       <h3 class="text-[12px] font-extrabold text-gray-900 leading-tight mb-1">
+        Layers Bed Sheet Queen Blossom Astd
+       </h3>
+       <div class="flex items-center space-x-2 text-[12px]">
+        <span class="font-semibold text-gray-900">
+         ₹599.00
+        </span>
+        <span class="line-through text-gray-400">
+         ₹1,499.00
+        </span>
+       </div>
+      </div>
+     </div>
+     <!-- Card 4 -->
+     <div class="min-w-[220px] max-w-[220px] bg-white border border-gray-200 shadow-sm rounded-sm flex flex-col">
+      <div class="relative">
+       <div class="absolute top-2 left-2 bg-[#e60023] text-white text-[10px] font-bold px-2 py-[2px] rounded-b-md z-10">
+        58% OFF
+       </div>
+       <img alt="Red and white striped bath rug 40x60 on white background" class="w-full h-[160px] object-cover rounded-t-sm" height="160" loading="lazy" src="https://storage.googleapis.com/a1aa/image/a4061f4b-3e45-445b-8f7a-f45f62db708a.jpg" width="220"/>
+       <button aria-label="Add to wishlist" class="absolute top-2 right-2 w-6 h-6 rounded-full border border-gray-300 text-gray-400 hover:text-red-600 flex items-center justify-center bg-white" type="button">
+        <i class="far fa-heart text-xs">
+        </i>
+       </button>
+      </div>
+      <div class="p-3 flex flex-col flex-grow">
+       <span class="text-[10px] uppercase text-gray-400 mb-1">
+        HOMEWELL
+       </span>
+       <h3 class="text-[12px] font-extrabold text-gray-900 leading-tight mb-1">
+        HW Micro Bath Rug 40x60
+       </h3>
+       <div class="flex items-center space-x-2 text-[12px]">
+        <span class="font-semibold text-gray-900">
+         ₹209.00
+        </span>
+        <span class="line-through text-gray-400">
+         ₹499.00
+        </span>
+       </div>
+      </div>
+     </div>
+     <!-- Card 5 -->
+     <div class="min-w-[220px] max-w-[220px] bg-white border border-gray-200 shadow-sm rounded-sm flex flex-col">
+      <div class="relative">
+       <div class="absolute top-2 left-2 bg-[#e60023] text-white text-[10px] font-bold px-2 py-[2px] rounded-b-md z-10">
+        58% OFF
+       </div>
+       <img alt="Stack of red and white patterned bath towels with packaging on white background" class="w-full h-[160px] object-cover rounded-t-sm" height="160" loading="lazy" src="https://storage.googleapis.com/a1aa/image/f5166950-6926-4852-38f1-812c1e84d4dd.jpg" width="220"/>
+       <button aria-label="Add to wishlist" class="absolute top-2 right-2 w-6 h-6 rounded-full border border-gray-300 text-gray-400 hover:text-red-600 flex items-center justify-center bg-white" type="button">
+        <i class="far fa-heart text-xs">
+        </i>
+       </button>
+      </div>
+      <div class="p-3 flex flex-col flex-grow">
+       <span class="text-[10px] uppercase text-gray-400 mb-1">
+        HOMEWELL
+       </span>
+       <h3 class="text-[12px] font-extrabold text-gray-900 leading-tight mb-1">
+        HW Bath Towel Micro Fiber 2
+       </h3>
+       <div class="flex items-center space-x-2 text-[12px]">
+        <span class="font-semibold text-gray-900">
+         ₹209.00
+        </span>
+        <span class="line-through text-gray-400">
+         ₹499.00
+        </span>
+       </div>
+      </div>
+     </div>
+    </div>
+    <button aria-label="Scroll Right" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-gray-300 rounded-full w-8 h-8 flex items-center justify-center text-gray-500 hover:text-gray-700 shadow" id="scrollRightBtn" type="button">
+     <i class="fas fa-chevron-right">
+     </i>
+    </button>
+   </div>
+   <div class="mt-4 flex justify-center space-x-2">
+    <span class="w-10 h-[2px] bg-gray-300 rounded-full">
+    </span>
+    <span class="w-10 h-[2px] bg-[#e60023] rounded-full">
+    </span>
+    <span class="w-10 h-[2px] bg-gray-300 rounded-full">
+    </span>
+   </div>
+  </div>
+  <script>
+   const scrollContainer = document.getElementById("scrollContainer");
+    const scrollLeftBtn = document.getElementById("scrollLeftBtn");
+    const scrollRightBtn = document.getElementById("scrollRightBtn");
+    const viewAllBtn = document.getElementById("viewAllBtn");
+
+    // Scroll left by one card width + gap
+    scrollLeftBtn.addEventListener("click", () => {
+      scrollContainer.scrollBy({ left: -240, behavior: "smooth" });
+    });
+
+    // Scroll right by one card width + gap
+    scrollRightBtn.addEventListener("click", () => {
+      scrollContainer.scrollBy({ left: 240, behavior: "smooth" });
+    });
+
+    // View All button click function
+    viewAllBtn.addEventListener("click", () => {
+      alert("View All clicked! Implement navigation or modal here.");
+    });
+  </script>
+ </body>
+</html>

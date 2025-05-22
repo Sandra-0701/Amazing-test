@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Red Sneakers - Product Page</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-[#ff0000] py-4">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <h1 class="text-2xl font-bold text-white">SneakerShop</h1>
+      <nav>
+        <a href="#" class="text-white px-3 hover:underline">Home</a>
+        <a href="#" class="text-white px-3 hover:underline">Shop</a>
+        <a href="#" class="text-white px-3 hover:underline">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Product Section -->
+  <main class="container mx-auto px-4 py-12 flex flex-col md:flex-row items-center gap-12">
+    <!-- Product Image -->
+    <div class="bg-white rounded-lg p-6 shadow-lg w-full md:w-1/2 flex justify-center">
+      <img src="https://images.unsplash.com/photo-1517260911205-8b2c1f1eafc9?auto=format&fit=crop&w=500&q=80" alt="Red Sneakers" class="rounded-lg w-80 h-80 object-cover">
+    </div>
+    <!-- Product Details -->
+    <div class="w-full md:w-1/2">
+      <h2 class="text-3xl font-bold text-[#ff0000] mb-4">Red Sneakers</h2>
+      <p class="text-lg text-white mb-6">
+        Step up your style game with these bold, comfortable red sneakers. Perfect for any occasion, these kicks combine fashion and function in one striking package.
+      </p>
+      <div class="mb-6">
+        <span class="text-2xl font-semibold text-white bg-[#ff0000] px-4 py-2 rounded">$89.99</span>
+      </div>
+      <div class="mb-6">
+        <label for="size" class="block mb-2 text-white">Select Size:</label>
+        <select id="size" class="w-32 p-2 rounded bg-black text-white border border-[#ff0000] focus:outline-none">
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+          <option>11</option>
+        </select>
+      </div>
+      <button class="bg-[#ff0000] hover:bg-red-700 text-white font-bold py-3 px-8 rounded transition duration-200">
+        Add to Cart
+      </button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white py-6 mt-12">
+    <div class="container mx-auto text-center">
+      &copy; 2025 SneakerShop. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Orders</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- Container -->
+  <div class="flex min-h-screen">
+
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white shadow-sm border-r">
+      <div class="p-6 border-b">
+        <h2 class="text-lg font-semibold">My Account</h2>
+      </div>
+      <nav class="p-4 space-y-3">
+        <a href="#" class="flex items-center space-x-2 px-3 py-2 bg-green-100 text-green-700 rounded">
+          <span>🛒</span>
+          <span>My Orders</span>
+        </a>
+        <a href="#" class="flex items-center space-x-2 px-3 py-2 hover:bg-gray-100 rounded">
+          <span>🤍</span>
+          <span>My Wishlist</span>
+        </a>
+        <a href="#" class="flex items-center space-x-2 px-3 py-2 hover:bg-gray-100 rounded">
+          <span>🏅</span>
+          <span>My Loyalty Points</span>
+        </a>
+        <a href="#" class="flex items-center space-x-2 px-3 py-2 hover:bg-gray-100 rounded">
+          <span>💳</span>
+          <span>My Wallet</span>
+        </a>
+        <a href="#" class="flex items-center space-x-2 px-3 py-2 hover:bg-gray-100 rounded">
+          <span>📞</span>
+          <span>Contact Support</span>
+        </a>
+        <a href="#" class="flex items-center space-x-2 px-3 py-2 hover:bg-gray-100 rounded">
+          <span>👤</span>
+          <span>My Profile</span>
+        </a>
+        <a href="#" class="flex items-center space-x-2 px-3 py-2 hover:bg-gray-100 rounded">
+          <span>🚪</span>
+          <span>Logout</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8">
+      <!-- Header -->
+      <div class="mb-6">
+        <nav class="text-sm text-gray-500 mb-2">
+          <a href="#" class="hover:underline">Home</a> / 
+          <a href="#" class="hover:underline">My Account</a> / 
+          <span class="text-gray-700 font-medium">Orders</span>
+        </nav>
+        <h1 class="text-2xl font-bold">My Orders</h1>
+      </div>
+
+      <!-- Search & Filter -->
+      <div class="flex justify-between items-center mb-6">
+        <input type="text" placeholder="Search your order" class="w-1/2 p-2 border rounded" />
+        <button class="flex items-center px-3 py-2 border rounded hover:bg-gray-100">
+          <span class="mr-2">☰</span> Filter
+        </button>
+      </div>
+
+      <!-- Category Filters -->
+      <div class="flex space-x-3 mb-10">
+        <button class="category-tab bg-green-500 text-white px-4 py-1.5 rounded-full font-medium" data-tab="all">All</button>
+        <button class="category-tab border px-4 py-1.5 rounded-full" data-tab="grocery">Grocery & Fresh</button>
+        <button class="category-tab border px-4 py-1.5 rounded-full" data-tab="fashion">Fashion & Apparels</button>
+        <button class="category-tab border px-4 py-1.5 rounded-full" data-tab="electronics">Electronics</button>
+        <button class="category-tab border px-4 py-1.5 rounded-full" data-tab="hotfoods">Hot Foods</button>
+      </div>
+
+      <!-- Empty State -->
+      <div class="flex flex-col items-center justify-center text-center">
+        <img src="https://cdn-icons-png.flaticon.com/512/4076/4076549.png" alt="Empty Box" class="w-40 h-40 mb-6" />
+        <h2 class="text-lg font-semibold mb-1">You haven't placed any orders yet</h2>
+        <p class="text-sm text-gray-600 mb-4">Explore our products and place your first order!</p>
+        <button class="bg-red-500 text-white px-6 py-2 rounded hover:bg-red-600">
+          EXPLORE OUR ORDER
+        </button>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Simple Tab Toggle JS -->
+  <script>
+    const tabs = document.querySelectorAll('.category-tab');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('bg-green-500', 'text-white'));
+        tabs.forEach(t => t.classList.add('border'));
+        tab.classList.remove('border');
+        tab.classList.add('bg-green-500', 'text-white');
+      });
+    });
+  </script>
+
+</body>
+</html>

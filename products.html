@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing Hypermarket - Products</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .discount-badge {
+            position: absolute;
+            top: -4px;
+            left: 0;
+            z-index: 10;
+        }
+        .discount-text {
+            position: absolute;
+            top: 13px;
+            left: 19px;
+            color: white;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-align: center;
+            width: 53px;
+            font-size: 10px;
+            letter-spacing: 1.35px;
+        }
+        @media (max-width: 640px) {
+            .discount-text {
+                top: 3px;
+                left: 1px;
+                width: 25px;
+                font-size: 6px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Header -->
+    <header class="bg-purple-800 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                <h1 class="text-2xl font-bold">Amazing Hypermarket</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="p-2 rounded-full bg-purple-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </button>
+                <button class="p-2 rounded-full bg-purple-700 relative">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                    </svg>
+                    <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                </button>
+                <button class="p-2 rounded-full bg-purple-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Category Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="container mx-auto px-4 overflow-x-auto">
+            <div class="flex space-x-6 py-3">
+                <a href="#" class="text-purple-800 font-medium whitespace-nowrap">All Categories</a>
+                <a href="category-snacks.html" class="whitespace-nowrap">Snacks</a>
+                <a href="category-drinks.html" class="whitespace-nowrap">Drinks</a>
+                <a href="category-icecream.html" class="whitespace-nowrap">Ice Cream</a>
+                <a href="#" class="whitespace-nowrap">Bakery</a>
+                <a href="#" class="whitespace-nowrap">Dairy</a>
+                <a href="#" class="whitespace-nowrap">Fruits</a>
+                <a href="#" class="whitespace-nowrap">Vegetables</a>
+                <a href="#" class="whitespace-nowrap">Meat</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-6">
+        <!-- Featured Section -->
+        <section class="mb-10">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Featured Products</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                <!-- Product Card 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden relative flex flex-col">
+                    <div class="discount-badge">
+                        <svg width="65" height="54" viewBox="0 0 65 54" fill="#00A14B" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M58.2913 53.0801L32.5049 47.3869L6.71853 53.0801C5.33389 53.3821 3.99795 52.4384 3.99795 51.1488V3.14326C3.99795 2.58337 -0.524046 0.136719 0.0882582 0.136719H64.8846C65.5039 0.136719 60.9979 2.58966 60.9979 3.14326V51.1488C61.0049 52.4384 59.6759 53.3821 58.2913 53.0801Z"></path>
+                        </svg>
+                        <span class="discount-text">39% Off</span>
+                    </div>
+                    <div class="absolute top-2 right-2 bg-white rounded-full w-9 h-9 flex items-center justify-center">
+                        <svg width="35" height="35" viewBox="0 0 35 35" fill="white" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="17.5546" cy="17.2656" r="16.6796" fill="white" stroke="#FED4D4"></circle>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M17.1451 13.0656C15.7702 11.4634 13.4776 11.0324 11.7551 12.4995C10.0325 13.9667 9.79001 16.4196 11.1427 18.1548C12.2674 19.5975 15.6712 22.6403 16.7868 23.6251C16.9116 23.7353 16.974 23.7904 17.0468 23.812C17.1103 23.8309 17.1798 23.8309 17.2434 23.812C17.3161 23.7904 17.3786 23.7353 17.5034 23.6251C18.6189 22.6403 22.0227 19.5975 23.1474 18.1548C24.5001 16.4196 24.2872 13.9512 22.5351 12.4995C20.7829 11.0478 18.5199 11.4634 17.1451 13.0656Z" stroke="#3C4242" stroke-width="1.26066" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                    <div class="flex justify-center h-48 p-4">
+                        <img src="https://m.media-amazon.com/images/I/61k3g+1F2aL._SL1500_.jpg" alt="Amul Tricone Ice Cream" class="h-full object-contain">
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="text-xs text-gray-600">Ice Cream</div>
+                        <h3 class="font-bold mb-2">Amul Tricone Vanilla Chocolate</h3>
+                        <div class="mt-auto">
+                            <span class="line-through text-gray-500 mr-2">₹120</span>
+                            <span class="font-medium text-purple-800">₹73</span>
+                            <div class="mt-3">
+                                <button class="w-full bg-purple-800 text-white rounded py-2 text-sm font-bold add-to-cart">ADD</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden relative flex flex-col">
+                    <div class="flex justify-center h-48 p-4">
+                        <img src="https://m.media-amazon.com/images/I/61k3g+1F2aL._SL1500_.jpg" alt="Lay's Classic" class="h-full object-contain">
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="text-xs text-gray-600">Snacks</div>
+                        <h3 class="font-bold mb-2">Lay's Classic Salted Chips</h3>
+                        <div class="mt-auto">
+                            <span class="font-medium text-purple-800">₹20</span>
+                            <div class="mt-3">
+                                <button class="w-full bg-purple-800 text-white rounded py-2 text-sm font-bold add-to-cart">ADD</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden relative flex flex-col">
+                    <div class="flex justify-center h-48 p-4">
+                        <img src="https://m.media-amazon.com/images/I/61k3g+1F2aL._SL1500_.jpg" alt="Lay's Classic"
+                            class="h-full object-contain">
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="text-xs text-gray-600">Snacks</div>
+                        <h3 class="font-bold mb-2">Lay's Classic Salted Chips</h3>
+                        <div class="mt-auto">
+                            <span class="font-medium text-purple-800">₹20</span>
+                            <div class="mt-3">
+                                <button class="w-full bg-purple-800 text-white rounded py-2 text-sm font-bold add-to-cart">ADD</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden relative flex flex-col">
+                    <div class="flex justify-center h-48 p-4">
+                        <img src="https://m.media-amazon.com/images/I/61k3g+1F2aL._SL1500_.jpg" alt="Lay's Classic"
+                            class="h-full object-contain">
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="text-xs text-gray-600">Snacks</div>
+                        <h3 class="font-bold mb-2">Lay's Classic Salted Chips</h3>
+                        <div class="mt-auto">
+                            <span class="font-medium text-purple-800">₹20</span>
+                            <div class="mt-3">
+                                <button class="w-full bg-purple-800 text-white rounded py-2 text-sm font-bold add-to-cart">ADD</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden relative flex flex-col">
+                    <div class="flex justify-center h-48 p-4">
+                        <img src="https://m.media-amazon.com/images/I/61k3g+1F2aL._SL1500_.jpg" alt="Lay's Classic"
+                            class="h-full object-contain">
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="text-xs text-gray-600">Snacks</div>
+                        <h3 class="font-bold mb-2">Lay's Classic Salted Chips</h3>
+                        <div class="mt-auto">
+                            <span class="font-medium text-purple-800">₹20</span>
+                            <div class="mt-3">
+                                <button class="w-full bg-purple-800 text-white rounded py-2 text-sm font-bold add-to-cart">ADD</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden relative flex flex-col">
+                    <div class="flex justify-center h-48 p-4">
+                        <img src="https://m.media-amazon.com/images/I/61k3g+1F2aL._SL1500_.jpg" alt="Lay's Classic"
+                            class="h-full object-contain">
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="text-xs text-gray-600">Snacks</div>
+                        <h3 class="font-bold mb-2">Lay's Classic Salted Chips</h3>
+                        <div class="mt-auto">
+                            <span class="font-medium text-purple-800">₹20</span>
+                            <div class="mt-3">
+                                <button class="w-full bg-purple-800 text-white rounded py-2 text-sm font-bold add-to-cart">ADD</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-purple-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Amazing Hypermarket</h3>
+                    <p class="text-purple-200">Your one-stop shop for all daily needs at amazing prices.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-purple-200 hover:text-white">Home</a></li>
+                        <li><a href="#" class="text-purple-200 hover:text-white">Products</a></li>
+                        <li><a href="#" class="text-purple-200 hover:text-white">Categories</a></li>
+                        <li><a href="#" class="text-purple-200 hover:text-white">Offers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Customer Service</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-purple-200 hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="text-purple-200 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-purple-200 hover:text-white">Shipping Policy</a></li>
+                        <li><a href="#" class="text-purple-200 hover:text-white">Returns & Refunds</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-purple-200 hover:text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-purple-200 hover:text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-purple-200 hover:text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-purple-700 mt-8 pt-6 text-center text-purple-200">
+                <p>&copy; 2025 Amazing Hypermarket. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const addButtons = document.querySelectorAll('.add-to-cart');
+
+            addButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const productCard = this.closest('.bg-white');
+                    
+                    // Change to counter
+                    this.outerHTML = `
+                        <div class="flex items-center justify-center space-x-2">
+                            <button class="decrement bg-purple-800 text-white rounded px-2 py-1 text-sm font-bold">-</button>
+                            <span class="counter text-purple-800 font-bold">1</span>
+                            <button class="increment bg-purple-800 text-white rounded px-2 py-1 text-sm font-bold">+</button>
+                        </div>
+                    `;
+
+                    // Add event listeners to new buttons
+                    const decrement = productCard.querySelector('.decrement');
+                    const increment = productCard.querySelector('.increment');
+                    const counter = productCard.querySelector('.counter');
+
+                    decrement.addEventListener('click', () => {
+                        let count = parseInt(counter.textContent);
+                        if (count > 1) {
+                            counter.textContent = count - 1;
+                        } else {
+                            // Revert back to ADD button
+                            decrement.parentElement.outerHTML = `
+                                <button class="w-full bg-purple-800 text-white rounded py-2 text-sm font-bold add-to-cart">ADD</button>
+                            `;
+                            // Reattach event listener to new button
+                            productCard.querySelector('.add-to-cart').addEventListener('click', button.click);
+                        }
+                    });
+
+                    increment.addEventListener('click', () => {
+                        let count = parseInt(counter.textContent);
+                        counter.textContent = count + 1;
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

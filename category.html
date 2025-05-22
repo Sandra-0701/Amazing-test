@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snacks - Amazing Hypermarket</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF0000',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .discount-badge {
+            clip-path: polygon(0 0, 100% 0, 90% 50%, 100% 100%, 0 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 min-h-screen flex flex-col">
+    <!-- Header (same as products page) -->
+    <header class="bg-white shadow-md">
+        <!-- Same header as products page -->
+    </header>
+
+    <!-- Category Navigation (same as products page) -->
+    <nav class="bg-white shadow-sm sticky top-0 z-10">
+        <!-- Same navigation as products page -->
+    </nav>
+
+    <!-- Category Banner -->
+    <div class="bg-black text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl font-bold mb-2">SNACKS</h1>
+            <p class="text-gray-300">Delicious chips, cookies, and more to satisfy your cravings</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <!-- Filters and Sorting -->
+        <div class="bg-white rounded-lg shadow-sm p-4 mb-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
+                <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                        <select class="border border-gray-300 rounded px-3 py-1 text-sm w-full">
+                            <option>All Snacks</option>
+                            <option>Potato Chips</option>
+                            <option>Cookies</option>
+                            <option>Nuts</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Brand</label>
+                        <select class="border border-gray-300 rounded px-3 py-1 text-sm w-full">
+                            <option>All Brands</option>
+                            <option>Lay's</option>
+                            <option>Pringles</option>
+                            <option>Doritos</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Sort By</label>
+                    <select class="border border-gray-300 rounded px-3 py-1 text-sm">
+                        <option>Popularity</option>
+                        <option>Price: Low to High</option>
+                        <option>Price: High to Low</option>
+                        <option>Newest First</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <!-- Product Card 1 -->
+            <div
+                class="bg-white rounded-lg shadow-md overflow-hidden relative flex flex-col border border-gray-100 hover:shadow-lg transition-shadow">
+                <div class="absolute top-0 left-0 bg-primary text-white text-xs font-bold px-3 py-1 discount-badge">
+                    25% OFF
+                </div>
+                <div class="absolute top-2 right-2">
+                    <button class="text-gray-400 hover:text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex justify-center h-40 p-4">
+                    <img src="https://m.media-amazon.com/images/I/61k3g+1F2aL._SL1500_.jpg" alt="Lay's Classic"
+                        class="h-full object-contain">
+                </div>
+                <div class="p-4 flex flex-col flex-grow border-t border-gray-100">
+                    <div class="text-xs text-gray-500 uppercase mb-1">Potato Chips</div>
+                    <h3 class="font-bold text-black mb-2">Lay's Classic Salted</h3>
+                    <div class="mt-auto">
+                        <div class="flex items-center">
+                            <span class="text-gray-500 line-through text-sm mr-2">₹40</span>
+                            <span class="text-primary font-bold">₹30</span>
+                        </div>
+                        <button
+                            class="w-full bg-primary hover:bg-red-700 text-white rounded py-2 text-sm font-bold mt-3 transition-colors add-to-cart">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 2 -->
+            <div
+                class="bg-white rounded-lg shadow-md overflow-hidden relative flex flex-col border border-gray-100 hover:shadow-lg transition-shadow">
+                <div class="absolute top-2 right-2">
+                    <button class="text-gray-400 hover:text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex justify-center h-40 p-4">
+                    <img src="https://m.media-amazon.com/images/I/61k3g+1F2aL._SL1500_.jpg" alt="Lay's Magic Masala"
+                        class="h-full object-contain">
+                </div>
+                <div class="p-4 flex flex-col flex-grow border-t border-gray-100">
+                    <div class="text-xs text-gray-500 uppercase mb-1">Potato Chips</div>
+                    <h3 class="font-bold text-black mb-2">Lay's Magic Masala</h3>
+                    <div class="mt-auto">
+                        <span class="text-primary font-bold">₹35</span>
+                        <button
+                            class="w-full bg-primary hover:bg-red-700 text-white rounded py-2 text-sm font-bold mt-3 transition-colors add-to-cart">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more snack products as needed -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex justify-center mt-10">
+            <nav class="inline-flex rounded-md shadow">
+                <a href="#"
+                    class="px-3 py-2 rounded-l-md border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">Previous</a>
+                <a href="#" class="px-3 py-2 border-t border-b border-gray-300 bg-white text-primary font-medium">1</a>
+                <a href="#" class="px-3 py-2 border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">2</a>
+                <a href="#" class="px-3 py-2 border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">3</a>
+                <a href="#"
+                    class="px-3 py-2 rounded-r-md border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">Next</a>
+            </nav>
+        </div>
+    </main>
+
+    <!-- Footer (same as products page) -->
+    <footer class="bg-black text-white py-8">
+        <!-- Same footer as products page -->
+    </footer>
+
+    <script>
+        // Same JavaScript as products page for the ADD button functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const addButtons = document.querySelectorAll('.add-to-cart');
+
+            addButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const productCard = this.closest('.bg-white');
+
+                    // Change to counter
+                    this.outerHTML = `
+                        <div class="flex items-center justify-between border border-primary rounded overflow-hidden">
+                            <button class="decrement bg-primary text-white px-2 py-1 text-sm font-bold">-</button>
+                            <span class="counter text-primary font-bold px-2">1</span>
+                            <button class="increment bg-primary text-white px-2 py-1 text-sm font-bold">+</button>
+                        </div>
+                    `;
+
+                    // Add event listeners to new buttons
+                    const decrement = productCard.querySelector('.decrement');
+                    const increment = productCard.querySelector('.increment');
+                    const counter = productCard.querySelector('.counter');
+
+                    decrement.addEventListener('click', () => {
+                        let count = parseInt(counter.textContent);
+                        if (count > 1) {
+                            counter.textContent = count - 1;
+                        } else {
+                            // Revert back to ADD button
+                            decrement.parentElement.outerHTML = `
+                                <button class="w-full bg-primary hover:bg-red-700 text-white rounded py-2 text-sm font-bold transition-colors add-to-cart">
+                                    ADD TO CART
+                                </button>
+                            `;
+                            // Reattach event listener to new button
+                            productCard.querySelector('.add-to-cart').addEventListener('click', button.click);
+                        }
+                    });
+
+                    increment.addEventListener('click', () => {
+                        let count = parseInt(counter.textContent);
+                        counter.textContent = count + 1;
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

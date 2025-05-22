@@ -1,0 +1,574 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Cleaning Aids</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <style>
+        /* Custom scrollbar for filter sections */
+        .scrollbar-thin::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .scrollbar-thin::-webkit-scrollbar-thumb {
+            background-color: #d1d5db;
+            border-radius: 9999px;
+        }
+
+        /* Smooth transition for wishlist hearts */
+        .wishlist-btn {
+            transition: color 0.3s ease;
+        }
+    </style>
+</head>
+
+<body class="bg-[#f9f9f9] font-sans text-[12px] text-[#1a1a1a] leading-snug">
+    <div class="max-w-[1200px] mx-auto px-4 py-6">
+        <!-- Breadcrumb -->
+        <nav class="mb-6 text-[10px] font-semibold text-[#4b5563] flex flex-wrap gap-x-1 gap-y-1 select-none"
+            aria-label="Breadcrumb">
+            <a href="#" class="hover:underline text-[#6b7280]">Home</a>
+            <span class="text-[#9ca3af]">/</span>
+            <a href="#" class="hover:underline text-[#6b7280]">Apparel</a>
+            <span class="text-[#9ca3af]">/</span>
+            <a href="#" class="hover:underline text-[#6b7280]">Category</a>
+            <span class="text-[#9ca3af]">/</span>
+            <a href="#" class="hover:underline text-[#6b7280]">Home And Living</a>
+            <span class="text-[#9ca3af]">/</span>
+            <span class="font-bold text-[#111827]">Cleaning Aids</span>
+        </nav>
+
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Filters Left Sidebar -->
+            <aside
+                class="w-full lg:w-[260px] flex-shrink-0 space-y-8 bg-white p-5 rounded-md shadow-sm sticky top-6 max-h-[calc(100vh-48px)] overflow-y-auto scrollbar-thin"
+                aria-label="Filters">
+                <h3 class="font-bold text-[13px] text-[#111827] mb-3">Filters</h3>
+
+                <!-- Categories -->
+                <section aria-labelledby="categories-label">
+                    <h4 id="categories-label" class="font-semibold text-[12px] text-[#374151] mb-3">
+                        Categories
+                    </h4>
+                    <ul class="space-y-2 text-[11px] text-[#4b5563]">
+                        <li>
+                            <label
+                                class="inline-flex items-center cursor-pointer hover:text-pink-600 transition-colors"><input
+                                    type="checkbox" class="form-checkbox h-4 w-4 text-pink-600" value="Men's" /><span
+                                    class="ml-2 select-none">Men's</span></label>
+                        </li>
+                        <li>
+                            <label
+                                class="inline-flex items-center cursor-pointer hover:text-pink-600 transition-colors"><input
+                                    type="checkbox" class="form-checkbox h-4 w-4 text-pink-600" value="Women's" /><span
+                                    class="ml-2 select-none">Women's</span></label>
+                        </li>
+                        <li>
+                            <label
+                                class="inline-flex items-center cursor-pointer hover:text-pink-600 transition-colors"><input
+                                    type="checkbox" class="form-checkbox h-4 w-4 text-pink-600" value="Bish" /><span
+                                    class="ml-2 select-none">Bish</span></label>
+                        </li>
+                        <li>
+                            <label
+                                class="inline-flex items-center cursor-pointer hover:text-pink-600 transition-colors"><input
+                                    type="checkbox" class="form-checkbox h-4 w-4 text-pink-600"
+                                    value="EyeExpress" /><span class="ml-2 select-none">EyeExpress</span></label>
+                        </li>
+                        <li>
+                            <label
+                                class="inline-flex items-center cursor-pointer hover:text-pink-600 transition-colors"><input
+                                    type="checkbox" class="form-checkbox h-4 w-4 text-pink-600"
+                                    value="Baby & Kids" /><span class="ml-2 select-none">Baby &amp; Kids</span></label>
+                        </li>
+                        <li>
+                            <label
+                                class="inline-flex items-center cursor-pointer hover:text-pink-600 transition-colors"><input
+                                    type="checkbox" class="form-checkbox h-4 w-4 text-pink-600"
+                                    value="Kitchen & Dining" /><span class="ml-2 select-none">Kitchen &amp;
+                                    Dining</span></label>
+                        </li>
+                    </ul>
+                    <button id="loadMoreCategories"
+                        class="text-pink-600 text-[11px] mt-2 font-semibold hover:underline focus:outline-none"
+                        aria-label="Load more categories">
+                        Load More
+                    </button>
+                </section>
+
+                <!-- Sub Categories -->
+                <section aria-labelledby="subcategories-label">
+                    <div class="flex justify-between items-center mb-3 text-[#374151] text-[12px]">
+                        <h4 id="subcategories-label" class="font-semibold">Sub Categories</h4>
+                        <button id="searchSubCategoriesBtn" aria-label="Search Sub Categories"
+                            class="text-[#6b7280] hover:text-pink-600 focus:outline-none">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <ul id="subCategoriesList"
+                        class="space-y-2 text-[11px] text-[#4b5563] max-h-[140px] overflow-y-auto scrollbar-thin">
+                        <li>
+                            <label
+                                class="inline-flex items-center cursor-pointer hover:text-pink-600 transition-colors"><input
+                                    type="checkbox" class="form-checkbox h-4 w-4 text-pink-600" value="Cleaning Aids"
+                                    checked /><span class="ml-2 select-none">Cleaning Aids</span></label>
+                        </li>
+                        <li>
+                            <label
+                                class="inline-flex items-center cursor-pointer hover:text-pink-600 transition-colors"><input
+                                    type="checkbox" class="form-checkbox h-4 w-4 text-pink-600"
+                                    value="Laundry Accessories" /><span class="ml-2 select-none">Laundry
+                                    Accessories</span></label>
+                        </li>
+                        <li>
+                            <label
+                                class="inline-flex items-center cursor-pointer hover:text-pink-600 transition-colors"><input
+                                    type="checkbox" class="form-checkbox h-4 w-4 text-pink-600"
+                                    value="Furnishing" /><span class="ml-2 select-none">Furnishing</span></label>
+                        </li>
+                        <li>
+                            <label
+                                class="inline-flex items-center cursor-pointer hover:text-pink-600 transition-colors"><input
+                                    type="checkbox" class="form-checkbox h-4 w-4 text-pink-600"
+                                    value="Decorations & Party Accessories" /><span class="ml-2 select-none">Decorations
+                                    &amp; Party Accessories</span></label>
+                        </li>
+                        <li>
+                            <label
+                                class="inline-flex items-center cursor-pointer hover:text-pink-600 transition-colors"><input
+                                    type="checkbox" class="form-checkbox h-4 w-4 text-pink-600"
+                                    value="Electrical Accessories" /><span class="ml-2 select-none">Electrical
+                                    Accessories</span></label>
+                        </li>
+                        <li>
+                            <label
+                                class="inline-flex items-center cursor-pointer hover:text-pink-600 transition-colors"><input
+                                    type="checkbox" class="form-checkbox h-4 w-4 text-pink-600"
+                                    value="Tools & Hardware" /><span class="ml-2 select-none">Tools &amp;
+                                    Hardware</span></label>
+                        </li>
+                        <li>
+                            <label
+                                class="inline-flex items-center cursor-pointer hover:text-pink-600 transition-colors"><input
+                                    type="checkbox" class="form-checkbox h-4 w-4 text-pink-600"
+                                    value="Outdoor & Gardening" /><span class="ml-2 select-none">Outdoor &amp;
+                                    Gardening</span></label>
+                        </li>
+                    </ul>
+                    <button id="loadMoreSubCategories"
+                        class="text-pink-600 text-[11px] mt-2 font-semibold hover:underline focus:outline-none"
+                        aria-label="Load more sub categories">
+                        Load More
+                    </button>
+                </section>
+
+                <!-- Brands -->
+                <section aria-labelledby="brands-label">
+                    <div class="flex justify-between items-center mb-3 text-[#374151] text-[12px]">
+                        <h4 id="brands-label" class="font-semibold">Brands</h4>
+                        <button id="searchBrandsBtn" aria-label="Search Brands"
+                            class="text-[#6b7280] hover:text-pink-600 focus:outline-none">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <ul id="brandsList"
+                        class="space-y-2 text-[11px] text-[#4b5563] max-h-[140px] overflow-y-auto scrollbar-thin">
+                        <li>
+                            <label
+                                class="inline-flex items-center cursor-pointer hover:text-pink-600 transition-colors"><input
+                                    type="checkbox" class="form-checkbox h-4 w-4 text-pink-600" value="PRESTIGE" /><span
+                                    class="ml-2 select-none">PRESTIGE</span></label>
+                        </li>
+                        <li>
+                            <label
+                                class="inline-flex items-center cursor-pointer hover:text-pink-600 transition-colors"><input
+                                    type="checkbox" class="form-checkbox h-4 w-4 text-pink-600" value="POLYSET" /><span
+                                    class="ml-2 select-none">POLYSET</span></label>
+                        </li>
+                        <li>
+                            <label
+                                class="inline-flex items-center cursor-pointer hover:text-pink-600 transition-colors"><input
+                                    type="checkbox" class="form-checkbox h-4 w-4 text-pink-600" value="ROZENBAL" /><span
+                                    class="ml-2 select-none">ROZENBAL</span></label>
+                        </li>
+                        <li>
+                            <label
+                                class="inline-flex items-center cursor-pointer hover:text-pink-600 transition-colors"><input
+                                    type="checkbox" class="form-checkbox h-4 w-4 text-pink-600" value="PIGEON" /><span
+                                    class="ml-2 select-none">PIGEON</span></label>
+                        </li>
+                        <li>
+                            <label
+                                class="inline-flex items-center cursor-pointer hover:text-pink-600 transition-colors"><input
+                                    type="checkbox" class="form-checkbox h-4 w-4 text-pink-600" value="JCI" /><span
+                                    class="ml-2 select-none">JCI</span></label>
+                        </li>
+                        <li>
+                            <label
+                                class="inline-flex items-center cursor-pointer hover:text-pink-600 transition-colors"><input
+                                    type="checkbox" class="form-checkbox h-4 w-4 text-pink-600"
+                                    value="SCOTCH BRITE" /><span class="ml-2 select-none">SCOTCH BRITE</span></label>
+                        </li>
+                    </ul>
+                </section>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="flex-1">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
+                    <h2 class="font-semibold text-[15px] text-[#111827] mb-3 sm:mb-0">
+                        Cleaning Aids - <span class="font-normal">(194)</span> Found
+                    </h2>
+                    <div class="relative w-[160px] text-[12px]">
+                        <label for="sortSelect" class="sr-only">Sort by</label>
+                        <select id="sortSelect"
+                            class="w-full border border-gray-300 rounded-md py-2 pl-3 pr-8 text-gray-700 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-pink-600"
+                            aria-label="Sort products">
+                            <option value="recommended" selected>Recommended</option>
+                            <option value="priceLowHigh">Price: Low to High</option>
+                            <option value="priceHighLow">Price: High to Low</option>
+                            <option value="discount">Discount</option>
+                            <option value="alphabetical">Alphabetical</option>
+                        </select>
+                        <i
+                            class="fas fa-chevron-down absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400"></i>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div id="productsGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6" aria-live="polite">
+                    <!-- Product cards will be injected here by JS -->
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Product data array
+        const products = [
+            {
+                id: 1,
+                brand: "SCOTCH BRITE",
+                title: "Scotch Brite Butterfly Mop Refill",
+                price: 590,
+                oldPrice: 600,
+                discountPercent: 1,
+                image:
+                    "https://storage.googleapis.com/a1aa/image/96815ff1-f07c-4705-cc6d-76b0162be16d.jpg",
+                alt: "Scotch Brite Butterfly Mop Refill product image showing mop refill packaging in green and yellow colors",
+            },
+            {
+                id: 2,
+                brand: "LULU",
+                title: "Lulu Floor Wiper 35cm L30-0016-11",
+                price: 365,
+                oldPrice: 370,
+                discountPercent: 1,
+                image:
+                    "https://storage.googleapis.com/a1aa/image/105f7f1c-ea03-488f-fc6f-40b2ddbfd1b2.jpg",
+                alt: "Lulu Floor Wiper 35cm L30-0016-11 product image showing a green floor wiper with a long handle",
+            },
+            {
+                id: 3,
+                brand: "FIRMER",
+                title: "Firmer Spice Rack",
+                price: 698,
+                oldPrice: 720,
+                discountPercent: 6,
+                image:
+                    "https://storage.googleapis.com/a1aa/image/b82215ab-9fba-4653-10be-bd2dbbe0769e.jpg",
+                alt: "Firmer Spice Rack product image showing a rotating spice rack with multiple spice containers in beige and black",
+            },
+            {
+                id: 4,
+                brand: "GALA",
+                title: "Gala Advanced Floor Cloth 2 Pcs Pack",
+                price: 250,
+                oldPrice: null,
+                discountPercent: 0,
+                image:
+                    "https://storage.googleapis.com/a1aa/image/9b6eef6b-a6dc-4aeb-54e5-1b2759878f13.jpg",
+                alt: "Gala Advanced Floor Cloth 2 Pcs Pack product image showing two white and blue striped floor cloths with packaging",
+            },
+            {
+                id: 5,
+                brand: "SCOTCH BRITE",
+                title: "Scotch Brite Green Cleaning Brush",
+                price: 150,
+                oldPrice: null,
+                discountPercent: 0,
+                image:
+                    "https://storage.googleapis.com/a1aa/image/d8b4484a-9bd8-497e-f24d-028947afaa86.jpg",
+                alt: "Scotch Brite Green Cleaning Brush product image showing a green cleaning brush with a handle",
+            },
+            {
+                id: 6,
+                brand: "GENERIC",
+                title: "Blue Floor Brush with Long Handle",
+                price: 118,
+                oldPrice: 120,
+                discountPercent: 1,
+                image:
+                    "https://storage.googleapis.com/a1aa/image/fb9e2fa0-ef28-4afb-271f-36e3aec5b76a.jpg",
+                alt: "Blue Floor Brush with Long Handle product image showing a blue floor brush with a long handle",
+            },
+            {
+                id: 7,
+                brand: "GALA",
+                title: "Gala Detergent Powder Packet",
+                price: 180,
+                oldPrice: null,
+                discountPercent: 3,
+                image:
+                    "https://storage.googleapis.com/a1aa/image/d5e71716-c465-4a8a-17c4-966ea895ddc5.jpg",
+                alt: "Gala Detergent Powder Packet product image showing a yellow and orange detergent powder packet",
+            },
+            {
+                id: 8,
+                brand: "GENERIC",
+                title: "Blue Toothbrush with White Handle",
+                price: 50,
+                oldPrice: 55,
+                discountPercent: 9,
+                image:
+                    "https://storage.googleapis.com/a1aa/image/3edb1987-a16a-4598-6ea7-47f6cf39f54c.jpg",
+                alt: "Blue Toothbrush with White Handle product image showing a toothbrush with blue bristles and white handle",
+            },
+        ];
+
+        // Wishlist state
+        let wishlist = new Set();
+
+        // Utility: format price with ₹ and commas
+        function formatPrice(num) {
+            return "₹" + num.toLocaleString("en-IN");
+        }
+
+        // Render products grid
+        function renderProducts(productsToRender) {
+            const container = document.getElementById("productsGrid");
+            container.innerHTML = "";
+
+            if (productsToRender.length === 0) {
+                container.innerHTML =
+                    '<p class="col-span-full text-center text-gray-500 mt-10">No products found.</p>';
+                return;
+            }
+
+            productsToRender.forEach((product) => {
+                const isWishlisted = wishlist.has(product.id);
+                const discountTag =
+                    product.discountPercent > 0
+                        ? `<div class="absolute top-0 left-0 bg-pink-600 text-[9px] text-white font-semibold px-2 py-[3px] z-10 rounded-br-md">
+                ${product.discountPercent}% OFF
+              </div>`
+                        : "";
+
+                const oldPriceHTML = product.oldPrice
+                    ? `<div class="text-[11px] text-gray-400 line-through">${formatPrice(
+                        product.oldPrice
+                    )}</div>`
+                    : "";
+
+                const priceHTML = `<div class="text-[13px] font-semibold text-[#111827]">${formatPrice(
+                    product.price
+                )}</div>`;
+
+                const heartClass = isWishlisted
+                    ? "fas fa-heart text-pink-600"
+                    : "far fa-heart text-gray-400 hover:text-pink-600";
+
+                const productCard = document.createElement("article");
+                productCard.className =
+                    "bg-white border border-gray-200 rounded-md relative shadow-sm hover:shadow-md transition-shadow duration-300";
+
+                productCard.innerHTML = `
+          ${discountTag}
+          <button aria-label="Add to wishlist" class="wishlist-btn absolute top-2 right-2 focus:outline-none" data-id="${product.id}">
+            <i class="${heartClass} fa-lg"></i>
+          </button>
+          <img
+            src="${product.image}"
+            alt="${product.alt}"
+            loading="lazy"
+            class="w-full object-contain p-3 h-[140px]"
+            width="260"
+            height="140"
+          />
+          <div class="px-3 pb-2 pt-1 text-[10px] text-gray-500 uppercase font-semibold tracking-wide">
+            ${product.brand}
+          </div>
+          <div class="px-3 pb-1 font-semibold text-[12px] leading-tight text-[#111827] min-h-[44px]">
+            ${product.title}
+          </div>
+          <div class="px-3 pb-3 flex items-center gap-2">
+            ${oldPriceHTML}
+            ${priceHTML}
+          </div>
+        `;
+
+                container.appendChild(productCard);
+            });
+
+            // Add wishlist toggle event listeners
+            document.querySelectorAll(".wishlist-btn").forEach((btn) => {
+                btn.addEventListener("click", (e) => {
+                    const id = parseInt(e.currentTarget.getAttribute("data-id"));
+                    if (wishlist.has(id)) {
+                        wishlist.delete(id);
+                    } else {
+                        wishlist.add(id);
+                    }
+                    renderProducts(filteredProducts);
+                });
+            });
+        }
+
+        // Filtering and sorting state
+        let filteredProducts = [...products];
+        let selectedCategories = new Set();
+        let selectedSubCategories = new Set(["Cleaning Aids"]);
+        let selectedBrands = new Set();
+        let currentSort = "recommended";
+
+        // Filter products based on selected filters
+        function filterProducts() {
+            filteredProducts = products.filter((product) => {
+                // Category filter (simulate with brand for demo)
+                if (
+                    selectedCategories.size > 0 &&
+                    !selectedCategories.has(product.brand)
+                )
+                    return false;
+
+                // Subcategory filter (simulate with brand for demo)
+                if (
+                    selectedSubCategories.size > 0 &&
+                    !selectedSubCategories.has("Cleaning Aids")
+                )
+                    return false;
+
+                // Brand filter
+                if (selectedBrands.size > 0 && !selectedBrands.has(product.brand))
+                    return false;
+
+                return true;
+            });
+        }
+
+        // Sort products based on currentSort
+        function sortProducts() {
+            switch (currentSort) {
+                case "priceLowHigh":
+                    filteredProducts.sort((a, b) => a.price - b.price);
+                    break;
+                case "priceHighLow":
+                    filteredProducts.sort((a, b) => b.price - a.price);
+                    break;
+                case "discount":
+                    filteredProducts.sort((a, b) => b.discountPercent - a.discountPercent);
+                    break;
+                case "alphabetical":
+                    filteredProducts.sort((a, b) =>
+                        a.title.localeCompare(b.title, "en", { sensitivity: "base" })
+                    );
+                    break;
+                default:
+                    // Recommended or default order (by id)
+                    filteredProducts.sort((a, b) => a.id - b.id);
+            }
+        }
+
+        // Update product count in heading
+        function updateProductCount() {
+            const heading = document.querySelector("main h2");
+            heading.innerHTML = `Cleaning Aids - <span class="font-normal">(${filteredProducts.length})</span> Found`;
+        }
+
+        // Handle checkbox changes for filters
+        function setupFilterListeners() {
+            // Categories
+            document.querySelectorAll("aside section:nth-child(2) input[type=checkbox]").forEach((checkbox) => {
+                checkbox.addEventListener("change", (e) => {
+                    const val = e.target.value;
+                    if (e.target.checked) {
+                        selectedCategories.add(val);
+                    } else {
+                        selectedCategories.delete(val);
+                    }
+                    applyFiltersAndRender();
+                });
+            });
+
+            // Sub Categories
+            document.querySelectorAll("aside section:nth-child(3) input[type=checkbox]").forEach((checkbox) => {
+                checkbox.addEventListener("change", (e) => {
+                    const val = e.target.value;
+                    if (e.target.checked) {
+                        selectedSubCategories.add(val);
+                    } else {
+                        selectedSubCategories.delete(val);
+                    }
+                    applyFiltersAndRender();
+                });
+            });
+
+            // Brands
+            document.querySelectorAll("aside section:nth-child(4) input[type=checkbox]").forEach((checkbox) => {
+                checkbox.addEventListener("change", (e) => {
+                    const val = e.target.value;
+                    if (e.target.checked) {
+                        selectedBrands.add(val);
+                    } else {
+                        selectedBrands.delete(val);
+                    }
+                    applyFiltersAndRender();
+                });
+            });
+        }
+
+        // Handle sort select change
+        function setupSortListener() {
+            const sortSelect = document.getElementById("sortSelect");
+            sortSelect.addEventListener("change", (e) => {
+                currentSort = e.target.value;
+                applyFiltersAndRender();
+            });
+        }
+
+        // Apply filters, sort and render products
+        function applyFiltersAndRender() {
+            filterProducts();
+            sortProducts();
+            updateProductCount();
+            renderProducts(filteredProducts);
+        }
+
+        // Load more buttons (simulate expanding lists)
+        function setupLoadMoreButtons() {
+            const loadMoreCategoriesBtn = document.getElementById("loadMoreCategories");
+            loadMoreCategoriesBtn.addEventListener("click", () => {
+                alert("Load more categories functionality not implemented in demo.");
+            });
+
+            const loadMoreSubCategoriesBtn = document.getElementById("loadMoreSubCategories");
+            loadMoreSubCategoriesBtn.addEventListener("click", () => {
+                alert("Load more sub categories functionality not implemented in demo.");
+            });
+        }
+
+        // Initialize page
+        function init() {
+            setupFilterListeners();
+            setupSortListener();
+            setupLoadMoreButtons();
+            applyFiltersAndRender();
+        }
+
+        window.addEventListener("DOMContentLoaded", init);
+    </script>
+</body>
+
+</html>

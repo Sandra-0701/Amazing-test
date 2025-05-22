@@ -1,0 +1,257 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>
+    Footer Example with Toggle Menus
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <style>
+
+  </style>
+</head>
+
+<body class="bg-white text-gray-900">
+  <footer class="block lg:hidden max-w-4xl mx-auto p-4 md:p-6">
+    <div class="flex justify-center mb-6">
+      <img alt="Amazing Hypermarket logo with Arabic text and green and red colors" class="h-12 object-contain"
+        height="50" src="https://storage.googleapis.com/a1aa/image/430b8377-0b38-4e48-6192-f713e47e2171.jpg"
+        width="150" />
+    </div>
+
+    <div class="footer-grid">
+      <nav class="space-y-3 text-sm font-semibold text-gray-900">
+        <button aria-controls="contactus-menu" aria-expanded="false" class="w-full flex justify-between items-center"
+          id="contactus-btn" type="button" onclick="toggleMenu('contactus')">
+          Contact Us
+          <i class="fas fa-chevron-right text-gray-600 transition-transform duration-200 md:hidden"
+            id="contactus-icon"></i>
+        </button>
+        <div class="pl-0 md:pl-4 text-xs text-gray-600 space-y-1 hidden md:block" id="contactus-menu">
+          <p class="py-1"><i class="fas fa-phone-alt mr-2 text-red-600"></i> +971 4 123 4567</p>
+          <p class="py-1"><i class="fas fa-envelope mr-2 text-red-600"></i> info@amazinghypermarket.com</p>
+          <p class="py-1"><i class="fas fa-map-marker-alt mr-2 text-red-600"></i> Store Locator</p>
+          <p class="py-1"><i class="fas fa-clock mr-2 text-red-600"></i> 8:00 AM - 12:00 AM</p>
+        </div>
+      </nav>
+
+      <nav class="space-y-3 text-sm font-semibold text-gray-900">
+        <button aria-controls="policies-menu" aria-expanded="false" class="w-full flex justify-between items-center"
+          id="policies-btn" type="button" onclick="toggleMenu('policies')">
+          Policies
+          <i class="fas fa-chevron-right text-gray-600 transition-transform duration-200 md:hidden"
+            id="policies-icon"></i>
+        </button>
+        <div class="pl-0 md:pl-4 text-xs text-gray-600 space-y-1 hidden md:block" id="policies-menu">
+          <p class="py-1">Privacy Policy</p>
+          <p class="py-1">Terms & Conditions</p>
+          <p class="py-1">Return Policy</p>
+          <p class="py-1">Shipping Policy</p>
+          <p class="py-1">Payment Options</p>
+        </div>
+      </nav>
+
+      <nav class="space-y-3 text-sm font-semibold text-gray-900">
+        <button aria-controls="knowus-menu" aria-expanded="false"
+          class="w-full flex justify-between items-center font-bold" id="knowus-btn" type="button"
+          onclick="toggleMenu('knowus')">
+          Know Us
+          <i class="fas fa-chevron-right text-gray-600 transition-transform duration-200 md:hidden"
+            id="knowus-icon"></i>
+        </button>
+        <div class="pl-0 md:pl-4 text-xs text-gray-600 space-y-1 hidden md:block" id="knowus-menu">
+          <p class="py-1">About Us</p>
+          <p class="py-1">FAQ</p>
+          <p class="py-1">Feedback</p>
+          <p class="py-1">News And Events</p>
+          <p class="py-1">Sitemap</p>
+          <p class="py-1">Contact Us</p>
+        </div>
+      </nav>
+
+      <nav class="space-y-3 text-sm font-semibold text-gray-900">
+        <button aria-controls="account-menu" aria-expanded="false" class="w-full flex justify-between items-center"
+          id="account-btn" type="button" onclick="toggleMenu('account')">
+          Account
+          <i class="fas fa-chevron-right text-gray-600 transition-transform duration-200 md:hidden"
+            id="account-icon"></i>
+        </button>
+        <div class="pl-0 md:pl-4 text-xs text-gray-600 space-y-1 hidden md:block" id="account-menu">
+          <p class="py-1">My Account</p>
+          <p class="py-1">Order History</p>
+          <p class="py-1">Wishlist</p>
+          <p class="py-1">Rewards</p>
+          <p class="py-1">Newsletter</p>
+        </div>
+
+        <button aria-controls="download-menu" aria-expanded="false" class="w-full flex justify-between items-center"
+          id="download-btn" type="button" onclick="toggleMenu('download')">
+          Download our app
+          <i class="fas fa-chevron-right text-gray-600 transition-transform duration-200 md:hidden"
+            id="download-icon"></i>
+        </button>
+        <div class="pl-0 md:pl-4 text-xs text-gray-600 space-y-1 hidden md:block" id="download-menu">
+          <div class="flex space-x-2 mt-2">
+            <img alt="App Store" class="h-8" src="https://storage.googleapis.com/a1aa/image/app-store-badge.png" />
+            <img alt="Play Store" class="h-8" src="https://storage.googleapis.com/a1aa/image/play-store-badge.png" />
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="mt-6">
+      <label class="block text-xs font-semibold text-gray-900 mb-1" for="newsletter">
+        Subscribe to our newsletter
+      </label>
+      <form class="flex">
+        <input
+          class="flex-grow border border-gray-300 px-3 py-2 text-xs text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-600"
+          id="newsletter" placeholder="Enter your email" type="email" />
+        <button class="bg-red-600 text-white text-xs font-semibold px-4 py-2 ml-2 hover:bg-red-700 transition-colors"
+          type="submit">
+          Subscribe
+        </button>
+      </form>
+    </div>
+
+    <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <address class="text-xs text-gray-600 not-italic leading-relaxed">
+        <strong class="block text-gray-900 mb-1">Registered Office Address:</strong>
+        Amazing Hypermarket, Near Power House, Assisi Junction, Aluva-01
+      </address>
+
+      <div>
+        <strong class="block text-xs font-semibold text-gray-900 mb-1">Customer Service:</strong>
+        <p class="text-xs text-gray-600">Email: support@amazinghypermarket.com</p>
+        <p class="text-xs text-gray-600">Phone: 600 123 456</p>
+      </div>
+    </div>
+
+    <div class="mt-6">
+      <p class="text-xs font-semibold text-gray-900 mb-2">Stay in the Loop</p>
+      <div class="flex space-x-4 text-gray-900">
+        <a aria-label="Facebook" class="hover:text-red-600 transition-colors" href="#">
+          <i class="fab fa-facebook-f text-lg"></i>
+        </a>
+        <a aria-label="Twitter" class="hover:text-red-600 transition-colors" href="#">
+          <i class="fab fa-twitter text-lg"></i>
+        </a>
+        <a aria-label="Instagram" class="hover:text-red-600 transition-colors" href="#">
+          <i class="fab fa-instagram text-lg"></i>
+        </a>
+        <a aria-label="YouTube" class="hover:text-red-600 transition-colors" href="#">
+          <i class="fab fa-youtube text-lg"></i>
+        </a>
+        <a aria-label="LinkedIn" class="hover:text-red-600 transition-colors" href="#">
+          <i class="fab fa-linkedin-in text-lg"></i>
+        </a>
+        <a aria-label="WhatsApp" class="hover:text-red-600 transition-colors" href="#">
+          <i class="fab fa-whatsapp text-lg"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-6 flex justify-center space-x-2 flex-wrap">
+      <img alt="Visa credit card logo" class="h-6 object-contain" height="25"
+        src="https://storage.googleapis.com/a1aa/image/20f8ac20-5b52-47b9-29a7-ad17c1d61924.jpg" width="40" />
+      <img alt="Mastercard credit card logo" class="h-6 object-contain" height="25"
+        src="https://storage.googleapis.com/a1aa/image/8d854362-a997-4c30-34ac-d28411b22309.jpg" width="40" />
+      <img alt="Maestro credit card logo" class="h-6 object-contain" height="25"
+        src="https://storage.googleapis.com/a1aa/image/cce420be-422b-4023-a49b-244dd4caf883.jpg" width="40" />
+      <img alt="American Express credit card logo" class="h-6 object-contain" height="25"
+        src="https://storage.googleapis.com/a1aa/image/fbc0cace-3b68-4881-0301-997b553c4c03.jpg" width="40" />
+      <img alt="RuPay credit card logo" class="h-6 object-contain" height="25"
+        src="https://storage.googleapis.com/a1aa/image/8775fcf8-1c75-4e35-35c2-39c9cef0a746.jpg" width="40" />
+      <img alt="UPI payment logo" class="h-6 object-contain" height="25"
+        src="https://storage.googleapis.com/a1aa/image/7e01c604-3659-44ad-f396-9cbe773fe215.jpg" width="40" />
+    </div>
+
+    <p class="mt-6 text-center text-xs text-gray-600">
+      Copyright © 2024 Amazing Hypermarket. All Rights reserved.
+    </p>
+
+    <button aria-label="Scroll to top"
+      class="fixed bottom-6 right-6 bg-red-600 text-white p-3 rounded-full shadow-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-600 transition-colors"
+      onclick="window.scrollTo({top:0,behavior:'smooth'})">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+  </footer>
+
+  <script>
+    function toggleMenu(menu) {
+      const menuDiv = document.getElementById(menu + '-menu');
+      const btn = document.getElementById(menu + '-btn');
+      const icon = document.getElementById(menu + '-icon');
+      if (!menuDiv) return;
+
+      const isHidden = menuDiv.classList.contains('hidden');
+
+      // Close all menus first on mobile
+      if (window.innerWidth < 768) {
+        ['contactus', 'policies', 'knowus', 'account', 'download'].forEach(m => {
+          const div = document.getElementById(m + '-menu');
+          const ic = document.getElementById(m + '-icon');
+          const button = document.getElementById(m + '-btn');
+          if (div) div.classList.add('hidden');
+          if (ic) {
+            ic.classList.remove('fa-chevron-down');
+            ic.classList.add('fa-chevron-right');
+            ic.style.transform = 'rotate(0deg)';
+          }
+          if (button) button.setAttribute('aria-expanded', 'false');
+        });
+      }
+
+      if (isHidden) {
+        menuDiv.classList.remove('hidden');
+        if (icon) {
+          icon.classList.remove('fa-chevron-right');
+          icon.classList.add('fa-chevron-down');
+          icon.style.transform = 'rotate(0deg)';
+        }
+        btn.setAttribute('aria-expanded', 'true');
+      } else {
+        menuDiv.classList.add('hidden');
+        if (icon) {
+          icon.classList.remove('fa-chevron-down');
+          icon.classList.add('fa-chevron-right');
+          icon.style.transform = 'rotate(0deg)';
+        }
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    }
+
+    // Make menus always visible on desktop
+    function handleResize() {
+      if (window.innerWidth >= 768) {
+        ['contactus', 'policies', 'knowus', 'account', 'download'].forEach(m => {
+          const div = document.getElementById(m + '-menu');
+          const icon = document.getElementById(m + '-icon');
+          if (div) div.classList.remove('hidden');
+          if (icon) icon.classList.add('hidden');
+        });
+      } else {
+        // On mobile, keep all menus closed by default except the first one
+        ['policies', 'knowus', 'account', 'download'].forEach(m => {
+          const div = document.getElementById(m + '-menu');
+          const icon = document.getElementById(m + '-icon');
+          if (div) div.classList.add('hidden');
+          if (icon) {
+            icon.classList.remove('fa-chevron-down');
+            icon.classList.add('fa-chevron-right');
+            icon.style.transform = 'rotate(0deg)';
+          }
+        });
+      }
+    }
+
+    // Initialize and add resize listener
+    window.addEventListener('load', handleResize);
+    window.addEventListener('resize', handleResize);
+  </script>
+</body>
+
+</html>

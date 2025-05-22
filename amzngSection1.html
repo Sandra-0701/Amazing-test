@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image-Only Product Carousel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .carousel-container {
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* IE and Edge */
+        }
+
+        .carousel-container::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, Opera */
+        }
+
+        .dot {
+            transition: all 0.3s ease;
+        }
+
+        .carousel-container img {
+            transition: transform 0.3s ease;
+        }
+
+        .carousel-container img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="p-6">
+        <div class="w-full mx-auto">
+            <div class="relative">
+                <!-- Left Arrow -->
+                <button id="prevBtn"
+                    class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-md z-10 hover:bg-gray-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+
+                <!-- Scrollable Container -->
+                <div id="carousel" class="carousel-container overflow-x-auto whitespace-nowrap py-4 px-8">
+                    <div class="inline-flex space-x-8">
+                        <!-- Images with your provided URLs -->
+                        <img class="w-52 h-64 overflow-hidden flex-shrink-0" src="./amazngIcons/ICONS-01.png"
+                            alt="Personal Wash">
+
+                        <img class="w-52 h-64 overflow-hidden flex-shrink-0" src="./amazngIcons/ICONS-01.png"
+                            alt="Chill & Dairy">
+
+                        <img class="w-52 h-64 overflow-hidden flex-shrink-0" src="./amazngIcons/ICONS-01.png"
+                            alt="Frozen">
+
+                        <img class="w-52 h-64 overflow-hidden flex-shrink-0" src="./amazngIcons/ICONS-01.png"
+                            alt="Baby Care">
+
+                        <img class="w-52 h-64 overflow-hidden flex-shrink-0" src="./amazngIcons/ICONS-01.png"
+                            alt="Tea & Coffee">
+
+                        <img class="w-52 h-64 overflow-hidden flex-shrink-0" src="./amazngIcons/ICONS-01.png"
+                            alt="Pulse & Dals">
+
+                        <img class="w-52 h-64 overflow-hidden flex-shrink-0" src="./amazngIcons/ICONS-01.png"
+                            alt="Pulse & Dals">
+                    </div>
+                </div>
+                <!-- Right Arrow -->
+                <button id="nextBtn"
+                    class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-md z-10 hover:bg-gray-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Pagination Dots -->
+            <div id="dotsContainer" class="flex justify-center space-x-2 mt-6">
+                <!-- Dots will be added dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get all items
+        const items = document.querySelectorAll('.carousel-container img');
+
+        // Current page
+        let currentPage = 0;
+
+        // Get DOM elements
+        const carousel = document.getElementById('carousel');
+        const dotsContainer = document.getElementById('dotsContainer');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        // Auto-scroll variables
+        let autoScrollInterval;
+        const autoScrollDelay = 3000; // 3 seconds
+
+        function getItemsPerPage() {
+            const item = items[0];
+            const style = window.getComputedStyle(item);
+            const itemWidth = item.offsetWidth + parseInt(style.marginRight);
+            const carouselWidth = carousel.offsetWidth;
+            return Math.floor(carouselWidth / itemWidth);
+        }
+
+        function calculateTotalPages() {
+            const itemsPerPage = getItemsPerPage();
+            return Math.ceil(items.length / itemsPerPage);
+        }
+
+        // Create pagination dots
+        function createDots() {
+            const totalPages = calculateTotalPages();
+            dotsContainer.innerHTML = '';
+
+            for (let i = 0; i < totalPages; i++) {
+                const dot = document.createElement('div');
+                dot.className = `dot w-2 h-2 rounded-full cursor-pointer ${i === currentPage ? 'w-8 bg-pink-500' : 'bg-gray-300'}`;
+                dot.dataset.page = i;
+
+                dot.addEventListener('click', () => {
+                    currentPage = i;
+                    scrollToPage(i);
+                    updateDots();
+                    resetAutoScroll();
+                });
+
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        function calculateCurrentPage() {
+            const item = items[0];
+            const style = window.getComputedStyle(item);
+            const itemWidth = item.offsetWidth + parseInt(style.marginRight);
+            const scrollPosition = carousel.scrollLeft;
+            const itemsPerPage = getItemsPerPage();
+            return Math.round(scrollPosition / (itemWidth * itemsPerPage));
+        }
+
+        // Update dots based on current page
+        function updateDots() {
+            const dots = dotsContainer.querySelectorAll('.dot');
+            const calculatedPage = calculateCurrentPage();
+            currentPage = calculatedPage; // Ensure currentPage is always in sync
+
+            dots.forEach((dot, index) => {
+                if (index === currentPage) {
+                    dot.classList.add('w-8', 'bg-pink-500');
+                    dot.classList.remove('bg-gray-300');
+                } else {
+                    dot.classList.remove('w-8', 'bg-pink-500');
+                    dot.classList.add('bg-gray-300');
+                }
+            });
+        }
+
+        // Scroll to specific page
+        function scrollToPage(page) {
+            const item = items[0];
+            const style = window.getComputedStyle(item);
+            const itemWidth = item.offsetWidth + parseInt(style.marginRight);
+            const scrollPosition = page * itemWidth * getItemsPerPage();
+            carousel.scrollTo({
+                left: scrollPosition,
+                behavior: 'smooth'
+            });
+            updateDots(); // Ensure dots are updated after scrolling
+        }
+
+        // Start auto-scrolling
+        function startAutoScroll() {
+            if (autoScrollInterval) clearInterval(autoScrollInterval);
+
+            autoScrollInterval = setInterval(() => {
+                if (currentPage < calculateTotalPages() - 1) {
+                    currentPage++;
+                } else {
+                    currentPage = 0;
+                }
+                scrollToPage(currentPage);
+            }, autoScrollDelay);
+        }
+
+        // Reset auto-scroll timer after manual interaction
+        function resetAutoScroll() {
+            if (autoScrollInterval) {
+                clearInterval(autoScrollInterval);
+            }
+            startAutoScroll();
+        }
+
+        // Event listeners for arrow buttons
+        prevBtn.addEventListener('click', () => {
+            if (currentPage > 0) {
+                currentPage--;
+            } else {
+                // Loop to the last page if at the beginning
+                currentPage = calculateTotalPages() - 1;
+            }
+            scrollToPage(currentPage);
+            resetAutoScroll();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentPage < calculateTotalPages() - 1) {
+                currentPage++;
+            } else {
+                // Loop to the first page if at the end
+                currentPage = 0;
+            }
+            scrollToPage(currentPage);
+            resetAutoScroll();
+        });
+
+        // Handle manual scroll events
+        let scrollTimeout;
+
+        carousel.addEventListener('scroll', () => {
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
+            }
+
+            scrollTimeout = setTimeout(() => {
+                updateDots();
+            }, 100); // Debounce delay of 100ms
+        });
+
+        window.addEventListener('resize', () => {
+            createDots();
+            updateDots();
+            scrollToPage(currentPage); // Ensure the carousel aligns correctly after resizing
+        });
+
+        // Initialize
+        createDots();
+        startAutoScroll();
+    </script>
+</body>
+
+</html>
