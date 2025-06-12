@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile Dropdown</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom animation for dropdown */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dropdown-animate {
+            animation: fadeIn 0.2s ease-out forwards;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <!-- Container for demo purposes -->
+    <div class="relative">
+        <!-- Trigger button (for demo) -->
+        <button id="dropdownButton"
+            class="flex items-center space-x-2 bg-white px-4 py-2 rounded-lg shadow-sm border border-gray-200 hover:bg-gray-50">
+            <img class="h-8 w-8 rounded-full"
+                src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                alt="User">
+            <span class="font-medium">John Doe</span>
+            <i class="fas fa-chevron-down text-gray-500 text-xs"></i>
+        </button>
+
+        <!-- Dropdown Menu -->
+        <div id="dropdownMenu"
+            class="hidden absolute right-0 mt-2 w-72 bg-white rounded-xl shadow-lg border border-gray-200 z-20 dropdown-animate">
+            <!-- User Info Section -->
+            <div class="px-6 pt-4 pb-3 border-b border-gray-100">
+                <div class="flex items-center space-x-3">
+                    <div class="flex-shrink-0">
+                        <img class="h-10 w-10 rounded-full object-cover"
+                            src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                            alt="User profile">
+                    </div>
+                    <div>
+                        <p class="font-medium text-gray-900">John Doe</p>
+                        <p class="text-sm text-gray-500">john.doe@example.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="px-6 py-3 grid grid-cols-2 gap-2 border-b border-gray-100">
+                <button
+                    class="flex flex-col items-center justify-center p-2 rounded-lg hover:bg-gray-50 text-gray-700 transition-colors">
+                    <div class="bg-gray-100 p-2 rounded-full mb-1">
+                        <i class="fas fa-shopping-bag text-gray-600"></i>
+                    </div>
+                    <span class="text-xs">Orders</span>
+                </button>
+                <button
+                    class="flex flex-col items-center justify-center p-2 rounded-lg hover:bg-gray-50 text-gray-700 transition-colors">
+                    <div class="bg-gray-100 p-2 rounded-full mb-1">
+                        <i class="fas fa-heart text-gray-600"></i>
+                    </div>
+                    <span class="text-xs">Wishlist</span>
+                </button>
+                <button
+                    class="flex flex-col items-center justify-center p-2 rounded-lg hover:bg-gray-50 text-gray-700 transition-colors">
+                    <div class="bg-gray-100 p-2 rounded-full mb-1">
+                        <i class="fas fa-wallet text-gray-600"></i>
+                    </div>
+                    <span class="text-xs">Wallet</span>
+                </button>
+                <button
+                    class="flex flex-col items-center justify-center p-2 rounded-lg hover:bg-gray-50 text-gray-700 transition-colors">
+                    <div class="bg-gray-100 p-2 rounded-full mb-1">
+                        <i class="fas fa-gift text-gray-600"></i>
+                    </div>
+                    <span class="text-xs">Rewards</span>
+                </button>
+            </div>
+
+            <!-- Menu Items -->
+            <ul class="px-6 py-3 space-y-3 text-gray-700 text-sm">
+                <li
+                    class="flex items-center space-x-3 hover:bg-gray-50 p-2 -mx-2 rounded-lg cursor-pointer transition-colors">
+                    <i class="fas fa-user text-gray-500 text-base w-5"></i>
+                    <span>My Profile</span>
+                </li>
+                <li
+                    class="flex items-center space-x-3 hover:bg-gray-50 p-2 -mx-2 rounded-lg cursor-pointer transition-colors">
+                    <i class="fas fa-map-marker-alt text-gray-500 text-base w-5"></i>
+                    <span>Addresses</span>
+                </li>
+                <li
+                    class="flex items-center space-x-3 hover:bg-gray-50 p-2 -mx-2 rounded-lg cursor-pointer transition-colors">
+                    <i class="far fa-credit-card text-gray-500 text-base w-5"></i>
+                    <span>Payment Methods</span>
+                </li>
+                <li
+                    class="flex items-center space-x-3 hover:bg-gray-50 p-2 -mx-2 rounded-lg cursor-pointer transition-colors">
+                    <i class="fas fa-cog text-gray-500 text-base w-5"></i>
+                    <span>Account Settings</span>
+                </li>
+            </ul>
+
+            <!-- Footer -->
+            <div class="px-6 py-3 border-t border-gray-100">
+                <button
+                    class="w-full text-left flex items-center space-x-3 text-red-600 hover:bg-gray-50 p-2 -mx-2 rounded-lg cursor-pointer transition-colors">
+                    <i class="fas fa-sign-out-alt text-base w-5"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle dropdown visibility
+        const dropdownButton = document.getElementById('dropdownButton');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+
+        dropdownButton.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+
+</html>

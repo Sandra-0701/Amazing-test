@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom animation for dropdown */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dropdown-animate {
+            animation: fadeIn 0.2s ease-out forwards;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <!-- Container for demo purposes -->
+    <div class="relative">
+        <!-- Trigger button (for demo) -->
+        <button id="dropdownButton"
+            class="flex items-center space-x-2 bg-white px-4 py-2 rounded-lg shadow-sm border border-gray-200 hover:bg-gray-50">
+            <img class="h-8 w-8 rounded-full"
+                src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                alt="User">
+            <span class="font-medium">John Doe</span>
+            <i class="fas fa-chevron-down text-gray-500 text-xs"></i>
+        </button>
+
+        <!-- Dropdown Menu -->
+        <div id="dropdownMenu"
+            class="hidden absolute right-0 mt-2 w-72 bg-white rounded-xl shadow-lg border border-gray-200 z-20 dropdown-animate">
+            <!-- User Info Section -->
+            <div class="px-6 pt-4 pb-3 border-b border-gray-100">
+                <div class="flex items-center space-x-3">
+                    <div class="flex-shrink-0">
+                        <img class="h-10 w-10 rounded-full object-cover"
+                            src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                            alt="User profile">
+                    </div>
+                    <div>
+                        <p class="font-medium text-gray-900">John Doe</p>
+                        <p class="text-sm text-gray-500">john.doe@example.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Address Information -->
+            <div class="px-6 py-4">
+                <h3 class="text-sm font-medium text-gray-900 mb-2">Address</h3>
+                <div class="bg-gray-50 p-3 rounded-lg">
+                    <p class="text-sm text-gray-700">123 Main Street</p>
+                    <p class="text-sm text-gray-700">Apartment 4B</p>
+                    <p class="text-sm text-gray-700">New York, NY 10001</p>
+                    <p class="text-sm text-gray-700">United States</p>
+                </div>
+            </div>
+
+            <!-- Edit Profile Button -->
+            <div class="px-6 py-3 border-t border-gray-100">
+                <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors">
+                    Edit Profile
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle dropdown visibility
+        const dropdownButton = document.getElementById('dropdownButton');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+
+        dropdownButton.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+
+</html>

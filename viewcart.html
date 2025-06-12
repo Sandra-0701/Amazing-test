@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Shopping Cart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .animate-slide-up {
+            animation: slideUp 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .step-active {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .step-completed {
+            background: linear-gradient(135deg, #00b894, #00a085);
+            box-shadow: 0 4px 15px rgba(0, 184, 148, 0.4);
+        }
+
+        .hover-glow:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+
+        .pulse-glow {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 30px rgba(255, 107, 107, 0.6);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 min-h-screen">
+    <div class="max-w-6xl mx-auto p-4">
+        <!-- Progress Steps -->
+        <div class="flex justify-center items-center mb-8 mt-4">
+            <div class="flex items-center">
+                <div id="step-cart"
+                    class="w-10 h-10 rounded-full step-active text-white flex items-center justify-center transition-all duration-300">
+                    <i class="fas fa-shopping-cart text-sm"></i>
+                </div>
+                <span id="step-cart-text" class="ml-2 text-red-500 font-medium">Cart</span>
+            </div>
+            <div id="line-1" class="w-20 h-1 bg-gray-300 mx-2 transition-all duration-300"></div>
+            <div class="flex items-center">
+                <div id="step-address"
+                    class="w-10 h-10 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center transition-all duration-300">
+                    <i class="fas fa-map-marker-alt text-sm"></i>
+                </div>
+                <span id="step-address-text" class="ml-2 text-gray-500 transition-all duration-300">Address</span>
+            </div>
+            <div id="line-2" class="w-20 h-1 bg-gray-300 mx-2 transition-all duration-300"></div>
+            <div class="flex items-center">
+                <div id="step-payment"
+                    class="w-10 h-10 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center transition-all duration-300">
+                    <i class="fas fa-credit-card text-sm"></i>
+                </div>
+                <span id="step-payment-text" class="ml-2 text-gray-500 transition-all duration-300">Payment</span>
+            </div>
+        </div>
+
+        <!-- Cart Step Content -->
+        <div id="cart-content" class="animate-fade-in">
+            <div class="flex flex-col lg:flex-row gap-6">
+                <!-- Left Section: Cart Items -->
+                <div class="lg:w-2/3">
+                    <!-- Delivery Address -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg mb-6 flex justify-between items-center hover-glow">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-red-500 mr-3 text-lg"></i>
+                            <div>
+                                <span class="font-semibold text-gray-800">Delivery Address</span>
+                                <p id="selected-address" class="text-sm text-gray-500 mt-1">Please add a delivery
+                                    address</p>
+                            </div>
+                        </div>
+                        <button id="add-address-btn"
+                            class="bg-gradient-to-r from-red-500 to-pink-500 text-white px-6 py-2 rounded-lg text-sm hover:from-red-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 pulse-glow">
+                            <i class="fas fa-plus mr-2"></i>ADD ADDRESS
+                        </button>
+                    </div>
+
+                    <!-- Cart Items -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg mb-6 hover-glow">
+                        <h2 class="font-semibold text-lg mb-6 text-gray-800">Electronics & Appliances (<span
+                                id="item-count">1</span> items)</h2>
+
+                        <!-- Product Item -->
+                        <div id="product-item" class="border-b pb-6 mb-6">
+                            <div class="flex flex-col md:flex-row items-start md:items-center gap-4">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-family='Arial, sans-serif' font-size='12' fill='%236b7280'%3EPower Bank%3C/text%3E%3C/svg%3E"
+                                    alt="Xiaomi Power Bank" class="w-20 h-20 rounded-lg border">
+
+                                <div class="flex-1">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Xiaomi Power Bank Boostpro 30000mAh
+                                        Black</h3>
+                                    <div class="flex flex-wrap gap-2 text-sm text-gray-500 mb-2">
+                                        <span class="bg-gray-100 px-2 py-1 rounded">Electronic</span>
+                                        <span class="bg-gray-100 px-2 py-1 rounded">Color: Black</span>
+                                    </div>
+                                    <p class="text-sm text-green-600 font-medium">
+                                        <i class="fas fa-tag mr-1"></i>Savings: ₹1,500.00
+                                    </p>
+                                </div>
+
+                                <div class="flex flex-col md:flex-row items-center gap-4">
+                                    <div class="text-center">
+                                        <p class="font-semibold text-lg text-gray-800">₹3,499.00</p>
+                                        <p class="text-sm text-gray-500 line-through">₹4,999.00</p>
+                                    </div>
+
+                                    <div class="flex items-center bg-gray-50 rounded-lg p-1">
+                                        <button id="decrease-qty"
+                                            class="w-8 h-8 bg-white text-gray-600 flex items-center justify-center rounded-md shadow-sm hover:bg-gray-100 transition-colors">-</button>
+                                        <input id="quantity" type="text" value="1"
+                                            class="w-12 text-center bg-transparent font-medium" readonly>
+                                        <button id="increase-qty"
+                                            class="w-8 h-8 bg-white text-gray-600 flex items-center justify-center rounded-md shadow-sm hover:bg-gray-100 transition-colors">+</button>
+                                    </div>
+
+                                    <div class="font-semibold text-lg text-blue-600" id="item-total">₹3,499.00</div>
+                                </div>
+                            </div>
+
+                            <!-- Product Actions -->
+                            <div class="flex items-center gap-6 mt-4 pt-4 border-t">
+                                <div
+                                    class="flex items-center text-red-500 cursor-pointer hover:text-red-600 transition-colors">
+                                    <i class="fas fa-exclamation-triangle mr-2"></i>
+                                    <span class="text-sm font-medium">Not Serviceable</span>
+                                </div>
+                                <button class="flex items-center text-gray-600 hover:text-blue-600 transition-colors">
+                                    <i class="far fa-bookmark mr-2"></i>
+                                    <span class="text-sm">Save for later</span>
+                                </button>
+                                <button id="remove-item"
+                                    class="flex items-center text-gray-600 hover:text-red-600 transition-colors">
+                                    <i class="fas fa-trash-alt mr-2"></i>
+                                    <span class="text-sm">Remove</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Section: Order Summary -->
+                <div class="lg:w-1/3">
+                    <!-- Coupons -->
+                    <div class="bg-white p-4 rounded-xl shadow-lg mb-6 hover-glow cursor-pointer">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <i class="fas fa-percent text-green-500 mr-3"></i>
+                                <span class="font-medium text-gray-800">Apply Coupon</span>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                    </div>
+
+                    <!-- Non-serviceable Notice -->
+                    <div class="bg-red-50 border border-red-200 p-4 rounded-xl mb-6 text-center text-red-600">
+                        <i class="fas fa-exclamation-circle mr-2"></i>
+                        <span class="font-medium">Non serviceable item in cart</span>
+                    </div>
+
+                    <!-- Order Summary -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg mb-6 hover-glow">
+                        <h2 class="font-semibold text-lg text-gray-800 mb-6">Order Summary</h2>
+
+                        <div class="space-y-3 mb-6">
+                            <div class="flex justify-between text-gray-600">
+                                <span>MRP</span>
+                                <span id="mrp-total">₹4,999.00</span>
+                            </div>
+                            <div class="flex justify-between text-green-600">
+                                <span>Discount on MRP</span>
+                                <span>-₹1,500.00</span>
+                            </div>
+                            <div class="flex justify-between text-gray-600">
+                                <span>Shipping Fee</span>
+                                <span class="text-green-600">FREE</span>
+                            </div>
+                            <div class="flex justify-between text-gray-600">
+                                <span>Convenience Fee</span>
+                                <span>₹20.00</span>
+                            </div>
+                        </div>
+
+                        <div class="border-t pt-4 mb-6">
+                            <div class="flex justify-between items-center">
+                                <span class="font-semibold text-lg text-gray-800">Total Amount</span>
+                                <span class="text-2xl font-bold text-blue-600" id="final-total">₹3,519.00</span>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-2">*Taxes included</p>
+                        </div>
+
+                        <button id="place-order-btn"
+                            class="w-full bg-gradient-to-r from-red-500 to-pink-500 text-white font-semibold py-4 rounded-xl hover:from-red-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed pulse-glow">
+                            <i class="fas fa-shopping-bag mr-2"></i>
+                            PROCEED TO CHECKOUT
+                        </button>
+
+                        <p class="text-xs text-gray-500 mt-4 text-center leading-relaxed">
+                            By placing your order, you agree to our
+                            <a href="#" class="text-blue-500 hover:underline">Terms of Service</a> and
+                            <a href="#" class="text-blue-500 hover:underline">Privacy Policy</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Address Step Content -->
+        <div id="address-content" class="hidden animate-fade-in">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Select Delivery Address</h2>
+
+                    <div id="address-list" class="space-y-4 mb-6">
+                        <!-- Addresses will be populated here -->
+                    </div>
+
+                    <button id="add-new-address"
+                        class="w-full border-2 border-dashed border-gray-300 p-6 rounded-xl text-gray-500 hover:border-red-500 hover:text-red-500 transition-colors">
+                        <i class="fas fa-plus text-2xl mb-2"></i>
+                        <p class="font-medium">Add New Address</p>
+                    </button>
+
+                    <div class="flex gap-4 mt-8">
+                        <button id="back-to-cart"
+                            class="flex-1 bg-gray-200 text-gray-700 py-3 rounded-xl font-medium hover:bg-gray-300 transition-colors">
+                            <i class="fas fa-arrow-left mr-2"></i>Back to Cart
+                        </button>
+                        <button id="continue-to-payment"
+                            class="flex-1 bg-gradient-to-r from-red-500 to-pink-500 text-white py-3 rounded-xl font-medium hover:from-red-600 hover:to-pink-600 transition-all disabled:opacity-50"
+                            disabled>
+                            Continue to Payment<i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Step Content -->
+        <div id="payment-content" class="hidden animate-fade-in">
+            <div class="max-w-4xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-6">
+                    <!-- Payment Options -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-6">Payment Options</h2>
+
+                        <div class="space-y-4">
+                            <label
+                                class="flex items-center p-4 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-red-500 transition-colors">
+                                <input type="radio" name="payment" value="card" class="mr-4">
+                                <i class="fas fa-credit-card text-blue-500 mr-3 text-xl"></i>
+                                <span class="font-medium">Credit/Debit Card</span>
+                            </label>
+
+                            <label
+                                class="flex items-center p-4 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-red-500 transition-colors">
+                                <input type="radio" name="payment" value="upi" class="mr-4">
+                                <i class="fas fa-mobile-alt text-purple-500 mr-3 text-xl"></i>
+                                <span class="font-medium">UPI Payment</span>
+                            </label>
+
+                            <label
+                                class="flex items-center p-4 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-red-500 transition-colors">
+                                <input type="radio" name="payment" value="wallet" class="mr-4">
+                                <i class="fas fa-wallet text-green-500 mr-3 text-xl"></i>
+                                <span class="font-medium">Digital Wallet</span>
+                            </label>
+
+                            <label
+                                class="flex items-center p-4 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-red-500 transition-colors">
+                                <input type="radio" name="payment" value="cod" class="mr-4">
+                                <i class="fas fa-money-bill-wave text-orange-500 mr-3 text-xl"></i>
+                                <span class="font-medium">Cash on Delivery</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Order Summary -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <h2 class="text-xl font-bold text-gray-800 mb-6">Final Order Summary</h2>
+
+                        <div class="space-y-3 mb-6">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Items Total</span>
+                                <span>₹3,499.00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Delivery Fee</span>
+                                <span class="text-green-600">FREE</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Convenience Fee</span>
+                                <span>₹20.00</span>
+                            </div>
+                            <div class="border-t pt-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-lg">Total Payable</span>
+                                    <span class="text-2xl font-bold text-blue-600">₹3,519.00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-50 p-4 rounded-xl mb-6">
+                            <h3 class="font-medium text-gray-800 mb-2">Delivery Address</h3>
+                            <p id="final-delivery-address" class="text-sm text-gray-600">Please select an address</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 mt-8 max-w-4xl mx-auto">
+                    <button id="back-to-address"
+                        class="flex-1 bg-gray-200 text-gray-700 py-3 rounded-xl font-medium hover:bg-gray-300 transition-colors">
+                        <i class="fas fa-arrow-left mr-2"></i>Back to Address
+                    </button>
+                    <button id="place-final-order"
+                        class="flex-1 bg-gradient-to-r from-green-500 to-emerald-500 text-white py-3 rounded-xl font-medium hover:from-green-600 hover:to-emerald-600 transition-all disabled:opacity-50 pulse-glow"
+                        disabled>
+                        <i class="fas fa-check-circle mr-2"></i>Place Order
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Address Modal -->
+    <div id="address-modal"
+        class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm hidden items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-2xl shadow-2xl max-w-md w-full mx-4 animate-slide-up">
+            <h3 class="text-xl font-bold text-gray-800 mb-6">Add New Address</h3>
+
+            <form id="address-form" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                    <input type="text" id="full-name"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                        required>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                        <input type="tel" id="phone"
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                            required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Pincode</label>
+                        <input type="text" id="pincode"
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                            required>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Address Line 1</label>
+                    <input type="text" id="address1"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                        required>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Address Line 2 (Optional)</label>
+                    <input type="text" id="address2"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors">
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">City</label>
+                        <input type="text" id="city"
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                            required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">State</label>
+                        <input type="text" id="state"
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                            required>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Address Type</label>
+                    <select id="address-type"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors">
+                        <option value="home">Home</option>
+                        <option value="work">Work</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="flex gap-4 mt-8">
+                    <button type="button" id="cancel-address"
+                        class="flex-1 bg-gray-200 text-gray-700 py-3 rounded-lg font-medium hover:bg-gray-300 transition-colors">
+                        Cancel
+                    </button>
+                    <button type="submit"
+                        class="flex-1 bg-gradient-to-r from-red-500 to-pink-500 text-white py-3 rounded-lg font-medium hover:from-red-600 hover:to-pink-600 transition-all">
+                        Save Address
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal"
+        class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm hidden items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-2xl shadow-2xl max-w-md w-full mx-4 text-center animate-slide-up">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-check text-green-500 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Order Placed Successfully!</h3>
+            <p class="text-gray-600 mb-6">Your order has been confirmed. You will receive a confirmation email shortly.
+            </p>
+            <button id="continue-shopping"
+                class="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white py-3 rounded-lg font-medium hover:from-green-600 hover:to-emerald-600 transition-all">
+                Continue Shopping
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // State management
+        let currentStep = 'cart';
+        let addresses = [];
+        let selectedAddress = null;
+        let quantity = 1;
+        let itemPrice = 3499;
+
+        // DOM elements
+        const elements = {
+            // Steps
+            stepCart: document.getElementById('step-cart'),
+            stepAddress: document.getElementById('step-address'),
+            stepPayment: document.getElementById('step-payment'),
+            stepCartText: document.getElementById('step-cart-text'),
+            stepAddressText: document.getElementById('step-address-text'),
+            stepPaymentText: document.getElementById('step-payment-text'),
+            line1: document.getElementById('line-1'),
+            line2: document.getElementById('line-2'),
+
+            // Content sections
+            cartContent: document.getElementById('cart-content'),
+            addressContent: document.getElementById('address-content'),
+            paymentContent: document.getElementById('payment-content'),
+
+            // Cart elements
+            addAddressBtn: document.getElementById('add-address-btn'),
+            placeOrderBtn: document.getElementById('place-order-btn'),
+            selectedAddressEl: document.getElementById('selected-address'),
+            quantityInput: document.getElementById('quantity'),
+            decreaseQty: document.getElementById('decrease-qty'),
+            increaseQty: document.getElementById('increase-qty'),
+            itemTotal: document.getElementById('item-total'),
+            finalTotal: document.getElementById('final-total'),
+            removeItem: document.getElementById('remove-item'),
+            itemCount: document.getElementById('item-count'),
+
+            // Address elements
+            addressList: document.getElementById('address-list'),
+            addNewAddress: document.getElementById('add-new-address'),
+            backToCart: document.getElementById('back-to-cart'),
+            continueToPayment: document.getElementById('continue-to-payment'),
+
+            // Payment elements
+            backToAddress: document.getElementById('back-to-address'),
+            placeFinalOrder: document.getElementById('place-final-order'),
+            finalDeliveryAddress: document.getElementById('final-delivery-address'),
+
+            // Modals
+            addressModal: document.getElementById('address-modal'),
+            successModal: document.getElementById('success-modal'),
+            addressForm: document.getElementById('address-form'),
+            cancelAddress: document.getElementById('cancel-address'),
+            continueShoppingBtn: document.getElementById('continue-shopping')
+        };
+
+        // Utility functions
+        function updateStepVisual(step) {
+            // Reset all steps
+            [elements.stepCart, elements.stepAddress, elements.stepPayment].forEach(el => {
+                el.className = el.className.replace(/step-(active|completed)/g, '');
+                el.classList.add('w-10', 'h-10', 'rounded-full', 'bg-gray-200', 'text-gray-500', 'flex', 'items-center', 'justify-center', 'transition-all', 'duration-300');
+            });
+
+            [elements.stepCartText, elements.stepAddressText, elements.stepPaymentText].forEach(el => {
+                el.classList.remove('text-red-500', 'text-green-500');
+                el.classList.add('text-gray-500');
+            });
+
+            [elements.line1, elements.line2].forEach(el => {
+                el.classList.remove('bg-green-500');
+                el.classList.add('bg-gray-300');
+            });
+
+            // Update based on current step
+            if (step === 'cart') {
+                elements.stepCart.className = 'w-10 h-10 rounded-full step-active text-white flex items-center justify-center transition-all duration-300';
+                elements.stepCartText.classList.remove('text-gray-500');
+                elements.stepCartText.classList.add('text-red-500');
+            } else if (step === 'address') {
+                elements.stepCart.className = 'w-10 h-10 rounded-full step-completed text-white flex items-center justify-center transition-all duration-300';
+                elements.stepCartText.classList.remove('text-gray-500');
+                elements.stepCartText.classList.add('text-green-500');
+                elements.line1.classList.remove('bg-gray-300');
+                elements.line1.classList.add('bg-green-500');
+
+                elements.stepAddress.className = 'w-10 h-10 rounded-full step-active text-white flex items-center justify-center transition-all duration-300';
+                elements.stepAddressText.classList.remove('text-gray-500');
+                elements.stepAddressText.classList.add('text-red-500');
+            } else if (step === 'payment') {
+                elements.stepCart.className = 'w-10 h-10 rounded-full step-completed text-white flex items-center justify-center transition-all duration-300';
+                elements.stepAddress.className = 'w-10 h-10 rounded-full step-completed text-white flex items-center justify-center transition-all duration-300';
+                elements.stepPayment.className = 'w-10 h-10 rounded-full step-active text-white flex items-center justify-center transition-all duration-300';
+
+                elements.stepCartText.classList.remove('text-gray-500');
+                elements.stepCartText.classList.add('text-green-500');
+                elements.stepAddressText.classList.remove('text-gray-500');
+                elements.stepAddressText.classList.add('text-green-500');
+                elements.stepPaymentText.classList.remove('text-gray-500');
+                elements.stepPaymentText.classList.add('text-red-500');
+
+                [elements.line1, elements.line2].forEach(el => {
+                    el.classList.remove('bg-gray-300');
+                    el.classList.add('bg-green-500');
+                });
+            }
+        }
+
+        function showStep(step) {
+            // Hide all content
+            elements.cartContent.classList.add('hidden');
+            elements.addressContent.classList.add('hidden');
+            elements.paymentContent.classList.add('hidden');
+
+            // Show selected step
+            currentStep = step;
+            updateStepVisual(step);
+
+            if (step === 'cart') {
+                elements.cartContent.classList.remove('hidden');
+            } else if (step === 'address') {
+                elements.addressContent.classList.remove('hidden');
+                renderAddresses();
+            } else if (step === 'payment') {
+                elements.paymentContent.classList.remove('hidden');
+                updateFinalSummary();
+            }
+        }
+
+        function updateTotals() {
+            const total = itemPrice * quantity;
+            const finalTotal = total + 20; // Adding convenience fee
+
+            elements.itemTotal.textContent = `₹${total.toLocaleString()}.00`;
+            elements.finalTotal.textContent = `₹${finalTotal.toLocaleString()}.00`;
+            elements.itemCount.textContent = quantity;
+        }
+
+        function renderAddresses() {
+            elements.addressList.innerHTML = '';
+
+            if (addresses.length === 0) {
+                elements.addressList.innerHTML = `
+                    <div class="text-center py-8 text-gray-500">
+                        <i class="fas fa-map-marker-alt text-4xl mb-4"></i>
+                        <p class="text-lg mb-2">No addresses saved</p>
+                        <p class="text-sm">Add your first address to continue</p>
+                    </div>
+                `;
+                return;
+            }
+
+            addresses.forEach((address, index) => {
+                const isSelected = selectedAddress === index;
+                const addressEl = document.createElement('div');
+                addressEl.className = `p-4 border-2 rounded-xl cursor-pointer transition-all ${isSelected ? 'border-red-500 bg-red-50' : 'border-gray-200 hover:border-red-300'
+                    }`;
+
+                addressEl.innerHTML = `
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <div class="flex items-center mb-2">
+                                <span class="bg-gray-100 text-gray-600 px-2 py-1 text-xs rounded uppercase font-medium">${address.type}</span>
+                                <span class="ml-2 font-semibold text-gray-800">${address.name}</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-1">${address.address1}</p>
+                            ${address.address2 ? `<p class="text-gray-600 text-sm mb-1">${address.address2}</p>` : ''}
+                            <p class="text-gray-600 text-sm">${address.city}, ${address.state} - ${address.pincode}</p>
+                            <p class="text-gray-500 text-sm mt-1"><i class="fas fa-phone mr-1"></i>${address.phone}</p>
+                        </div>
+                        <div class="flex items-center">
+                            ${isSelected ? '<i class="fas fa-check-circle text-red-500 text-xl"></i>' : ''}
+                        </div>
+                    </div>
+                `;
+
+                addressEl.addEventListener('click', () => selectAddress(index));
+                elements.addressList.appendChild(addressEl);
+            });
+        }
+
+        function selectAddress(index) {
+            selectedAddress = index;
+            renderAddresses();
+            updateSelectedAddressDisplay();
+            elements.continueToPayment.disabled = false;
+        }
+
+        function updateSelectedAddressDisplay() {
+            if (selectedAddress !== null && addresses[selectedAddress]) {
+                const addr = addresses[selectedAddress];
+                elements.selectedAddressEl.textContent = `${addr.address1}, ${addr.city}, ${addr.state} - ${addr.pincode}`;
+                elements.placeOrderBtn.disabled = false;
+                elements.placeOrderBtn.classList.remove('opacity-50');
+            } else {
+                elements.selectedAddressEl.textContent = 'Please add a delivery address';
+                elements.placeOrderBtn.disabled = true;
+                elements.placeOrderBtn.classList.add('opacity-50');
+            }
+        }
+
+        function updateFinalSummary() {
+            if (selectedAddress !== null && addresses[selectedAddress]) {
+                const addr = addresses[selectedAddress];
+                elements.finalDeliveryAddress.textContent = `${addr.name}, ${addr.address1}, ${addr.city}, ${addr.state} - ${addr.pincode}`;
+            }
+        }
+
+        function showModal(modal) {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function hideModal(modal) {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Event listeners
+        elements.decreaseQty.addEventListener('click', () => {
+            if (quantity > 1) {
+                quantity--;
+                elements.quantityInput.value = quantity;
+                updateTotals();
+            }
+        });
+
+        elements.increaseQty.addEventListener('click', () => {
+            if (quantity < 10) {
+                quantity++;
+                elements.quantityInput.value = quantity;
+                updateTotals();
+            }
+        });
+
+        elements.removeItem.addEventListener('click', () => {
+            if (confirm('Are you sure you want to remove this item from your cart?')) {
+                document.getElementById('product-item').style.display = 'none';
+                elements.itemCount.textContent = '0';
+                elements.placeOrderBtn.disabled = true;
+                elements.placeOrderBtn.textContent = 'Cart is Empty';
+            }
+        });
+
+        elements.addAddressBtn.addEventListener('click', () => {
+            showModal(elements.addressModal);
+        });
+
+        elements.addNewAddress.addEventListener('click', () => {
+            showModal(elements.addressModal);
+        });
+
+        elements.cancelAddress.addEventListener('click', () => {
+            hideModal(elements.addressModal);
+            elements.addressForm.reset();
+        });
+
+        elements.addressForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(e.target);
+            const address = {
+                name: document.getElementById('full-name').value,
+                phone: document.getElementById('phone').value,
+                pincode: document.getElementById('pincode').value,
+                address1: document.getElementById('address1').value,
+                address2: document.getElementById('address2').value,
+                city: document.getElementById('city').value,
+                state: document.getElementById('state').value,
+                type: document.getElementById('address-type').value
+            };
+
+            addresses.push(address);
+            hideModal(elements.addressModal);
+            elements.addressForm.reset();
+
+            if (currentStep === 'address') {
+                renderAddresses();
+            } else {
+                // Auto-select the first address if we're on cart step
+                selectedAddress = addresses.length - 1;
+                updateSelectedAddressDisplay();
+            }
+        });
+
+        elements.placeOrderBtn.addEventListener('click', () => {
+            if (selectedAddress === null) {
+                alert('Please add a delivery address first');
+                return;
+            }
+            showStep('address');
+        });
+
+        elements.backToCart.addEventListener('click', () => {
+            showStep('cart');
+        });
+
+        elements.continueToPayment.addEventListener('click', () => {
+            showStep('payment');
+        });
+
+        elements.backToAddress.addEventListener('click', () => {
+            showStep('address');
+        });
+
+        // Payment method selection
+        document.addEventListener('change', (e) => {
+            if (e.target.name === 'payment') {
+                elements.placeFinalOrder.disabled = false;
+            }
+        });
+
+        elements.placeFinalOrder.addEventListener('click', () => {
+            const selectedPayment = document.querySelector('input[name="payment"]:checked');
+            if (!selectedPayment) {
+                alert('Please select a payment method');
+                return;
+            }
+
+            // Simulate order processing
+            elements.placeFinalOrder.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Processing...';
+            elements.placeFinalOrder.disabled = true;
+
+            setTimeout(() => {
+                showModal(elements.successModal);
+                elements.placeFinalOrder.innerHTML = '<i class="fas fa-check-circle mr-2"></i>Place Order';
+                elements.placeFinalOrder.disabled = false;
+            }, 2000);
+        });
+
+        elements.continueShoppingBtn.addEventListener('click', () => {
+            hideModal(elements.successModal);
+            showStep('cart');
+            // Reset form
+            location.reload();
+        });
+
+        // Close modals when clicking outside
+        [elements.addressModal, elements.successModal].forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    hideModal(modal);
+                }
+            });
+        });
+
+        // Initialize
+        updateTotals();
+        updateSelectedAddressDisplay();
+        updateStepVisual('cart');
+    </script>
+</body>
+
+</html>

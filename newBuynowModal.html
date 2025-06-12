@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Now Modal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 p-8">
+    <!-- Product Card with Buy Now Button -->
+    <div class="max-w-sm mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1567306301408-9b74779a11af?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+            alt="Grocery Items" class="w-full h-48 object-cover">
+        <div class="p-6">
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Fresh Grocery Bundle</h3>
+            <p class="text-gray-600 text-sm mb-4">Premium quality fruits, vegetables, and daily essentials</p>
+            <div class="flex items-center justify-between mb-4">
+                <div>
+                    <span class="text-2xl font-bold text-gray-900">₹332.50</span>
+                    <span class="text-sm text-gray-500 line-through ml-2">₹352.50</span>
+                </div>
+                <span class="text-green-600 text-sm font-medium">Save ₹20</span>
+            </div>
+
+            <!-- Buy Now Button -->
+            <button id="buyNowBtn"
+                class="w-full bg-red-500 text-white py-3 px-4 rounded-md font-medium hover:bg-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+                Buy Now
+            </button>
+        </div>
+    </div>
+
+    <!-- Order Summary Modal -->
+    <div id="orderModal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <!-- Background overlay -->
+            <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                <div class="absolute inset-0 bg-gray-900 bg-opacity-50"></div>
+            </div>
+
+            <!-- Modal container -->
+            <div
+                class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                <!-- Modal content -->
+                <div class="bg-white px-6 pt-6 pb-4">
+                    <!-- Header -->
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-lg font-semibold text-gray-900">Order Summary</h2>
+                        <button id="closeModal" class="text-gray-400 hover:text-gray-500">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Divider -->
+                    <hr class="border-gray-200 mb-4">
+
+                    <!-- Category section -->
+                    <div class="mb-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-sm font-medium text-gray-900">Grocery & Fresh</h3>
+                            <span class="text-sm text-blue-600">(3 Item)</span>
+                        </div>
+
+                        <!-- Order details -->
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">MRP</span>
+                                <span class="text-gray-900">₹352.50</span>
+                            </div>
+
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Discount on MRP</span>
+                                <span class="text-green-600">-₹20.00</span>
+                            </div>
+
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Shipping Fee</span>
+                                <span class="text-gray-900">₹0.00</span>
+                            </div>
+
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Convenience Fee</span>
+                                <span class="text-gray-900">₹0.00</span>
+                            </div>
+
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Cart Discount</span>
+                                <span class="text-gray-900">₹0.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Total section -->
+                    <div class="border-t border-gray-200 pt-4 mb-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-semibold text-gray-900">Total</span>
+                            <span class="text-lg font-semibold text-gray-900">₹332.50</span>
+                        </div>
+                    </div>
+
+                    <!-- Disclaimer -->
+                    <p class="text-xs text-gray-500 mb-6">
+                        Taxes and shipping calculated at checkout
+                    </p>
+
+                    <!-- Action button -->
+                    <button id="placeOrder"
+                        class="w-full bg-red-500 text-white py-3 px-4 rounded-md font-medium hover:bg-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+                        Place Your Order
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center">
+            <div class="fixed inset-0 bg-gray-900 bg-opacity-50"></div>
+            <div class="bg-white rounded-lg p-8 max-w-sm w-full relative">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Order Placed Successfully!</h3>
+                    <p class="text-gray-600 mb-6">Your order has been confirmed and will be delivered soon.</p>
+                    <button id="closeSuccess"
+                        class="w-full bg-red-500 text-white py-2 px-4 rounded-md font-medium hover:bg-red-600 transition-colors">
+                        Continue Shopping
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const buyNowBtn = document.getElementById('buyNowBtn');
+        const orderModal = document.getElementById('orderModal');
+        const successModal = document.getElementById('successModal');
+        const closeModal = document.getElementById('closeModal');
+        const placeOrder = document.getElementById('placeOrder');
+        const closeSuccess = document.getElementById('closeSuccess');
+
+        // Open modal when Buy Now is clicked
+        buyNowBtn.addEventListener('click', () => {
+            orderModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Close modal
+        const closeOrderModal = () => {
+            orderModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        };
+
+        closeModal.addEventListener('click', closeOrderModal);
+
+        // Close on backdrop click
+        orderModal.addEventListener('click', (e) => {
+            if (e.target === orderModal) {
+                closeOrderModal();
+            }
+        });
+
+        // Place order
+        placeOrder.addEventListener('click', () => {
+            orderModal.classList.add('hidden');
+            successModal.classList.remove('hidden');
+        });
+
+        // Close success modal
+        closeSuccess.addEventListener('click', () => {
+            successModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close modals on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (!successModal.classList.contains('hidden')) {
+                    successModal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                } else if (!orderModal.classList.contains('hidden')) {
+                    closeOrderModal();
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

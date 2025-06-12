@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standard Purchase Modal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-100 p-8">
+    <!-- Demo button to show modal -->
+    <div class="text-center">
+        <button onclick="showModal()" class="px-6 py-3 bg-primary text-white rounded-md font-medium hover:bg-blue-700">
+            Show Purchase Modal
+        </button>
+    </div>
+
+    <!-- Standard Purchase Modal -->
+    <div id="buyNowModal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+        <div class="flex items-center justify-center min-h-screen px-4 py-8">
+            <!-- Background overlay -->
+            <div class="fixed inset-0 bg-gray-600 bg-opacity-50" onclick="hideModal()"></div>
+
+            <!-- Modal container -->
+            <div class="relative bg-white rounded-lg shadow-xl max-w-lg w-full">
+                <!-- Header -->
+                <div class="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+                    <h3 class="text-lg font-semibold text-gray-900">Complete Your Order</h3>
+                    <button onclick="hideModal()" class="text-gray-400 hover:text-gray-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Content -->
+                <div class="px-6 py-4">
+                    <!-- Order Summary -->
+                    <div class="mb-6">
+                        <h4 class="text-sm font-medium text-gray-900 mb-3">Order Summary</h4>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-md">
+                            <div class="flex items-center">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%23f59e0b' rx='6'/%3E%3Ctext x='24' y='30' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3ELays%3C/text%3E%3C/svg%3E"
+                                    alt="Lays Classic" class="w-12 h-12 rounded-md">
+                                <div class="ml-3">
+                                    <p class="text-sm font-medium text-gray-900">Lays Classic Salted Potato Chips</p>
+                                    <p class="text-sm text-gray-500">60g pack</p>
+                                    <p class="text-sm text-gray-500">Quantity: 1</p>
+                                </div>
+                            </div>
+                            <p class="text-lg font-semibold text-gray-900">₹30</p>
+                        </div>
+                    </div>
+
+                    <!-- Delivery Options -->
+                    <div class="mb-6">
+                        <h4 class="text-sm font-medium text-gray-900 mb-3">Delivery Options</h4>
+                        <div class="space-y-3">
+                            <label
+                                class="flex items-center p-3 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-50">
+                                <input name="delivery" type="radio"
+                                    class="h-4 w-4 text-primary focus:ring-primary border-gray-300" checked>
+                                <div class="ml-3 flex-1">
+                                    <div class="flex items-center justify-between">
+                                        <p class="text-sm font-medium text-gray-900">Standard Delivery</p>
+                                        <p class="text-sm font-medium text-green-600">Free</p>
+                                    </div>
+                                    <p class="text-sm text-gray-500">30-45 minutes</p>
+                                </div>
+                            </label>
+                            <label
+                                class="flex items-center p-3 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-50">
+                                <input name="delivery" type="radio"
+                                    class="h-4 w-4 text-primary focus:ring-primary border-gray-300">
+                                <div class="ml-3 flex-1">
+                                    <div class="flex items-center justify-between">
+                                        <p class="text-sm font-medium text-gray-900">Express Delivery</p>
+                                        <p class="text-sm font-medium text-gray-900">₹10</p>
+                                    </div>
+                                    <p class="text-sm text-gray-500">15-20 minutes</p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Payment Options -->
+                    <div class="mb-6">
+                        <h4 class="text-sm font-medium text-gray-900 mb-3">Payment Method</h4>
+                        <div class="space-y-3">
+                            <label
+                                class="flex items-center p-3 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-50">
+                                <input name="payment" type="radio"
+                                    class="h-4 w-4 text-primary focus:ring-primary border-gray-300" checked>
+                                <div class="ml-3">
+                                    <p class="text-sm font-medium text-gray-900">Cash on Delivery</p>
+                                    <p class="text-sm text-gray-500">Pay when your order arrives</p>
+                                </div>
+                            </label>
+                            <label
+                                class="flex items-center p-3 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-50">
+                                <input name="payment" type="radio"
+                                    class="h-4 w-4 text-primary focus:ring-primary border-gray-300">
+                                <div class="ml-3">
+                                    <p class="text-sm font-medium text-gray-900">Online Payment</p>
+                                    <p class="text-sm text-gray-500">Credit/Debit Card, UPI, Net Banking</p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Order Total -->
+                    <div class="border-t border-gray-200 pt-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="text-sm text-gray-600">Subtotal</p>
+                            <p class="text-sm text-gray-900">₹30</p>
+                        </div>
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="text-sm text-gray-600">Delivery Fee</p>
+                            <p class="text-sm text-green-600">Free</p>
+                        </div>
+                        <div class="flex items-center justify-between pt-2 border-t border-gray-200">
+                            <p class="text-base font-semibold text-gray-900">Total</p>
+                            <p class="text-lg font-semibold text-gray-900">₹30</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="px-6 py-4 bg-gray-50 border-t border-gray-200 flex justify-end space-x-3">
+                    <button onclick="hideModal()"
+                        class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary">
+                        Cancel
+                    </button>
+                    <button onclick="confirmPurchase()"
+                        class="px-4 py-2 text-sm font-medium text-white bg-primary border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-primary">
+                        Confirm Order
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showModal() {
+            document.getElementById('buyNowModal').classList.remove('hidden');
+        }
+
+        function hideModal() {
+            document.getElementById('buyNowModal').classList.add('hidden');
+        }
+
+        function confirmPurchase() {
+            alert('Order confirmed! Thank you for your purchase.');
+            hideModal();
+        }
+
+        // Handle radio button selection
+        document.addEventListener('change', function (e) {
+            if (e.target.type === 'radio') {
+                // Update delivery fee display when delivery option changes
+                if (e.target.name === 'delivery') {
+                    const deliveryFeeElement = document.querySelector('.flex.items-center.justify-between:nth-child(2) p:last-child');
+                    if (e.target.parentElement.textContent.includes('Express')) {
+                        deliveryFeeElement.textContent = '₹10';
+                        deliveryFeeElement.className = 'text-sm text-gray-900';
+                        // Update total
+                        document.querySelector('.text-lg.font-semibold.text-gray-900').textContent = '₹40';
+                    } else {
+                        deliveryFeeElement.textContent = 'Free';
+                        deliveryFeeElement.className = 'text-sm text-green-600';
+                        // Update total
+                        document.querySelector('.text-lg.font-semibold.text-gray-900').textContent = '₹30';
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

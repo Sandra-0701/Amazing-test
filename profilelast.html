@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Dropdown</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dropdown-animate {
+            animation: fadeIn 0.2s ease-out forwards;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-sm border-b border-gray-200 px-6 py-4">
+        <div class="flex justify-between items-center max-w-6xl mx-auto">
+            <div class="text-xl font-bold text-gray-800">Amazing Hypermarket</div>
+
+            <!-- Profile Button -->
+            <div class="relative">
+                <button id="profileButton"
+                    class="flex items-center space-x-2 bg-gray-50 hover:bg-gray-100 px-3 py-2 rounded-lg border border-gray-200 transition-colors">
+                    <img class="h-8 w-8 rounded-full object-cover"
+                        src=""
+                        alt="Profile">
+                    <span class="font-medium text-gray-800 hidden sm:block">Profile</span>
+                    <i class="fas fa-chevron-down text-gray-500 text-xs"></i>
+                </button>
+
+                <!-- Profile Dropdown -->
+                <div id="profileDropdown"
+                    class="hidden absolute right-0 mt-2 w-80 bg-white rounded-xl shadow-lg border border-gray-200 z-50 dropdown-animate">
+                
+                    <!-- Profile Header -->
+                    <div class="px-6 pt-5 pb-4 border-b border-gray-100">
+                        <div class="flex items-center space-x-4">
+                            <div class="flex-shrink-0">
+                                <img class="h-12 w-12 rounded-full object-cover border-2 border-gray-200" src="" alt="Profile picture">
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-semibold text-gray-900 text-lg">Sandra Suresh</h3>
+                                <p class="text-sm text-gray-600">Member</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Profile Details -->
+                    <div class="px-6 py-4 space-y-4">
+                        <!-- Email -->
+                        <div class="flex items-start space-x-3">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-envelope text-red-600 text-sm"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase tracking-wide font-medium">Email</p>
+                                <p class="text-sm text-gray-900 mt-1">san@gmail.com</p>
+                            </div>
+                        </div>
+                
+                        <!-- Phone -->
+                        <div class="flex items-start space-x-3">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-phone text-red-600 text-sm"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase tracking-wide font-medium">Phone</p>
+                                <p class="text-sm text-gray-900 mt-1">+91 7356747769</p>
+                            </div>
+                        </div>
+                
+                        <!-- Address -->
+                        <div class="flex items-start space-x-3">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-map-marker-alt text-red-600 text-sm"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase tracking-wide font-medium">Address</p>
+                                <p class="text-sm text-gray-900 mt-1">
+                                    Kaloor 682018<br>
+                                    Eranakulam Kochi<br>
+                                    Kerala, India
+                                </p>
+                            </div>
+                        </div>
+                
+                        <!-- Member Since -->
+                        <div class="flex items-start space-x-3">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-calendar text-red-600 text-sm"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase tracking-wide font-medium">Member Since</p>
+                                <p class="text-sm text-gray-900 mt-1">January 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Footer with Logout -->
+                    <div class="px-6 py-3 border-t border-gray-100">
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit"
+                                class="w-full flex items-center justify-center space-x-2 text-red-600 hover:bg-red-50 py-2 px-4 rounded-lg transition-colors">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Logout</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    
+
+    <script>
+        const profileButton = document.getElementById('profileButton');
+        const profileDropdown = document.getElementById('profileDropdown');
+
+        // Toggle dropdown
+        profileButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            profileDropdown.classList.toggle('hidden');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!profileButton.contains(event.target) && !profileDropdown.contains(event.target)) {
+                profileDropdown.classList.add('hidden');
+            }
+        });
+
+        // Close dropdown on escape key
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                profileDropdown.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Purchase Modal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#8b5cf6'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 p-8">
+    <!-- Trigger button -->
+    <button id="openModal" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-indigo-600 transition-colors">
+        Open Purchase Modal
+    </button>
+
+    <!-- Modal -->
+    <div id="purchaseModal" class="fixed inset-0 z-50 hidden">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-md"></div>
+        
+        <!-- Modal Content -->
+        <div class="relative flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-3xl shadow-2xl w-full max-w-md transform transition-all">
+                
+                <!-- Header -->
+                <div class="relative p-6 pb-4">
+                    <button id="closeModal" class="absolute top-6 right-6 text-gray-400 hover:text-gray-600 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-2">Checkout</h2>
+                    <p class="text-gray-500 text-sm">Complete your purchase securely</p>
+                </div>
+
+                <!-- Product Card -->
+                <div class="px-6 mb-6">
+                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-4 border border-blue-100">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-semibold text-gray-900">Premium Wireless Headphones</h3>
+                                <p class="text-sm text-gray-600">Noise Cancelling • Bluetooth 5.0</p>
+                                <div class="flex items-center justify-between mt-2">
+                                    <span class="text-sm text-gray-500">Qty: 1</span>
+                                    <span class="text-lg font-bold text-primary">$199.99</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Delivery Options -->
+                <div class="px-6 mb-6">
+                    <h4 class="font-semibold text-gray-900 mb-3">Delivery Options</h4>
+                    <div class="space-y-3">
+                        <label class="flex items-center p-3 border border-gray-200 rounded-xl hover:bg-gray-50 cursor-pointer transition-colors">
+                            <input type="radio" name="delivery" value="standard" class="text-primary focus:ring-primary" checked>
+                            <div class="ml-3 flex-1">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-medium text-gray-900">Standard Delivery</span>
+                                    <span class="text-green-600 font-medium">Free</span>
+                                </div>
+                                <p class="text-sm text-gray-500">3-5 business days</p>
+                            </div>
+                        </label>
+                        
+                        <label class="flex items-center p-3 border border-gray-200 rounded-xl hover:bg-gray-50 cursor-pointer transition-colors">
+                            <input type="radio" name="delivery" value="express" class="text-primary focus:ring-primary">
+                            <div class="ml-3 flex-1">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-medium text-gray-900">Express Delivery</span>
+                                    <span class="text-gray-900 font-medium">$9.99</span>
+                                </div>
+                                <p class="text-sm text-gray-500">Next day delivery</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Payment Method -->
+                <div class="px-6 mb-6">
+                    <h4 class="font-semibold text-gray-900 mb-3">Payment Method</h4>
+                    <div class="space-y-3">
+                        <label class="flex items-center p-3 border border-gray-200 rounded-xl hover:bg-gray-50 cursor-pointer transition-colors">
+                            <input type="radio" name="payment" value="card" class="text-primary focus:ring-primary" checked>
+                            <div class="ml-3 flex items-center">
+                                <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                                    <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4zM18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"/>
+                                    </svg>
+                                </div>
+                                <span class="font-medium text-gray-900">Credit/Debit Card</span>
+                            </div>
+                        </label>
+                        
+                        <label class="flex items-center p-3 border border-gray-200 rounded-xl hover:bg-gray-50 cursor-pointer transition-colors">
+                            <input type="radio" name="payment" value="paypal" class="text-primary focus:ring-primary">
+                            <div class="ml-3 flex items-center">
+                                <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                                    <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a9.159 9.159 0 0 1-.474 3.024c-1.341 5.974-5.274 7.596-10.068 7.596H7.953a.54.54 0 0 0-.535.434l-.533 3.482-.093.61a.387.387 0 0 0 .382.435h4.049c.456 0 .845-.334.92-.781l.38-2.421c.075-.447.464-.781.92-.781h.58c3.76 0 6.705-1.528 7.565-5.946.36-1.847.174-3.388-.777-4.471z"/>
+                                    </svg>
+                                </div>
+                                <span class="font-medium text-gray-900">PayPal</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="px-6 mb-6">
+                    <div class="bg-gray-50 rounded-2xl p-4">
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Subtotal</span>
+                                <span class="text-gray-900">$199.99</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Shipping</span>
+                                <span class="text-green-600">Free</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Tax</span>
+                                <span class="text-gray-900">$20.00</span>
+                            </div>
+                            <hr class="my-2">
+                            <div class="flex justify-between items-center">
+                                <span class="font-semibold text-gray-900">Total</span>
+                                <span class="text-xl font-bold text-primary">$219.99</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="px-6 pb-6">
+                    <button id="completePurchase" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-semibold py-4 rounded-2xl hover:shadow-lg transition-all duration-200 transform hover:scale-[1.02] mb-3">
+                        Complete Purchase
+                    </button>
+                    <button id="cancelPurchase" class="w-full text-gray-600 font-medium py-2 hover:text-gray-800 transition-colors">
+                        Cancel Order
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-md"></div>
+        <div class="relative flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-3xl shadow-2xl w-full max-w-sm p-8 text-center transform transition-all">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Order Confirmed!</h3>
+                <p class="text-gray-600 mb-6">Your order has been placed successfully. You'll receive a confirmation email shortly.</p>
+                <button id="closeSuccess" class="w-full bg-primary text-white font-semibold py-3 rounded-xl hover:bg-indigo-600 transition-colors">
+                    Continue Shopping
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const openModal = document.getElementById('openModal');
+        const purchaseModal = document.getElementById('purchaseModal');
+        const successModal = document.getElementById('successModal');
+        const closeModal = document.getElementById('closeModal');
+        const cancelPurchase = document.getElementById('cancelPurchase');
+        const completePurchase = document.getElementById('completePurchase');
+        const closeSuccess = document.getElementById('closeSuccess');
+
+        // Open modal
+        openModal.addEventListener('click', () => {
+            purchaseModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Close modal functions
+        const closePurchaseModal = () => {
+            purchaseModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        };
+
+        closeModal.addEventListener('click', closePurchaseModal);
+        cancelPurchase.addEventListener('click', closePurchaseModal);
+
+        // Close on backdrop click
+        purchaseModal.addEventListener('click', (e) => {
+            if (e.target === purchaseModal) {
+                closePurchaseModal();
+            }
+        });
+
+        // Complete purchase
+        completePurchase.addEventListener('click', () => {
+            purchaseModal.classList.add('hidden');
+            successModal.classList.remove('hidden');
+        });
+
+        // Close success modal
+        closeSuccess.addEventListener('click', () => {
+            successModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Update total when delivery option changes
+        const deliveryOptions = document.querySelectorAll('input[name="delivery"]');
+        deliveryOptions.forEach(option => {
+            option.addEventListener('change', (e) => {
+                const totalElement = document.querySelector('.text-xl.font-bold.text-primary');
+                const shippingElement = document.querySelector('.text-green-600');
+                
+                if (e.target.value === 'express') {
+                    totalElement.textContent = '$229.98';
+                    shippingElement.textContent = '$9.99';
+                    shippingElement.classList.remove('text-green-600');
+                    shippingElement.classList.add('text-gray-900');
+                } else {
+                    totalElement.textContent = '$219.99';
+                    shippingElement.textContent = 'Free';
+                    shippingElement.classList.remove('text-gray-900');
+                    shippingElement.classList.add('text-green-600');
+                }
+            });
+        });
+
+        // Close modals on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (!successModal.classList.contains('hidden')) {
+                    successModal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                } else if (!purchaseModal.classList.contains('hidden')) {
+                    closePurchaseModal();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

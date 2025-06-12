@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing Hypermarket - Special Offers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .discount-badge {
+            clip-path: polygon(0 0, 100% 0, 90% 50%, 100% 100%, 0 100%);
+        }
+
+        .product-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        <!-- Banner Section -->
+        <div class="mb-10 rounded-xl overflow-hidden shadow-md">
+            <img src="/offer1.avif" alt="Special Offers Banner" class="w-full h-[20rem] object-cover" />
+        </div>
+          
+
+        <!-- Offers Grid -->
+        <div class="mb-6 flex justify-between items-center">
+            <h2 class="text-2xl font-bold text-gray-800">Today's Special Offers</h2>
+            <div class="text-sm text-primary font-medium">Showing 12 offers</div>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+            <!-- Product Card 1 -->
+            <div
+                class="product-card bg-white rounded-lg overflow-hidden relative flex flex-col border border-gray-200 transition-shadow">
+                <div
+                    class="absolute z-10 top-0 left-0 bg-red-600 text-white text-xs font-bold px-3 py-1 discount-badge">
+                    39% OFF
+                </div>
+                <div class="absolute top-2 right-2">
+                    <button class="text-gray-400 hover:text-red-600">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="flex justify-center h-40 p-4">
+                    <img src="https://via.placeholder.com/200?text=Amul+Tricone" alt="Amul Tricone Ice Cream"
+                        class="h-full object-contain">
+                </div>
+                <div class="p-4 flex flex-col flex-grow border-t border-gray-100">
+                    <div class="text-xs text-gray-500 uppercase mb-1">Ice Cream</div>
+                    <h3 class="font-bold text-black mb-2 text-sm">Amul Tricone Vanilla Chocolate</h3>
+                    <div class="mt-auto">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <span class="text-gray-500 line-through text-xs mr-2">₹120</span>
+                                <span class="text-red-600 font-bold text-sm">₹73</span>
+                            </div>
+                            <button
+                                class="bg-red-600 hover:bg-red-700 text-white rounded px-3 py-1 text-xs font-bold transition-colors">
+                                ADD
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 2 -->
+            <div
+                class="product-card bg-white rounded-lg overflow-hidden relative flex flex-col border border-gray-200 transition-shadow">
+                <div
+                    class="absolute z-10 top-0 left-0 bg-red-600 text-white text-xs font-bold px-3 py-1 discount-badge">
+                    25% OFF
+                </div>
+                <div class="absolute top-2 right-2">
+                    <button class="text-gray-400 hover:text-red-600">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="flex justify-center h-40 p-4">
+                    <img src="https://via.placeholder.com/200?text=Fresh+Mangoes" alt="Fresh Mangoes"
+                        class="h-full object-contain">
+                </div>
+                <div class="p-4 flex flex-col flex-grow border-t border-gray-100">
+                    <div class="text-xs text-gray-500 uppercase mb-1">Fruits</div>
+                    <h3 class="font-bold text-black mb-2 text-sm">Alphonso Mangoes (1kg)</h3>
+                    <div class="mt-auto">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <span class="text-gray-500 line-through text-xs mr-2">₹350</span>
+                                <span class="text-red-600 font-bold text-sm">₹262</span>
+                            </div>
+                            <button
+                                class="bg-red-600 hover:bg-red-700 text-white rounded px-3 py-1 text-xs font-bold transition-colors">
+                                ADD
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 3 -->
+            <div
+                class="product-card bg-white rounded-lg overflow-hidden relative flex flex-col border border-gray-200 transition-shadow">
+                <div
+                    class="absolute z-10 top-0 left-0 bg-red-600 text-white text-xs font-bold px-3 py-1 discount-badge">
+                    15% OFF
+                </div>
+                <div class="absolute top-2 right-2">
+                    <button class="text-gray-400 hover:text-red-600">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="flex justify-center h-40 p-4">
+                    <img src="https://via.placeholder.com/200?text=Britannia+Bread" alt="Britannia Bread"
+                        class="h-full object-contain">
+                </div>
+                <div class="p-4 flex flex-col flex-grow border-t border-gray-100">
+                    <div class="text-xs text-gray-500 uppercase mb-1">Bakery</div>
+                    <h3 class="font-bold text-black mb-2 text-sm">Britannia Whole Wheat Bread</h3>
+                    <div class="mt-auto">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <span class="text-gray-500 line-through text-xs mr-2">₹50</span>
+                                <span class="text-red-600 font-bold text-sm">₹42</span>
+                            </div>
+                            <button
+                                class="bg-red-600 hover:bg-red-700 text-white rounded px-3 py-1 text-xs font-bold transition-colors">
+                                ADD
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 4 -->
+            <div
+                class="product-card bg-white rounded-lg overflow-hidden relative flex flex-col border border-gray-200 transition-shadow">
+                <div
+                    class="absolute z-10 top-0 left-0 bg-red-600 text-white text-xs font-bold px-3 py-1 discount-badge">
+                    30% OFF
+                </div>
+                <div class="absolute top-2 right-2">
+                    <button class="text-gray-400 hover:text-red-600">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="flex justify-center h-40 p-4">
+                    <img src="https://via.placeholder.com/200?text=Amul+Butter" alt="Amul Butter"
+                        class="h-full object-contain">
+                </div>
+                <div class="p-4 flex flex-col flex-grow border-t border-gray-100">
+                    <div class="text-xs text-gray-500 uppercase mb-1">Dairy</div>
+                    <h3 class="font-bold text-black mb-2 text-sm">Amul Butter (500g)</h3>
+                    <div class="mt-auto">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <span class="text-gray-500 line-through text-xs mr-2">₹280</span>
+                                <span class="text-red-600 font-bold text-sm">₹196</span>
+                            </div>
+                            <button
+                                class="bg-red-600 hover:bg-red-700 text-white rounded px-3 py-1 text-xs font-bold transition-colors">
+                                ADD
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 5 -->
+            <div
+                class="product-card bg-white rounded-lg overflow-hidden relative flex flex-col border border-gray-200 transition-shadow">
+                <div
+                    class="absolute z-10 top-0 left-0 bg-red-600 text-white text-xs font-bold px-3 py-1 discount-badge">
+                    20% OFF
+                </div>
+                <div class="absolute top-2 right-2">
+                    <button class="text-gray-400 hover:text-red-600">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="flex justify-center h-40 p-4">
+                    <img src="https://via.placeholder.com/200?text=Tropicana+Juice" alt="Tropicana Juice"
+                        class="h-full object-contain">
+                </div>
+                <div class="p-4 flex flex-col flex-grow border-t border-gray-100">
+                    <div class="text-xs text-gray-500 uppercase mb-1">Juices</div>
+                    <h3 class="font-bold text-black mb-2 text-sm">Tropicana Orange Juice (1L)</h3>
+                    <div class="mt-auto">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <span class="text-gray-500 line-through text-xs mr-2">₹180</span>
+                                <span class="text-red-600 font-bold text-sm">₹144</span>
+                            </div>
+                            <button
+                                class="bg-red-600 hover:bg-red-700 text-white rounded px-3 py-1 text-xs font-bold transition-colors">
+                                ADD
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 6 -->
+            <div
+                class="product-card bg-white rounded-lg overflow-hidden relative flex flex-col border border-gray-200 transition-shadow">
+                <div
+                    class="absolute z-10 top-0 left-0 bg-red-600 text-white text-xs font-bold px-3 py-1 discount-badge">
+                    10% OFF
+                </div>
+                <div class="absolute top-2 right-2">
+                    <button class="text-gray-400 hover:text-red-600">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="flex justify-center h-40 p-4">
+                    <img src="https://via.placeholder.com/200?text=Fresh+Fish" alt="Fresh Fish"
+                        class="h-full object-contain">
+                </div>
+                <div class="p-4 flex flex-col flex-grow border-t border-gray-100">
+                    <div class="text-xs text-gray-500 uppercase mb-1">Seafood</div>
+                    <h3 class="font-bold text-black mb-2 text-sm">Fresh Seer Fish (1kg)</h3>
+                    <div class="mt-auto">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <span class="text-gray-500 line-through text-xs mr-2">₹600</span>
+                                <span class="text-red-600 font-bold text-sm">₹540</span>
+                            </div>
+                            <button
+                                class="bg-red-600 hover:bg-red-700 text-white rounded px-3 py-1 text-xs font-bold transition-colors">
+                                ADD
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</body>
+
+</html>
